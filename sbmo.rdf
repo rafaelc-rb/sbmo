@@ -126,7 +126,9 @@
 
     <!-- https://rafaelc-rb.github.io/sbmo#AcquisitionChannel -->
 
-    <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#AcquisitionChannel"/>
+    <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#AcquisitionChannel">
+        <rdfs:comment xml:lang="en">The channel through which a software business acquires customers. Includes direct sales, product-led growth, partner channels, digital marketing, and marketplaces.</rdfs:comment>
+    </owl:Class>
     
 
 
@@ -180,7 +182,9 @@
 
     <!-- https://rafaelc-rb.github.io/sbmo#CustomerType -->
 
-    <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#CustomerType"/>
+    <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#CustomerType">
+        <rdfs:comment xml:lang="en">The category of customer targeted by a software business model, classified by business relationship (B2B, B2C) or organization size (SME, Enterprise).</rdfs:comment>
+    </owl:Class>
     
 
 
@@ -194,7 +198,9 @@
 
     <!-- https://rafaelc-rb.github.io/sbmo#DeliveryMode -->
 
-    <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#DeliveryMode"/>
+    <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#DeliveryMode">
+        <rdfs:comment xml:lang="en">The technical mode through which software is delivered to end users. Includes multi-tenant SaaS, single-tenant SaaS, on-premises, mobile, desktop, and hybrid delivery.</rdfs:comment>
+    </owl:Class>
     
 
 
@@ -240,7 +246,9 @@
 
     <!-- https://rafaelc-rb.github.io/sbmo#EcosystemRole -->
 
-    <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#EcosystemRole"/>
+    <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#EcosystemRole">
+        <rdfs:comment xml:lang="en">The role a software company plays within its business ecosystem, such as standalone product provider, two-sided platform operator, or marketplace facilitator.</rdfs:comment>
+    </owl:Class>
     
 
 
@@ -286,7 +294,9 @@
 
     <!-- https://rafaelc-rb.github.io/sbmo#ImplementationChallenge -->
 
-    <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#ImplementationChallenge"/>
+    <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#ImplementationChallenge">
+        <rdfs:comment xml:lang="en">A challenge or barrier faced during the implementation or transition of a software business model.</rdfs:comment>
+    </owl:Class>
     
 
 
@@ -316,7 +326,9 @@
 
     <!-- https://rafaelc-rb.github.io/sbmo#MitigationStrategy -->
 
-    <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#MitigationStrategy"/>
+    <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#MitigationStrategy">
+        <rdfs:comment xml:lang="en">A practice or strategy used to address or reduce the impact of implementation challenges in software business models.</rdfs:comment>
+    </owl:Class>
     
 
 
@@ -338,7 +350,9 @@
 
     <!-- https://rafaelc-rb.github.io/sbmo#NetworkEffectType -->
 
-    <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#NetworkEffectType"/>
+    <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#NetworkEffectType">
+        <rdfs:comment xml:lang="en">The type of network effect exhibited by a software business model, where the value of the product increases with the number of users. Includes direct, cross-sided, and data-driven effects.</rdfs:comment>
+    </owl:Class>
     
 
 
@@ -416,7 +430,9 @@
 
     <!-- https://rafaelc-rb.github.io/sbmo#PricingStrategy -->
 
-    <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#PricingStrategy"/>
+    <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#PricingStrategy">
+        <rdfs:comment xml:lang="en">The approach used to determine and structure the price of a software offering. Includes subscription-based, pay-as-you-go, value-based, cost-based, and freemium strategies.</rdfs:comment>
+    </owl:Class>
     
 
 
@@ -438,7 +454,9 @@
 
     <!-- https://rafaelc-rb.github.io/sbmo#RevenueSource -->
 
-    <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#RevenueSource"/>
+    <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#RevenueSource">
+        <rdfs:comment xml:lang="en">The mechanism through which a software business generates income. Identified sources include subscription, usage/consumption, transaction, advertising, and perpetual licensing.</rdfs:comment>
+    </owl:Class>
     
 
 
@@ -484,7 +502,9 @@
 
     <!-- https://rafaelc-rb.github.io/sbmo#SoftwareBusinessModel -->
 
-    <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#SoftwareBusinessModel"/>
+    <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#SoftwareBusinessModel">
+        <rdfs:comment xml:lang="en">A business model applied to software-intensive offerings, describing how value is created, delivered, and captured through software products, platforms, or services.</rdfs:comment>
+    </owl:Class>
     
 
 
@@ -514,7 +534,9 @@
 
     <!-- https://rafaelc-rb.github.io/sbmo#SuccessFactor -->
 
-    <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#SuccessFactor"/>
+    <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#SuccessFactor">
+        <rdfs:comment xml:lang="en">A factor that contributes to the successful implementation and operation of a software business model.</rdfs:comment>
+    </owl:Class>
     
 
 
