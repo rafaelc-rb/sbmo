@@ -10,7 +10,19 @@ OWL ontology for **Software Business Models**, developed as part of a master's d
 | **Version IRI** | `https://rafaelc-rb.github.io/sbmo/1.0` |
 | **Format** | OWL 2 (RDF/XML) |
 | **Tool** | Protégé Desktop 5.x |
+| **Reasoner** | Pellet |
 | **File** | [`sbmo.rdf`](sbmo.rdf) |
+
+## Ontology metrics
+
+| Metric | Count |
+|--------|-------|
+| Top-level classes | 11 |
+| Subclasses | 42 |
+| Object Properties | 10 |
+| Individuals | 26 (2 SBM exemplars + 24 value/factor/challenge/mitigation instances) |
+| Axioms | Disjointness (EcosystemRole, NetworkEffectType) + Existential restrictions (SoftwareBusinessModel) |
+| CQs validated | **7/7** (SPARQL-DL + Pellet) |
 
 ## Scope
 

@@ -25,6 +25,33 @@ Non-trivial modeling decisions, their rationale, and alternatives considered.
 | **Rejected alternatives** | Named individuals per value — simpler but prevents taxonomic refinement and class-level axioms. |
 | **Evidence** | SMS closed-ended statistics, open-ended coding scheme; Noy & McGuinness (2001) |
 
+### DD-003: Disjointness scope
+
+| Field | Value |
+|-------|-------|
+| **Date** | 2026-02-14 |
+| **Decision** | Apply `owl:AllDisjointClasses` only to EcosystemRole subtypes (StandaloneProduct, TwoSidedPlatform, Marketplace) and NetworkEffectType subtypes (DirectNetworkEffect, CrossSidedNetworkEffect, DataDrivenNetworkEffect). |
+| **Rationale** | These subtypes are mutually exclusive by definition (an ecosystem role cannot be both standalone and marketplace). Other dimensions (e.g., RevenueSource subtypes) can co-occur in a single SBM, so disjointness would be incorrect. |
+| **Evidence** | SMS coding scheme; CQ4 ecosystem–network effect analysis |
+
+### DD-004: Existential restrictions on SoftwareBusinessModel
+
+| Field | Value |
+|-------|-------|
+| **Date** | 2026-02-14 |
+| **Decision** | Add `someValuesFrom` restrictions: every SoftwareBusinessModel must have at least one RevenueSource, DeliveryMode, and EcosystemRole. |
+| **Rationale** | These three dimensions are the minimum viable configuration of an SBM per the SMS evidence. Other properties (PricingStrategy, CustomerType, AcquisitionChannel) are common but not universally reported. |
+| **Evidence** | CQ7; SMS dimensional coverage analysis |
+
+### DD-005: Viability-scoped evaluation
+
+| Field | Value |
+|-------|-------|
+| **Date** | 2026-02-14 |
+| **Decision** | Evaluate ontology via 7 competency questions (SPARQL-DL) with 2 exemplar individuals, accepting 5/7 as sufficient for viability demonstration. |
+| **Rationale** | CQ5 and CQ6 require individual-level assertions (`hasSuccessFactor`, `facesChallenge`, `mitigates`) that depend on per-paper granularity not available in SMS aggregates (see GAP-002). The class hierarchy and properties fully support these CQs structurally. |
+| **Evidence** | CQ1–CQ4, CQ7 SPARQL results; GAP-002, GAP-003 |
+
 ---
 
 *New decisions follow the same template (DD-NNN).*
