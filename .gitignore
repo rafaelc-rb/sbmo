@@ -1,0 +1,16 @@
+# Protégé backup/catalog files
+.protege/
+catalog-v001.xml
+
+# Protégé auto-save
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+*.swo

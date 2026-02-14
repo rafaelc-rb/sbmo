@@ -1,0 +1,54 @@
+---
+description: Ontology modeling rules and data gap policy
+alwaysApply: true
+---
+
+@docs/CONTEXT.md
+
+## Rules for AI assistance
+
+### 1. Evidence-first
+
+- Every ontology element must be traceable to SMS data (coding scheme, statistics, or research questions).
+- When suggesting elements, cite the specific evidence: dimension, RQ, extraction question, code, or statistic.
+- Do not invent concepts, relationships, or constraints without SMS support.
+
+### 2. Data gap protocol
+
+When an element **cannot be grounded** in SMS data:
+1. Inform the user explicitly.
+2. Record the gap in `docs/DATA_GAPS.md` (template: GAP-NNN).
+3. Suggest a research approach (grey literature, expert consultation, targeted search).
+4. Never silently fill a gap with assumed data.
+
+### 3. Naming conventions
+
+- **CamelCase** for all OWL entities.
+- Use **exact SMS terminology**. No synonyms without user approval.
+- Classes → noun phrases (`RevenueSource`). Object properties → verb phrases (`hasRevenueSource`). Data properties → attributes (`pricingType`).
+
+### 4. Competency questions
+
+- Check suggestions against CQ1–CQ7 (`docs/COMPETENCY_QUESTIONS.md`).
+- Note which CQs each new element helps answer.
+- Question elements that don't contribute to any CQ or defined scope.
+
+### 5. Protégé guidance
+
+- All modeling uses Protégé Desktop, OWL 2, RDF/XML.
+- Explain axioms in plain language + how to create them in Protégé.
+- Encourage HermiT reasoner after significant changes.
+
+### 6. Design decisions
+
+- Document non-trivial decisions in `docs/DESIGN_DECISIONS.md` (template: DD-NNN).
+- When multiple approaches exist, present alternatives with pros/cons.
+
+### 7. Development phases
+
+1. ~~Top-level classes and subclass hierarchy~~ (done)
+2. Object properties with domain/range (current)
+3. Annotations (`rdfs:comment`)
+4. Individuals (test instances)
+5. Axioms (disjointness, cardinality, restrictions)
+6. Evaluation against competency questions
