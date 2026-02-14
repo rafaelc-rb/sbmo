@@ -5,7 +5,8 @@
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:sbmo="https://rafaelc-rb.github.io/sbmo#">
     <owl:Ontology rdf:about="https://rafaelc-rb.github.io/sbmo">
         <owl:versionIRI rdf:resource="https://rafaelc-rb.github.io/sbmo/1.0"/>
     </owl:Ontology>
@@ -577,6 +578,142 @@
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#ValueBasedPricing">
         <rdfs:subClassOf rdf:resource="https://rafaelc-rb.github.io/sbmo#PricingStrategy"/>
     </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://rafaelc-rb.github.io/sbmo#Freemium_B2C_Platform -->
+
+    <owl:NamedIndividual rdf:about="https://rafaelc-rb.github.io/sbmo#Freemium_B2C_Platform">
+        <rdf:type rdf:resource="https://rafaelc-rb.github.io/sbmo#SoftwareBusinessModel"/>
+        <sbmo:hasDeliveryMode rdf:resource="https://rafaelc-rb.github.io/sbmo#multiTenantSaaS"/>
+        <sbmo:hasEcosystemRole rdf:resource="https://rafaelc-rb.github.io/sbmo#twoSidedPlatform"/>
+        <sbmo:hasPricingStrategy rdf:resource="https://rafaelc-rb.github.io/sbmo#freemiumPricing"/>
+        <sbmo:hasRevenueSource rdf:resource="https://rafaelc-rb.github.io/sbmo#advertisingRevenue"/>
+        <sbmo:targetsCustomerType rdf:resource="https://rafaelc-rb.github.io/sbmo#b2c"/>
+        <sbmo:usesAcquisitionChannel rdf:resource="https://rafaelc-rb.github.io/sbmo#productLedGrowth"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://rafaelc-rb.github.io/sbmo#SaaS_B2B_Subscription -->
+
+    <owl:NamedIndividual rdf:about="https://rafaelc-rb.github.io/sbmo#SaaS_B2B_Subscription">
+        <rdf:type rdf:resource="https://rafaelc-rb.github.io/sbmo#SoftwareBusinessModel"/>
+        <sbmo:hasDeliveryMode rdf:resource="https://rafaelc-rb.github.io/sbmo#multiTenantSaaS"/>
+        <sbmo:hasEcosystemRole rdf:resource="https://rafaelc-rb.github.io/sbmo#standaloneProduct"/>
+        <sbmo:hasPricingStrategy rdf:resource="https://rafaelc-rb.github.io/sbmo#subscriptionBasedPricing"/>
+        <sbmo:hasRevenueSource rdf:resource="https://rafaelc-rb.github.io/sbmo#subscriptionRevenue"/>
+        <sbmo:targetsCustomerType rdf:resource="https://rafaelc-rb.github.io/sbmo#b2b"/>
+        <sbmo:usesAcquisitionChannel rdf:resource="https://rafaelc-rb.github.io/sbmo#directSales"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://rafaelc-rb.github.io/sbmo#advertisingRevenue -->
+
+    <owl:NamedIndividual rdf:about="https://rafaelc-rb.github.io/sbmo#advertisingRevenue">
+        <rdf:type rdf:resource="https://rafaelc-rb.github.io/sbmo#AdvertisingRevenue"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://rafaelc-rb.github.io/sbmo#b2b -->
+
+    <owl:NamedIndividual rdf:about="https://rafaelc-rb.github.io/sbmo#b2b">
+        <rdf:type rdf:resource="https://rafaelc-rb.github.io/sbmo#B2B"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://rafaelc-rb.github.io/sbmo#b2c -->
+
+    <owl:NamedIndividual rdf:about="https://rafaelc-rb.github.io/sbmo#b2c">
+        <rdf:type rdf:resource="https://rafaelc-rb.github.io/sbmo#B2C"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://rafaelc-rb.github.io/sbmo#crossSidedNetworkEffect -->
+
+    <owl:NamedIndividual rdf:about="https://rafaelc-rb.github.io/sbmo#crossSidedNetworkEffect">
+        <rdf:type rdf:resource="https://rafaelc-rb.github.io/sbmo#CrossSidedNetworkEffect"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://rafaelc-rb.github.io/sbmo#directSales -->
+
+    <owl:NamedIndividual rdf:about="https://rafaelc-rb.github.io/sbmo#directSales">
+        <rdf:type rdf:resource="https://rafaelc-rb.github.io/sbmo#DirectSales"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://rafaelc-rb.github.io/sbmo#freemiumPricing -->
+
+    <owl:NamedIndividual rdf:about="https://rafaelc-rb.github.io/sbmo#freemiumPricing">
+        <rdf:type rdf:resource="https://rafaelc-rb.github.io/sbmo#FreemiumPricing"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://rafaelc-rb.github.io/sbmo#multiTenantSaaS -->
+
+    <owl:NamedIndividual rdf:about="https://rafaelc-rb.github.io/sbmo#multiTenantSaaS">
+        <rdf:type rdf:resource="https://rafaelc-rb.github.io/sbmo#MultiTenantSaaS"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://rafaelc-rb.github.io/sbmo#productLedGrowth -->
+
+    <owl:NamedIndividual rdf:about="https://rafaelc-rb.github.io/sbmo#productLedGrowth">
+        <rdf:type rdf:resource="https://rafaelc-rb.github.io/sbmo#ProductLedGrowth"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://rafaelc-rb.github.io/sbmo#standaloneProduct -->
+
+    <owl:NamedIndividual rdf:about="https://rafaelc-rb.github.io/sbmo#standaloneProduct">
+        <rdf:type rdf:resource="https://rafaelc-rb.github.io/sbmo#StandaloneProduct"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://rafaelc-rb.github.io/sbmo#subscriptionBasedPricing -->
+
+    <owl:NamedIndividual rdf:about="https://rafaelc-rb.github.io/sbmo#subscriptionBasedPricing">
+        <rdf:type rdf:resource="https://rafaelc-rb.github.io/sbmo#SubscriptionBasedPricing"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://rafaelc-rb.github.io/sbmo#subscriptionRevenue -->
+
+    <owl:NamedIndividual rdf:about="https://rafaelc-rb.github.io/sbmo#subscriptionRevenue">
+        <rdf:type rdf:resource="https://rafaelc-rb.github.io/sbmo#SubscriptionRevenue"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://rafaelc-rb.github.io/sbmo#twoSidedPlatform -->
+
+    <owl:NamedIndividual rdf:about="https://rafaelc-rb.github.io/sbmo#twoSidedPlatform">
+        <rdf:type rdf:resource="https://rafaelc-rb.github.io/sbmo#TwoSidedPlatform"/>
+        <sbmo:exhibitsNetworkEffect rdf:resource="https://rafaelc-rb.github.io/sbmo#crossSidedNetworkEffect"/>
+    </owl:NamedIndividual>
 </rdf:RDF>
 
 
