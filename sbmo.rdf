@@ -169,6 +169,8 @@
 
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#CrossSidedNetworkEffect">
         <rdfs:subClassOf rdf:resource="https://rafaelc-rb.github.io/sbmo#NetworkEffectType"/>
+        <owl:disjointWith rdf:resource="https://rafaelc-rb.github.io/sbmo#DataDrivenNetworkEffect"/>
+        <owl:disjointWith rdf:resource="https://rafaelc-rb.github.io/sbmo#DirectNetworkEffect"/>
     </owl:Class>
     
 
@@ -193,6 +195,7 @@
 
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#DataDrivenNetworkEffect">
         <rdfs:subClassOf rdf:resource="https://rafaelc-rb.github.io/sbmo#NetworkEffectType"/>
+        <owl:disjointWith rdf:resource="https://rafaelc-rb.github.io/sbmo#DirectNetworkEffect"/>
     </owl:Class>
     
 
@@ -313,6 +316,8 @@
 
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#Marketplace">
         <rdfs:subClassOf rdf:resource="https://rafaelc-rb.github.io/sbmo#EcosystemRole"/>
+        <owl:disjointWith rdf:resource="https://rafaelc-rb.github.io/sbmo#StandaloneProduct"/>
+        <owl:disjointWith rdf:resource="https://rafaelc-rb.github.io/sbmo#TwoSidedPlatform"/>
     </owl:Class>
     
 
@@ -504,6 +509,24 @@
     <!-- https://rafaelc-rb.github.io/sbmo#SoftwareBusinessModel -->
 
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#SoftwareBusinessModel">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://rafaelc-rb.github.io/sbmo#hasDeliveryMode"/>
+                <owl:someValuesFrom rdf:resource="https://rafaelc-rb.github.io/sbmo#DeliveryMode"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://rafaelc-rb.github.io/sbmo#hasEcosystemRole"/>
+                <owl:someValuesFrom rdf:resource="https://rafaelc-rb.github.io/sbmo#EcosystemRole"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://rafaelc-rb.github.io/sbmo#hasRevenueSource"/>
+                <owl:someValuesFrom rdf:resource="https://rafaelc-rb.github.io/sbmo#RevenueSource"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A business model applied to software-intensive offerings, describing how value is created, delivered, and captured through software products, platforms, or services.</rdfs:comment>
     </owl:Class>
     
@@ -513,6 +536,7 @@
 
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#StandaloneProduct">
         <rdfs:subClassOf rdf:resource="https://rafaelc-rb.github.io/sbmo#EcosystemRole"/>
+        <owl:disjointWith rdf:resource="https://rafaelc-rb.github.io/sbmo#TwoSidedPlatform"/>
     </owl:Class>
     
 
