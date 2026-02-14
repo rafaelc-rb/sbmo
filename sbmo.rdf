@@ -15,6 +15,107 @@
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://rafaelc-rb.github.io/sbmo#exhibitsNetworkEffect -->
+
+    <owl:ObjectProperty rdf:about="https://rafaelc-rb.github.io/sbmo#exhibitsNetworkEffect">
+        <rdfs:domain rdf:resource="https://rafaelc-rb.github.io/sbmo#EcosystemRole"/>
+        <rdfs:range rdf:resource="https://rafaelc-rb.github.io/sbmo#NetworkEffectType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://rafaelc-rb.github.io/sbmo#facesChallenge -->
+
+    <owl:ObjectProperty rdf:about="https://rafaelc-rb.github.io/sbmo#facesChallenge">
+        <rdfs:domain rdf:resource="https://rafaelc-rb.github.io/sbmo#SoftwareBusinessModel"/>
+        <rdfs:range rdf:resource="https://rafaelc-rb.github.io/sbmo#ImplementationChallenge"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://rafaelc-rb.github.io/sbmo#hasDeliveryMode -->
+
+    <owl:ObjectProperty rdf:about="https://rafaelc-rb.github.io/sbmo#hasDeliveryMode">
+        <rdfs:domain rdf:resource="https://rafaelc-rb.github.io/sbmo#SoftwareBusinessModel"/>
+        <rdfs:range rdf:resource="https://rafaelc-rb.github.io/sbmo#DeliveryMode"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://rafaelc-rb.github.io/sbmo#hasEcosystemRole -->
+
+    <owl:ObjectProperty rdf:about="https://rafaelc-rb.github.io/sbmo#hasEcosystemRole">
+        <rdfs:domain rdf:resource="https://rafaelc-rb.github.io/sbmo#SoftwareBusinessModel"/>
+        <rdfs:range rdf:resource="https://rafaelc-rb.github.io/sbmo#EcosystemRole"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://rafaelc-rb.github.io/sbmo#hasPricingStrategy -->
+
+    <owl:ObjectProperty rdf:about="https://rafaelc-rb.github.io/sbmo#hasPricingStrategy">
+        <rdfs:domain rdf:resource="https://rafaelc-rb.github.io/sbmo#SoftwareBusinessModel"/>
+        <rdfs:range rdf:resource="https://rafaelc-rb.github.io/sbmo#PricingStrategy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://rafaelc-rb.github.io/sbmo#hasRevenueSource -->
+
+    <owl:ObjectProperty rdf:about="https://rafaelc-rb.github.io/sbmo#hasRevenueSource">
+        <rdfs:domain rdf:resource="https://rafaelc-rb.github.io/sbmo#SoftwareBusinessModel"/>
+        <rdfs:range rdf:resource="https://rafaelc-rb.github.io/sbmo#RevenueSource"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://rafaelc-rb.github.io/sbmo#hasSuccessFactor -->
+
+    <owl:ObjectProperty rdf:about="https://rafaelc-rb.github.io/sbmo#hasSuccessFactor">
+        <rdfs:domain rdf:resource="https://rafaelc-rb.github.io/sbmo#SoftwareBusinessModel"/>
+        <rdfs:range rdf:resource="https://rafaelc-rb.github.io/sbmo#SuccessFactor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://rafaelc-rb.github.io/sbmo#mitigates -->
+
+    <owl:ObjectProperty rdf:about="https://rafaelc-rb.github.io/sbmo#mitigates">
+        <rdfs:domain rdf:resource="https://rafaelc-rb.github.io/sbmo#MitigationStrategy"/>
+        <rdfs:range rdf:resource="https://rafaelc-rb.github.io/sbmo#ImplementationChallenge"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://rafaelc-rb.github.io/sbmo#targetsCustomerType -->
+
+    <owl:ObjectProperty rdf:about="https://rafaelc-rb.github.io/sbmo#targetsCustomerType">
+        <rdfs:domain rdf:resource="https://rafaelc-rb.github.io/sbmo#SoftwareBusinessModel"/>
+        <rdfs:range rdf:resource="https://rafaelc-rb.github.io/sbmo#CustomerType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://rafaelc-rb.github.io/sbmo#usesAcquisitionChannel -->
+
+    <owl:ObjectProperty rdf:about="https://rafaelc-rb.github.io/sbmo#usesAcquisitionChannel">
+        <rdfs:domain rdf:resource="https://rafaelc-rb.github.io/sbmo#SoftwareBusinessModel"/>
+        <rdfs:range rdf:resource="https://rafaelc-rb.github.io/sbmo#AcquisitionChannel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
     // Classes
     //
     ///////////////////////////////////////////////////////////////////////////////////////
