@@ -36,3 +36,4 @@ The ontology is grounded on a **Systematic Mapping Study (SMS)** — 67 peer-rev
 | [`COMPETENCY_QUESTIONS.md`](COMPETENCY_QUESTIONS.md) | CQ1–CQ7 — what the ontology must answer |
 | [`DATA_GAPS.md`](DATA_GAPS.md) | Evidence gaps requiring complementary research |
 | [`DESIGN_DECISIONS.md`](DESIGN_DECISIONS.md) | Modeling decisions log |
+| [`FUTURE_WORK.md`](FUTURE_WORK.md) | Proposed extensions beyond current SMS scope |

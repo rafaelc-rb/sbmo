@@ -47,7 +47,8 @@ The SMS is the primary evidence source. If any element lacks SMS support, the ga
 │   ├── CONTEXT.md            # Project context (for AI)
 │   ├── COMPETENCY_QUESTIONS.md
 │   ├── DATA_GAPS.md
-│   └── DESIGN_DECISIONS.md
+│   ├── DESIGN_DECISIONS.md
+│   └── FUTURE_WORK.md
 └── .cursor/rules/
     └── ontology-modeling.mdc # AI modeling rules
 ```
