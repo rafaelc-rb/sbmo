@@ -333,6 +333,13 @@
     <!-- https://rafaelc-rb.github.io/sbmo#MitigationStrategy -->
 
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#MitigationStrategy">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://rafaelc-rb.github.io/sbmo#mitigates"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://rafaelc-rb.github.io/sbmo#ImplementationChallenge"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A practice or strategy used to address or reduce the impact of implementation challenges in software business models.</rdfs:comment>
     </owl:Class>
     
@@ -512,19 +519,43 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://rafaelc-rb.github.io/sbmo#hasDeliveryMode"/>
-                <owl:someValuesFrom rdf:resource="https://rafaelc-rb.github.io/sbmo#DeliveryMode"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://rafaelc-rb.github.io/sbmo#DeliveryMode"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://rafaelc-rb.github.io/sbmo#hasEcosystemRole"/>
-                <owl:someValuesFrom rdf:resource="https://rafaelc-rb.github.io/sbmo#EcosystemRole"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://rafaelc-rb.github.io/sbmo#EcosystemRole"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://rafaelc-rb.github.io/sbmo#hasRevenueSource"/>
-                <owl:someValuesFrom rdf:resource="https://rafaelc-rb.github.io/sbmo#RevenueSource"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://rafaelc-rb.github.io/sbmo#RevenueSource"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://rafaelc-rb.github.io/sbmo#hasPricingStrategy"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://rafaelc-rb.github.io/sbmo#PricingStrategy"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://rafaelc-rb.github.io/sbmo#targetsCustomerType"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://rafaelc-rb.github.io/sbmo#CustomerType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://rafaelc-rb.github.io/sbmo#usesAcquisitionChannel"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://rafaelc-rb.github.io/sbmo#AcquisitionChannel"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A business model applied to software-intensive offerings, describing how value is created, delivered, and captured through software products, platforms, or services.</rdfs:comment>

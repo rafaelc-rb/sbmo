@@ -52,6 +52,20 @@ Non-trivial modeling decisions, their rationale, and alternatives considered.
 | **Rationale** | CQ5 and CQ6 require individual-level assertions (`hasSuccessFactor`, `facesChallenge`, `mitigates`) that depend on per-paper granularity not available in SMS aggregates (see GAP-002). The class hierarchy and properties fully support these CQs structurally. |
 | **Evidence** | CQ1–CQ4, CQ7 SPARQL results; GAP-002, GAP-003 |
 
+### DD-006: Replace existential restrictions with cardinality constraints
+
+| Field | Value |
+|-------|-------|
+| **Date** | 2026-04-12 |
+| **Decision** | Replace `someValuesFrom` (existential) restrictions with `minQualifiedCardinality 1` on SoftwareBusinessModel. Extend cardinality constraints to all 6 core object properties. Add `minQualifiedCardinality 1` on MitigationStrategy for `mitigates`. |
+| **Motivation** | Dissertation committee (banca) identified that existential restrictions (`∃R.C`) do not enforce per-individual obligation under the Open World Assumption. Cardinality restrictions (`≥1 R.C`) make the intent explicit: each SBM individual must have at least one value for each core property. |
+| **Properties constrained (SoftwareBusinessModel)** | `hasDeliveryMode min 1 DeliveryMode` (EQ09, 95.5%), `hasEcosystemRole min 1 EcosystemRole` (EQ16, 100%), `hasRevenueSource min 1 RevenueSource` (EQ12, 95.5%), `hasPricingStrategy min 1 PricingStrategy` (EQ14, 88%), `targetsCustomerType min 1 CustomerType` (EQ04, 100%), `usesAcquisitionChannel min 1 AcquisitionChannel` (EQ18, 92.5%) |
+| **Properties constrained (MitigationStrategy)** | `mitigates min 1 ImplementationChallenge` (CQ6, by definition) |
+| **Properties left unconstrained** | `facesChallenge` (qualitative, not universal), `hasSuccessFactor` (qualitative, not universal), `exhibitsNetworkEffect` (4.5% have "None") |
+| **No max cardinality** | All constrained properties allow multiple values per SMS evidence (multiple selection questions, co-occurrence patterns). |
+| **Supersedes** | DD-004 (expands scope from 3 core properties to 6 + MitigationStrategy) |
+| **Evidence** | SMS closed-ended statistics (EQ04, EQ09, EQ12, EQ14, EQ16, EQ18); CQ1–CQ7; banca feedback |
+
 ---
 
 *New decisions follow the same template (DD-NNN).*
