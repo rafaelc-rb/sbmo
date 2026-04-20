@@ -105,6 +105,21 @@ Non-trivial modeling decisions, their rationale, and alternatives considered.
 | **Supersedes** | DD-005 (viability-scoped evaluation with 2 exemplars is no longer the active validation approach; replaced by real-case research with companies). |
 | **Evidence** | MVP_SCOPE_PLAN.md §7 (real-case validation); DD-007 cardinality conflict; research design (company interviews at technology campus) |
 
+### DD-010: Fill SMS coverage gaps before real-case validation
+
+| Field | Value |
+|-------|-------|
+| **Date** | 2026-04-20 |
+| **Decision** | Add 9 subclasses across 4 dimensions to close coverage gaps identified by cross-referencing `sbmo.rdf` against all 12 closed-ended SMS distributions. |
+| **RevenueSource** (+4) | `SupportRevenue` (EQ12, 19 occ., 28.36%), `MarketplaceFeesRevenue` (4, 5.97%), `OpenCoreRevenue` (3, 4.48%), `DualLicensingRevenue` (2, 2.99%) |
+| **CustomerType** (+2) | `Government` (EQ04, 4 occ., 5.97%), `DeveloperTools` (2, 2.99%) |
+| **EcosystemRole** (+2) | `OEMComponent` (EQ16, 3 occ., 4.48%), `PluginComplement` (3, 4.48%) |
+| **AcquisitionChannel** (+1) | `Referral` (EQ18, 8 occ., 11.94%) |
+| **Rationale** | Validation will involve real companies at UNIPAMPA's technology campus. Any category present in the SMS but absent from the ontology risks a company "not fitting" the model. `SupportRevenue` (28%) and `Referral` (12%) were the highest-risk gaps. The remaining 7 are preventive additions. |
+| **Disjointness** | Not applied to new EcosystemRole subclasses (`OEMComponent`, `PluginComplement`). A company can simultaneously be an OEM component provider and a plugin/complement provider. |
+| **Excluded from EQ14** | `Tiers/Plans`, `Trial`, `Annual contract`, `Custom negotiation`, `Prepaid credits` — these are operational pricing modalities, not conceptual strategies. Captured by `hasPricingDescription` (data property). |
+| **Evidence** | q_04, q_09, q_10, q_12, q_13, q_14, q_16, q_17, q_18 distributions (sbm-sms-data-repo) |
+
 ---
 
 *New decisions follow the same template (DD-NNN).*
