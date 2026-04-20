@@ -94,6 +94,17 @@ Non-trivial modeling decisions, their rationale, and alternatives considered.
 | **Domain/Range** | All properties: domain `SoftwareBusinessModel`. Ranges: `xsd:string` for textual attributes, `xsd:gYear` for year attributes. |
 | **Evidence** | EQ14, EQ15, EQ29 (SMS extraction); MVP_SCOPE_PLAN.md §5 and §6 |
 
+### DD-009: Remove exemplar individuals and clean TBox for real-case validation
+
+| Field | Value |
+|-------|-------|
+| **Date** | 2026-04-20 |
+| **Decision** | Remove all 26 exemplar individuals (2 SBM instances + 24 value individuals) from `sbmo.rdf`. The ontology now contains only the TBox (classes, properties, restrictions). |
+| **Motivation** | (1) The existing exemplar individuals (`SaaS_B2B_Subscription`, `Freemium_B2C_Platform`) violate the new `hasProductOrServiceType min 1` cardinality constraint (DD-007), causing reasoner inconsistency. (2) The validation plan involves real companies at UNIPAMPA's technology campus; synthetic individuals would pollute the Protégé workspace and interfere with the research. |
+| **Audit result** | Relational audit confirmed all 14 top-level classes are connected via object properties (domain, range, or both). All 66 subclasses are correctly placed. No orphan classes or isolated branches. MitigationStrategy connects indirectly to SBM through ImplementationChallenge (by design, supports CQ6). |
+| **Supersedes** | DD-005 (viability-scoped evaluation with 2 exemplars is no longer the active validation approach; replaced by real-case research with companies). |
+| **Evidence** | MVP_SCOPE_PLAN.md §7 (real-case validation); DD-007 cardinality conflict; research design (company interviews at technology campus) |
+
 ---
 
 *New decisions follow the same template (DD-NNN).*
