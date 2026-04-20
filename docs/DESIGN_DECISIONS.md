@@ -66,6 +66,20 @@ Non-trivial modeling decisions, their rationale, and alternatives considered.
 | **Supersedes** | DD-004 (expands scope from 3 core properties to 6 + MitigationStrategy) |
 | **Evidence** | SMS closed-ended statistics (EQ04, EQ09, EQ12, EQ14, EQ16, EQ18); CQ1–CQ7; banca feedback |
 
+### DD-007: Add three new MVP dimensions (ProductOrServiceType, IntellectualPropertyRegime, PricingBaseUnit)
+
+| Field | Value |
+|-------|-------|
+| **Date** | 2026-04-20 |
+| **Decision** | Add three new top-level classes (`ProductOrServiceType`, `IntellectualPropertyRegime`, `PricingBaseUnit`) with dedicated object properties linking them to `SoftwareBusinessModel`, and populate subclasses from SMS closed-ended extraction categories. |
+| **New classes** | ProductOrServiceType (7 subclasses: Application, Platform, ManagedService, APIService, DataProduct, Infrastructure, SDK), IntellectualPropertyRegime (6 subclasses: Proprietary, PermissiveOpenSource, OpenSource, DualLicense, OpenCore, Copyleft), PricingBaseUnit (7 subclasses: UserSeat, TransactionBased, ComputingTime, RevenueSharing, APICalls, Storage, Device) |
+| **New object properties** | `hasProductOrServiceType` (SBM → ProductOrServiceType), `hasIntellectualPropertyRegime` (SBM → IntellectualPropertyRegime), `hasPricingBaseUnit` (SBM → PricingBaseUnit) |
+| **Cardinality** | `hasProductOrServiceType min 1 ProductOrServiceType` on SoftwareBusinessModel (mandatory). `hasIntellectualPropertyRegime` and `hasPricingBaseUnit` left unconstrained (optional) per MVP_SCOPE_PLAN.md §4. |
+| **Disjointness** | Not applied. ProductOrServiceType values can co-occur (e.g., Application + Platform). IntellectualPropertyRegime includes hybrid forms (DualLicense, OpenCore). PricingBaseUnit values can co-occur (e.g., UserSeat + Storage). |
+| **Excluded values** | "Others" (catch-all, not a valid ontological category) from all three dimensions. "MAU" from PricingBaseUnit (0 occurrences in SMS). |
+| **Rationale** | These three dimensions were identified in MVP_SCOPE_PLAN.md as necessary to avoid relevant gaps during validation with real software cases. Each is directly grounded in SMS extraction questions (EQ08, EQ10, EQ13) and their closed-ended category distributions. |
+| **Evidence** | EQ08 distribution (q_08, 7 categories with evidence), EQ10 distribution (q_10, 6 categories), EQ13 distribution (q_13, 7 categories with evidence > 0); MVP_SCOPE_PLAN.md §3 and §4 |
+
 ---
 
 *New decisions follow the same template (DD-NNN).*
