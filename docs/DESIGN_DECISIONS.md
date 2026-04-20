@@ -80,6 +80,20 @@ Non-trivial modeling decisions, their rationale, and alternatives considered.
 | **Rationale** | These three dimensions were identified in MVP_SCOPE_PLAN.md as necessary to avoid relevant gaps during validation with real software cases. Each is directly grounded in SMS extraction questions (EQ08, EQ10, EQ13) and their closed-ended category distributions. |
 | **Evidence** | EQ08 distribution (q_08, 7 categories with evidence), EQ10 distribution (q_10, 6 categories), EQ13 distribution (q_13, 7 categories with evidence > 0); MVP_SCOPE_PLAN.md §3 and §4 |
 
+### DD-008: Data properties — intrinsic and documentation subsets
+
+| Field | Value |
+|-------|-------|
+| **Date** | 2026-04-20 |
+| **Decision** | Add 8 `owl:DatatypeProperty` attributes to `SoftwareBusinessModel`: 3 intrinsic (`hasBillingPeriodicity`, `hasLaunchYear`, `hasPricingDescription`) and 5 documentation (`hasCompanyName`, `hasProductName`, `hasEvidenceSource`, `hasSourceYear`, `hasCaseDescription`). |
+| **Rationale** | The ontology was 100% relational (only object properties). Data properties are required by MVP_SCOPE_PLAN.md to avoid reducing the ontology to a taxonomy and to support traceable real-case validation. |
+| **Intrinsic subset criteria** | Each candidate was evaluated by: (1) SMS evidence support, (2) usefulness for distinguishing real cases, (3) contribution beyond existing classes/object properties. |
+| **Included intrinsic** | `hasBillingPeriodicity` (EQ15, 26/67 articles; complements PricingStrategy), `hasLaunchYear` (EQ29; temporal analysis), `hasPricingDescription` (EQ14/EQ15; captures free-text nuances) |
+| **Excluded intrinsic** | `hasBasePriceAmount` (volatile, currency-dependent), `hasTrialPeriodDays` (too granular, not universal), `hasRevenueSharePercentage` (only applies to marketplace/platform subset) |
+| **Documentation properties** | All 5 candidates from MVP_SCOPE_PLAN.md §6 included. Minimum traceability layer for real-case validation. |
+| **Domain/Range** | All properties: domain `SoftwareBusinessModel`. Ranges: `xsd:string` for textual attributes, `xsd:gYear` for year attributes. |
+| **Evidence** | EQ14, EQ15, EQ29 (SMS extraction); MVP_SCOPE_PLAN.md §5 and §6 |
+
 ---
 
 *New decisions follow the same template (DD-NNN).*

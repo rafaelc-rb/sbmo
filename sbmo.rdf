@@ -144,6 +144,105 @@
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
+    // Data Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    <!-- 
+    ========== Intrinsic data properties ==========
+     -->
+
+
+    <!-- https://rafaelc-rb.github.io/sbmo#hasBillingPeriodicity -->
+
+    <owl:DatatypeProperty rdf:about="https://rafaelc-rb.github.io/sbmo#hasBillingPeriodicity">
+        <rdfs:domain rdf:resource="https://rafaelc-rb.github.io/sbmo#SoftwareBusinessModel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">The billing periodicity of the software offering (e.g., monthly, annual, one-time). Derived from EQ15 (SMS extraction, 26/67 articles).</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://rafaelc-rb.github.io/sbmo#hasLaunchYear -->
+
+    <owl:DatatypeProperty rdf:about="https://rafaelc-rb.github.io/sbmo#hasLaunchYear">
+        <rdfs:domain rdf:resource="https://rafaelc-rb.github.io/sbmo#SoftwareBusinessModel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#gYear"/>
+        <rdfs:comment xml:lang="en">The year the software product or service was launched. Supports temporal analysis and maturity assessment. Derived from EQ29 (SMS extraction).</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://rafaelc-rb.github.io/sbmo#hasPricingDescription -->
+
+    <owl:DatatypeProperty rdf:about="https://rafaelc-rb.github.io/sbmo#hasPricingDescription">
+        <rdfs:domain rdf:resource="https://rafaelc-rb.github.io/sbmo#SoftwareBusinessModel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">A free-text description of the pricing model, capturing nuances not fully represented by PricingStrategy or PricingBaseUnit classes. Derived from EQ14/EQ15 (SMS extraction).</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ========== Documentation data properties ==========
+     -->
+
+
+    <!-- https://rafaelc-rb.github.io/sbmo#hasCompanyName -->
+
+    <owl:DatatypeProperty rdf:about="https://rafaelc-rb.github.io/sbmo#hasCompanyName">
+        <rdfs:domain rdf:resource="https://rafaelc-rb.github.io/sbmo#SoftwareBusinessModel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">The name of the company whose software business model is being described.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://rafaelc-rb.github.io/sbmo#hasProductName -->
+
+    <owl:DatatypeProperty rdf:about="https://rafaelc-rb.github.io/sbmo#hasProductName">
+        <rdfs:domain rdf:resource="https://rafaelc-rb.github.io/sbmo#SoftwareBusinessModel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">The name of the software product or service being described.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://rafaelc-rb.github.io/sbmo#hasEvidenceSource -->
+
+    <owl:DatatypeProperty rdf:about="https://rafaelc-rb.github.io/sbmo#hasEvidenceSource">
+        <rdfs:domain rdf:resource="https://rafaelc-rb.github.io/sbmo#SoftwareBusinessModel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">The source of evidence used to describe this software business model instance (e.g., company website, annual report, press release).</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://rafaelc-rb.github.io/sbmo#hasSourceYear -->
+
+    <owl:DatatypeProperty rdf:about="https://rafaelc-rb.github.io/sbmo#hasSourceYear">
+        <rdfs:domain rdf:resource="https://rafaelc-rb.github.io/sbmo#SoftwareBusinessModel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#gYear"/>
+        <rdfs:comment xml:lang="en">The year of the evidence source used to describe this software business model instance.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://rafaelc-rb.github.io/sbmo#hasCaseDescription -->
+
+    <owl:DatatypeProperty rdf:about="https://rafaelc-rb.github.io/sbmo#hasCaseDescription">
+        <rdfs:domain rdf:resource="https://rafaelc-rb.github.io/sbmo#SoftwareBusinessModel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">A brief textual description of the real software business model case being instantiated for validation purposes.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
     // Classes
     //
     ///////////////////////////////////////////////////////////////////////////////////////
