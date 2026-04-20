@@ -10,6 +10,21 @@ The MVP is considered successful if it:
 - includes enough relations, typed attributes, and constraints to avoid reducing the ontology to a taxonomy;
 - can be instantiated, checked, and queried in Protégé without major refactoring.
 
+## Implementation status (current)
+
+This document is maintained as both scope reference and progress tracker.
+
+- **Completed in ontology (`sbmo.rdf`)**:
+  - New dimensions: `ProductOrServiceType`, `IntellectualPropertyRegime`, `PricingBaseUnit`
+  - Core cardinalities with `minQualifiedCardinality`
+  - Data properties layer (intrinsic + documentation)
+  - Coverage-gap subclasses added before field validation
+  - Clean T-Box distribution (synthetic individuals removed)
+- **Pending in research workflow**:
+  - Real-case instantiation with companies
+  - CQ execution over empirical A-Box data
+  - Validation reporting and potential post-field refinements
+
 ## Scope principles
 
 ### 1. Completeness with parsimony

@@ -1,6 +1,7 @@
-## Project context (for AI)
+## Project overview
 
-This repository contains the **OWL ontology file** (`sbmo.rdf`) for **Software Business Models (SBMO)**, modeled in Protégé Desktop (OWL 2, RDF/XML). It is part of a master's dissertation at PPGES/UNIPAMPA.
+This repository contains the **Software Business Model Ontology (SBMO)** in OWL 2 (RDF/XML), modeled in Protégé Desktop.  
+The ontology is part of a master's dissertation at PPGES/UNIPAMPA and is designed for practical validation with real software ventures.
 
 ### Evidence base
 
@@ -18,9 +19,17 @@ The ontology is grounded on a **Systematic Mapping Study (SMS)** — 67 peer-rev
 3. Market segmentation
 4. Ecosystem dynamics
 5. Go-to-market
-6. Adoption & implementation
+6. Product & intellectual property
+7. Adoption & implementation
 
-### Sibling repositories
+### Current ontology status
+
+- Pure T-Box distribution (`sbmo.rdf`) with no named individuals.
+- 14 top-level classes, 75 subclasses, 13 object properties, and 8 data properties.
+- Minimum completeness constraints modeled with `minQualifiedCardinality`.
+- CQ1–CQ7 are structurally supported by the ontology schema; empirical validation with real company cases is planned.
+
+### Related repositories
 
 | Repository | Content |
 |------------|---------|
@@ -29,7 +38,7 @@ The ontology is grounded on a **Systematic Mapping Study (SMS)** — 67 peer-rev
 | `sbm-ontology-dissertation` | Dissertation (LaTeX) |
 | `ontology-papers-for-reference` | Reference papers on ontology engineering |
 
-### Documentation
+### Documentation index
 
 | File | Purpose |
 |------|---------|

@@ -17,23 +17,29 @@ OWL ontology for **Software Business Models**, developed as part of a master's d
 
 | Metric | Count |
 |--------|-------|
-| Top-level classes | 11 |
-| Subclasses | 42 |
-| Object Properties | 10 |
-| Individuals | 26 (2 SBM exemplars + 24 value/factor/challenge/mitigation instances) |
-| Axioms | Disjointness (EcosystemRole, NetworkEffectType) + Existential restrictions (SoftwareBusinessModel) |
-| CQs validated | **7/7** (SPARQL-DL + Pellet) |
+| Top-level classes | 14 |
+| Subclasses | 75 |
+| Object Properties | 13 |
+| Data Properties | 8 |
+| Individuals | 0 (pure T-Box distribution) |
+| Axioms | Disjointness (EcosystemRole, NetworkEffectType) + `minQualifiedCardinality` restrictions |
+| CQs support | **7/7 structurally supported** (T-Box); empirical execution with real cases is planned |
 
 ## Scope
 
 | Dimension | Key concepts |
 |-----------|-------------|
-| Monetization & pricing | Subscription, usage, transaction, advertising, perpetual license; cost-based, pay-as-you-go, value-based, freemium |
+| Monetization & pricing | Subscription, usage, transaction, advertising, perpetual license, support, marketplace fees, open core, dual licensing; cost-based, pay-as-you-go, value-based, freemium |
 | Delivery & deployment | Multi-tenant SaaS, single-tenant, on-premises, mobile, desktop, hybrid |
-| Market segmentation | B2B, B2C, SME, Enterprise |
-| Ecosystem dynamics | Standalone, two-sided platform, marketplace; direct, cross-sided, data-driven network effects |
-| Go-to-market | Direct sales, product-led growth, partners, digital marketing, marketplaces |
+| Market segmentation | B2B, B2C, SME, Enterprise, Government, Developer tools |
+| Ecosystem dynamics | Standalone, two-sided platform, marketplace, OEM component, plugin/complement; direct, cross-sided, data-driven network effects |
+| Go-to-market | Direct sales, product-led growth, partners, digital marketing, marketplaces, referral |
+| Product & intellectual property | Product/service type, IP regime, pricing base unit |
 | Adoption & implementation | Success factors, challenges, mitigation strategies |
+
+## Validation status
+
+The current repository intentionally ships a **clean T-Box** (no synthetic A-Box individuals). Real-case instantiation is planned in the empirical validation stage with software ventures.
 
 ## Data gap policy
 
@@ -44,13 +50,13 @@ The SMS is the primary evidence source. If any element lacks SMS support, the ga
 ```
 ├── sbmo.rdf                  # Ontology (Protégé)
 ├── docs/
-│   ├── CONTEXT.md            # Project context (for AI)
-│   ├── COMPETENCY_QUESTIONS.md
-│   ├── DATA_GAPS.md
-│   ├── DESIGN_DECISIONS.md
-│   └── FUTURE_WORK.md
+│   ├── CONTEXT.md            # Project overview and scope
+│   ├── COMPETENCY_QUESTIONS.md # CQ1–CQ7 and structural support status
+│   ├── DATA_GAPS.md          # Evidence gaps and resolution tracking
+│   ├── DESIGN_DECISIONS.md   # Non-trivial modeling decisions log
+│   └── FUTURE_WORK.md        # Extensions outside current evidence scope
 └── .cursor/rules/
-    └── ontology-modeling.mdc # AI modeling rules
+    └── ontology-modeling.mdc # Local assistant guidance for ontology tasks
 ```
 
 ## Related repositories
