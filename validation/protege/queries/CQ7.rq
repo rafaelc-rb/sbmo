@@ -1,0 +1,11 @@
+# CQ7: How can an SBM be described as a configuration across delivery, monetization, and ecosystem?
+PREFIX sbmo: <https://rafaelc-rb.github.io/sbmo#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?sbm ?delivery ?revenue ?pricing ?ecosystem WHERE {
+  ?sbm rdf:type sbmo:SoftwareBusinessModel .
+  ?sbm sbmo:hasDeliveryMode ?delivery .
+  ?sbm sbmo:hasRevenueSource ?revenue .
+  ?sbm sbmo:hasPricingStrategy ?pricing .
+  ?sbm sbmo:hasEcosystemRole ?ecosystem .
+}

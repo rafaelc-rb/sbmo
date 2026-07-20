@@ -1,0 +1,5 @@
+# Safety net: the raw survey CSV must never live inside this repo.
+# It belongs in the sibling, non-versioned `validations/` directory instead.
+sbmo-form-answers.csv
+*crosswalk*
+*identities*

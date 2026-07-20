@@ -1,0 +1,9 @@
+# CQ4: Which ecosystem roles tend to imply particular network effect types?
+PREFIX sbmo: <https://rafaelc-rb.github.io/sbmo#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?sbm ?role ?effect WHERE {
+  ?sbm rdf:type sbmo:SoftwareBusinessModel .
+  ?sbm sbmo:hasEcosystemRole ?role .
+  ?role sbmo:exhibitsNetworkEffect ?effect .
+}

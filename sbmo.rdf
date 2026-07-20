@@ -6,11 +6,13 @@
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:dcterms="http://purl.org/dc/terms/"
      xmlns:sbmo="https://rafaelc-rb.github.io/sbmo#">
     <owl:Ontology rdf:about="https://rafaelc-rb.github.io/sbmo">
         <owl:versionIRI rdf:resource="https://rafaelc-rb.github.io/sbmo/1.0"/>
+        <dcterms:license rdf:resource="https://opensource.org/license/mit"/>
     </owl:Ontology>
-    
+
 
 
     <!-- 

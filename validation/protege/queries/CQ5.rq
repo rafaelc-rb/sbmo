@@ -1,0 +1,9 @@
+# CQ5: Which success factors and challenges are recurrent for a given class of SBMs?
+PREFIX sbmo: <https://rafaelc-rb.github.io/sbmo#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?sbm ?factor ?challenge WHERE {
+  ?sbm rdf:type sbmo:SoftwareBusinessModel .
+  ?sbm sbmo:hasSuccessFactor ?factor .
+  ?sbm sbmo:facesChallenge ?challenge .
+}

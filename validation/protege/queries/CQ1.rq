@@ -1,0 +1,9 @@
+# CQ1: Which revenue sources are associated with a given delivery mode?
+PREFIX sbmo: <https://rafaelc-rb.github.io/sbmo#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?sbm ?delivery ?revenue WHERE {
+  ?sbm rdf:type sbmo:SoftwareBusinessModel .
+  ?sbm sbmo:hasDeliveryMode ?delivery .
+  ?sbm sbmo:hasRevenueSource ?revenue .
+}

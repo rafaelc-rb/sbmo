@@ -1,0 +1,260 @@
+{
+  "n_valid_responses": 31,
+  "n_complete_cases": 25,
+  "n_incomplete_cases": 6,
+  "incomplete_missing": {
+    "Case08": [
+      "revenue"
+    ],
+    "Case10": [
+      "revenue",
+      "pricing"
+    ],
+    "Case11": [
+      "revenue",
+      "pricing",
+      "customer",
+      "channel"
+    ],
+    "Case13": [
+      "customer"
+    ],
+    "Case14": [
+      "revenue",
+      "pricing",
+      "customer",
+      "channel"
+    ],
+    "Case23": [
+      "revenue",
+      "pricing",
+      "channel"
+    ]
+  },
+  "n_named_organizations": 24,
+  "period_start": "May 2026",
+  "period_end": "July 2026",
+  "knowledge": {
+    "(blank)": 3,
+    "5": 15,
+    "4": 10,
+    "3": 3
+  },
+  "operational": {
+    "Não": 2,
+    "Parcialmente": 8,
+    "Sim": 21
+  },
+  "coverage": {
+    "product_type": {
+      "other_cases": 1,
+      "coverage_pct": 96.8
+    },
+    "delivery": {
+      "other_cases": 0,
+      "coverage_pct": 100.0
+    },
+    "revenue": {
+      "other_cases": 5,
+      "coverage_pct": 83.9
+    },
+    "pricing": {
+      "other_cases": 4,
+      "coverage_pct": 87.1
+    },
+    "customer": {
+      "other_cases": 3,
+      "coverage_pct": 90.3
+    },
+    "ecosystem": {
+      "other_cases": 0,
+      "coverage_pct": 100.0
+    },
+    "channel": {
+      "other_cases": 5,
+      "coverage_pct": 83.9
+    },
+    "ip_regime": {
+      "other_cases": 0,
+      "coverage_pct": 100.0
+    },
+    "price_unit": {
+      "other_cases": 6,
+      "coverage_pct": 80.6
+    },
+    "network_effect": {
+      "other_cases": 1,
+      "coverage_pct": 96.8
+    },
+    "success": {
+      "other_cases": 1,
+      "coverage_pct": 96.8
+    },
+    "challenge": {
+      "other_cases": 0,
+      "coverage_pct": 100.0
+    },
+    "mitigation": {
+      "other_cases": 4,
+      "coverage_pct": 87.1
+    }
+  },
+  "frequencies": {
+    "product_type": {
+      "ManagedService": 10,
+      "Platform": 13,
+      "APIService": 14,
+      "Application": 26,
+      "Infrastructure": 5,
+      "SDK": 3,
+      "DataProduct": 5
+    },
+    "delivery": {
+      "MultiTenantSaaS": 26,
+      "MobileDelivery": 10,
+      "HybridDelivery": 7,
+      "SingleTenantSaaS": 5,
+      "OnPremises": 8,
+      "DesktopDelivery": 8
+    },
+    "revenue": {
+      "MarketplaceFeesRevenue": 4,
+      "SubscriptionRevenue": 21,
+      "SupportRevenue": 9,
+      "OpenCoreRevenue": 1,
+      "UsageConsumptionRevenue": 6,
+      "DualLicensingRevenue": 1,
+      "TransactionRevenue": 3,
+      "AdvertisingRevenue": 2
+    },
+    "pricing": {
+      "CostBasedPricing": 6,
+      "FreemiumPricing": 6,
+      "SubscriptionBasedPricing": 18,
+      "ValueBasedPricing": 10,
+      "PayAsYouGoPricing": 6
+    },
+    "customer": {
+      "Government": 7,
+      "B2C": 11,
+      "SME": 7,
+      "Enterprise": 11,
+      "B2B": 21,
+      "DeveloperTools": 1
+    },
+    "ecosystem": {
+      "Marketplace": 6,
+      "StandaloneProduct": 22,
+      "TwoSidedPlatform": 13,
+      "OEMComponent": 4,
+      "PluginComplement": 1
+    },
+    "channel": {
+      "PartnerChannel": 11,
+      "DigitalMarketing": 14,
+      "Referral": 19,
+      "DirectSales": 18,
+      "ProductLedGrowth": 6,
+      "MarketplaceChannel": 2
+    },
+    "ip_regime": {
+      "Proprietary": 30,
+      "OpenSource": 1
+    },
+    "price_unit": {
+      "RevenueSharing": 3,
+      "UserSeat": 20,
+      "Storage": 3,
+      "ComputingTime": 1,
+      "TransactionBased": 5,
+      "Device": 3
+    },
+    "network_effect": {
+      "DirectNetworkEffect": 5,
+      "CrossSidedNetworkEffect": 5,
+      "DataDrivenNetworkEffect": 11
+    },
+    "success": {
+      "MarketExpansion": 13,
+      "EcosystemManagement": 19,
+      "OrganizationalPreparedness": 19,
+      "ValueBasedOrientation": 20,
+      "ServiceQualityImprovement": 29
+    },
+    "challenge": {
+      "PartnerEcosystemDisruption": 5,
+      "RevenueStreamTransformation": 8,
+      "OrganizationalReadiness": 9,
+      "SecurityConcerns": 25,
+      "CustomerTrustMaintenance": 17,
+      "QualityManagement": 20
+    },
+    "mitigation": {
+      "FlexiblePricingStrategy": 10,
+      "PilotImplementation": 25,
+      "PartnerCompensation": 10,
+      "HybridModelAdoption": 4
+    }
+  },
+  "interrater": {
+    "cases": [
+      "Case01",
+      "Case03"
+    ],
+    "dims_compared": 13,
+    "dims_full_agreement": 3,
+    "avg_jaccard": 0.27,
+    "per_dim_jaccard": {
+      "product_type": 0.0,
+      "delivery": 1.0,
+      "revenue": 0.0,
+      "pricing": 0.0,
+      "customer": 1.0,
+      "ecosystem": 0.0,
+      "channel": 0.25,
+      "ip_regime": 1.0,
+      "price_unit": 0.0,
+      "network_effect": 0.0,
+      "success": 0.25,
+      "challenge": 0.0,
+      "mitigation": 0.0
+    }
+  },
+  "cq": {
+    "CQ1": {
+      "desc": "Revenue x Delivery",
+      "distinct_pairs": 37,
+      "matching_cases": 26
+    },
+    "CQ2": {
+      "desc": "Pricing x Revenue",
+      "distinct_pairs": 27,
+      "matching_cases": 26
+    },
+    "CQ3": {
+      "desc": "Customer x Channel",
+      "distinct_pairs": 31,
+      "matching_cases": 27
+    },
+    "CQ4": {
+      "desc": "Ecosystem x Network effect",
+      "distinct_pairs": 12,
+      "matching_cases": 19
+    },
+    "CQ5": {
+      "desc": "Success factors x Challenges",
+      "distinct_pairs": 30,
+      "matching_cases": 31
+    },
+    "CQ6": {
+      "desc": "Mitigation x Challenge",
+      "distinct_pairs": 24,
+      "matching_cases": 49,
+      "unit": "mitigation individuals"
+    },
+    "CQ7": {
+      "desc": "Multi-dimensional configuration",
+      "matching_cases": 26
+    }
+  }
+}

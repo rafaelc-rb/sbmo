@@ -1,0 +1,9 @@
+# CQ2: Which pricing structures are compatible with a given revenue source?
+PREFIX sbmo: <https://rafaelc-rb.github.io/sbmo#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?sbm ?pricing ?revenue WHERE {
+  ?sbm rdf:type sbmo:SoftwareBusinessModel .
+  ?sbm sbmo:hasPricingStrategy ?pricing .
+  ?sbm sbmo:hasRevenueSource ?revenue .
+}

@@ -1,0 +1,9 @@
+# CQ3: Which customer types are most frequently associated with specific acquisition channels?
+PREFIX sbmo: <https://rafaelc-rb.github.io/sbmo#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?sbm ?customer ?channel WHERE {
+  ?sbm rdf:type sbmo:SoftwareBusinessModel .
+  ?sbm sbmo:targetsCustomerType ?customer .
+  ?sbm sbmo:usesAcquisitionChannel ?channel .
+}

@@ -1,0 +1,7 @@
+# CQ6: Which mitigation practices address specific challenges?
+PREFIX sbmo: <https://rafaelc-rb.github.io/sbmo#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?mitigation ?challenge WHERE {
+  ?mitigation sbmo:mitigates ?challenge .
+}
