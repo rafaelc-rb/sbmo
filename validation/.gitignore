@@ -3,3 +3,7 @@
 sbmo-form-answers.csv
 *crosswalk*
 *identities*
+
+# Scratch output of running reproduce_sbmo_analysis_fixed.r locally.
+# The curated, versioned copy lives in zenodo-package/data/statistical_analysis/.
+scripts/statistical_analysis/sbmo_analysis_output/
