@@ -41,6 +41,16 @@ def read_csv(path):
         return list(csv.DictReader(f))
 
 
+def tex_escape(s):
+    """Escape LaTeX special characters in a label pulled from data/category
+    names (e.g. "Product & Design" -> "Product \\& Design"). Without this,
+    an unescaped '&' inside a pgfplots yticklabels list is parsed as a
+    misplaced alignment tab and breaks the build."""
+    return (s.replace("\\", r"\textbackslash{}")
+             .replace("&", r"\&").replace("%", r"\%")
+             .replace("_", r"\_").replace("#", r"\#"))
+
+
 # ---------------------------------------------------------------------------
 # 1. Respondent role category chart (socio-demographic profile)
 # ---------------------------------------------------------------------------
@@ -59,7 +69,7 @@ def role_chart():
     for i, cat in enumerate(ordered, start=1):
         pct = 100 * counts[cat] / n
         lines.append(f"{pct:.1f} {i} {counts[cat]}")
-    yticklabels = ",".join("{%s}" % c for c in ordered)
+    yticklabels = ",".join("{%s}" % tex_escape(c) for c in ordered)
 
     tex = GENERATED_HEADER + f"""\\begin{{tikzpicture}}
 \\begin{{axis}}[
@@ -165,7 +175,7 @@ def operational_status_chart():
         c = int(rows[status]["n"])
         pct = 100 * c / n
         lines.append(f"{pct:.1f} {i} {c}")
-    yticklabels = ",".join("{%s}" % STATUS_LABEL[s] for s in STATUS_ORDER)
+    yticklabels = ",".join("{%s}" % tex_escape(STATUS_LABEL[s]) for s in STATUS_ORDER)
 
     tex = GENERATED_HEADER + f"""\\begin{{tikzpicture}}
 \\begin{{axis}}[
@@ -220,7 +230,7 @@ def coverage_chart():
     for i, dim in enumerate(reversed(order), start=1):
         cov = 100 * float(by_dim[dim]["Coverage"])
         lines.append(f"{cov:.1f} {i}")
-    yticklabels = ",".join("{%s}" % d for d in reversed(order))
+    yticklabels = ",".join("{%s}" % tex_escape(d) for d in reversed(order))
 
     tex = GENERATED_HEADER + f"""\\begin{{tikzpicture}}
 \\begin{{axis}}[
@@ -283,7 +293,7 @@ def rv_assets():
         table_rows.append(
             f"{cq} & {a} $\\times$ {b} & {rv:.3f} & {fmt_p(r['PermutationP'])} & {fmt_p(r['BH_q'])} \\\\"
         )
-    yticklabels = ",".join("{%s}" % r["CQ"] for r in rows)
+    yticklabels = ",".join("{%s}" % tex_escape(r["CQ"]) for r in rows)
 
     chart = GENERATED_HEADER + f"""\\begin{{tikzpicture}}
 \\begin{{axis}}[
