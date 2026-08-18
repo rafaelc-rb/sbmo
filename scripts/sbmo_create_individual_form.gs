@@ -19,22 +19,33 @@
  * Cada seção mapeia uma dimensão da ontologia. Perguntas obrigatórias
  * correspondem a propriedades com minQualifiedCardinality >= 1.
  *
- * Antes de publicar: confira o e-mail em SBMO_RESEARCH_CONFIG (o padrão é o Gmail abaixo).
+ * Antes de publicar: confira os e-mails em SBMO_RESEARCH_CONFIG (institucionais abaixo).
  */
 
 /**
  * Contato exibido no TCLE, no ICF (EN) e na mensagem de confirmação.
- * @type {{ researcherEmail: string }}
+ * Corrigido em 2026-08-18 para bater com o formulário real efetivamente
+ * publicado (conferido contra um PDF exportado pelo autor), que usa os
+ * e-mails institucionais abaixo, não o Gmail pessoal usado numa versão
+ * anterior deste script. Ver sbmo/validation/zenodo-package/informed_consent/
+ * para a transcrição verbatim verificada.
+ * @type {{ researcherEmail: string, advisorEmail: string }}
  */
 var SBMO_RESEARCH_CONFIG = {
-	/** E-mail pessoal (Gmail); altere aqui se mudar. */
-	researcherEmail: "rafaelcrd.ribeiro@gmail.com",
+	/** E-mail institucional do pesquisador (aluno). */
+	researcherEmail: "rafaelcardoso.aluno@unipampa.edu.br",
+	/** E-mail institucional do orientador. */
+	advisorEmail: "bernardino@unipampa.edu.br",
 };
 
-/** Texto do TCLE (pt-BR); o e-mail vem de SBMO_RESEARCH_CONFIG. */
+/**
+ * Texto do TCLE (pt-BR), corrigido em 2026-08-18 para ser uma transcrição
+ * verbatim do formulário real efetivamente publicado (ver
+ * sbmo/validation/zenodo-package/informed_consent/informed_consent_pt.md).
+ * Os e-mails vêm de SBMO_RESEARCH_CONFIG.
+ */
 function tcleTextPT_() {
 	var cfg = SBMO_RESEARCH_CONFIG;
-	var email = cfg.researcherEmail;
 	var core =
 		"Você está sendo convidado(a) a participar da pesquisa vinculada a uma dissertação de " +
 		"mestrado do Programa de Pós-Graduação em Engenharia de Software (PPGES) da UNIPAMPA, " +
@@ -43,38 +54,64 @@ function tcleTextPT_() {
 		"Procedimentos: a participação consiste no preenchimento deste formulário (tempo estimado: " +
 		"15–20 minutos). A coleta de e-mail, se exibida, destina-se a contato acadêmico, conforme a " +
 		"configuração do Google Forms.\n\n" +
-		"Riscos e desconfortos: não se antecipam riscos relevantes. Benefícios: a pesquisa pode " +
-		"contribuir para o avanço de descrições ontológicas de modelos de negócio de software.\n\n" +
+		"Riscos e Desconfortos: todas as medidas serão tomadas durante a coleta de dados para " +
+		"garantir sua privacidade e anonimato. Além disso, não há riscos ou desconfortos que possam " +
+		"afetá-lo(a) durante o estudo, exceto problemas comuns como fadiga, estresse ou leve mal-estar.\n\n" +
+		"Benefícios: a pesquisa pode contribuir para o avanço de descrições ontológicas de modelos " +
+		"de negócio de software. Este estudo também fornecerá resultados relevantes para o grupo de " +
+		"pesquisa LESSE. Você não incorrerá em quaisquer custos ou encargos para participar do " +
+		"estudo, nem receberá qualquer reembolso ou compensação por autorizar o uso de seus dados " +
+		"na pesquisa.\n\n" +
 		"Confidencialidade: as respostas serão tratadas de forma confidencial e utilizadas " +
 		"agregadas para fins científicos, de modo a evitar identificação indevida de pessoas ou " +
 		"empresas, salvo autorização explícita.\n\n" +
-		"Voluntariedade: a participação é voluntária; você pode deixar de responder ou interromper " +
-		"a qualquer momento, sem prejuízo.\n\n" +
-		"Esclarecimentos: " +
-		email +
-		" (pesquisador). Para dúvidas sobre a pesquisa ou sobre a sua participação, use este endereço.";
+		"Voluntariedade: sua participação neste estudo é muito importante e voluntária, pois requer " +
+		"sua aprovação para o uso dos dados coletados. De acordo com a Resolução CNS nº 466/2012 do " +
+		"Conselho Nacional de Saúde (CNS), o respeito à dignidade humana exige que toda pesquisa " +
+		"seja conduzida somente com consentimento livre e esclarecido. Você tem o direito de recusar " +
+		"a participação ou desistir deste estudo a qualquer momento, sem penalidades. Caso decida " +
+		"desistir, por favor, notifique o pesquisador responsável.\n\n" +
+		"Esclarecimentos: Os pesquisadores estarão disponíveis para fornecer esclarecimentos e " +
+		"responder a quaisquer perguntas.\n" +
+		"Pesquisador: Rafael Ribeiro Cardoso - " + cfg.researcherEmail + "\n" +
+		"Orientador: Prof. Dr. Maicon Bernardino da Silveira - " + cfg.advisorEmail;
 	return core;
 }
 
-/** Informed Consent (EN); o e-mail vem de SBMO_RESEARCH_CONFIG. */
+/**
+ * Informed Consent (EN). NÃO VERIFICADO contra um formulário em inglês
+ * publicado: é uma tradução best-effort do texto em PT acima. Não há
+ * evidência de que a variante em inglês deste formulário tenha sido
+ * publicada; as 31 respostas reais usam apenas o formulário em português.
+ * Os e-mails vêm de SBMO_RESEARCH_CONFIG.
+ */
 function tcleTextEN_() {
 	var cfg = SBMO_RESEARCH_CONFIG;
-	var email = cfg.researcherEmail;
 	var core =
-		"You are invited to take part in research associated with a master’s thesis at the " +
+		"You are invited to take part in research associated with a master's thesis at the " +
 		"Postgraduate Program in Software Engineering (PPGES), Federal University of Pampa " +
 		"(UNIPAMPA), Brazil. The study collects information about software business models to " +
 		"validate the Software Business Model Ontology (SBMO).\n\n" +
-		"Procedures: participation consists of completing this form (estimated time: 15–20 minutes). " +
+		"Procedures: participation consists of completing this form (estimated time: 15-20 minutes). " +
 		"If the form is configured to collect e-mail, it is used for academic follow-up, per Google Forms settings.\n\n" +
-		"Risks and benefits: no significant risks are expected. The research may help advance " +
-		"ontological characterizations of software business models.\n\n" +
+		"Risks and Discomforts: every measure will be taken during data collection to protect your " +
+		"privacy and anonymity. No risks or discomfort are otherwise expected during the study beyond " +
+		"common issues such as fatigue, stress, or mild discomfort.\n\n" +
+		"Benefits: the research may help advance ontological descriptions of software business " +
+		"models. This study will also produce results relevant to the LESSE research group. You will " +
+		"incur no costs to take part, nor receive any reimbursement or compensation for authorizing " +
+		"the use of your data.\n\n" +
 		"Confidentiality: responses are treated as confidential and used in aggregate for scientific " +
-		"purposes, avoiding undue identification of individuals or organizations unless you explicitly agree otherwise.\n\n" +
-		"Voluntary participation: you may skip questions or stop at any time, without penalty.\n\n" +
-		"Contact: " +
-		email +
-		" (researcher). For questions about the study or your participation, use this e-mail address.";
+		"purposes, avoiding undue identification of individuals or organizations unless explicitly authorized.\n\n" +
+		"Voluntary participation: your participation is very important and voluntary, as it requires " +
+		"your approval for the use of the collected data. Per Resolution CNS 466/2012 of the Brazilian " +
+		"National Health Council (CNS), respect for human dignity requires that all research be " +
+		"conducted only with free and informed consent. You have the right to decline or withdraw " +
+		"from this study at any time, without penalty. If you decide to withdraw, please notify the " +
+		"responsible researcher.\n\n" +
+		"Contact: the researchers are available to provide clarification and answer any questions.\n" +
+		"Researcher: Rafael Ribeiro Cardoso - " + cfg.researcherEmail + "\n" +
+		"Advisor: Prof. Dr. Maicon Bernardino da Silveira - " + cfg.advisorEmail;
 	return core;
 }
 
@@ -93,13 +130,27 @@ function getFormStrings_(locale) {
 			"SBMO — Validação de Modelo de Negócio de Software",
 		),
 		formDescription: L(
-			"This questionnaire is part of a master’s thesis (PPGES/UNIPAMPA). It supports validating " +
-				"the Software Business Model Ontology (SBMO). Responses are confidential and used for academic research only.\n\n" +
-				"The form begins with the Informed Consent, then the questions. Estimated time: 15–20 minutes.",
-			"Este questionário faz parte de uma dissertação de mestrado (PPGES/UNIPAMPA) e " +
-				"apoia a validação da Software Business Model Ontology (SBMO). As respostas são confidenciais e " +
-				"utilizadas exclusivamente para pesquisa acadêmica.\n\n" +
-				"O termo de consentimento aparece no início; em seguida, as perguntas. Tempo estimado: 15–20 minutos.",
+			// EN: not independently verified, see tcleTextEN_ note above.
+			"This questionnaire is part of a master's thesis (PPGES/UNIPAMPA) and supports " +
+				"validating the Software Business Model Ontology (SBMO). Responses are confidential " +
+				"and used exclusively for academic purposes.\n\n" +
+				"The research targets people with practical knowledge of a software product, such as " +
+				"founders, CEOs, product leaders, business leaders, or professionals with a clear view " +
+				"of how the software generates revenue, delivers value, reaches customers, and " +
+				"positions itself in the market.\n\n" +
+				"The Informed Consent form appears at the start of the questionnaire, followed by the " +
+				"research questions. Estimated time: 15 to 20 minutes.",
+			// PT: verbatim, confirmado em 2026-08-18 contra o formulário real publicado.
+			"Este questionário faz parte de uma dissertação de mestrado do PPGES/UNIPAMPA e " +
+				"apoia a validação da Software Business Model Ontology (SBMO). As respostas são " +
+				"confidenciais e utilizadas exclusivamente para fins acadêmicos.\n\n" +
+				"A pesquisa é destinada a pessoas que conhecem bem algum produto de software na " +
+				"prática, como fundadores, CEOs, líderes de produto, líderes de negócio ou " +
+				"profissionais com visão clara sobre como o software gera receita, entrega valor, " +
+				"chega aos clientes e se posiciona no mercado.\n\n" +
+				"O Termo de Consentimento Livre e Esclarecido aparece no início do formulário. Em " +
+				"seguida, são apresentadas as perguntas da pesquisa. Tempo estimado de resposta: 15 a " +
+				"20 minutos.",
 		),
 		confirmation: L(
 			"Thank you for your participation! Your answers will be used only for academic research in the context of SBMO validation.\n\n" +
@@ -118,9 +169,21 @@ function getFormStrings_(locale) {
 		tcleBody: isEn ? tcleTextEN_() : tcleTextPT_(),
 		consentItemTitle: L("Participation", "Participação"),
 		consentCheckbox: L(
-			"I have read the information above and I voluntarily agree to participate in this research.",
-			"Declaro que li o Termo de Consentimento Livre e Esclarecido e concordo em participar " +
-				"voluntariamente desta pesquisa.",
+			// EN: not independently verified, see tcleTextEN_ note above.
+			"Consent Declaration: I declare that I have read and agree with the information in this " +
+				"document, and that all technical language used to describe this research study was " +
+				"satisfactorily explained, with all my questions answered. I also confirm that I " +
+				"received a copy of this Informed Consent Form and understand that I may revoke " +
+				"authorization for the use of my data in this study at any time, without any penalty. " +
+				"I voluntarily agree to take part in this study.",
+			// PT: verbatim, confirmado em 2026-08-18 contra o formulário real publicado.
+			"Declaração de Consentimento: Declaro que li e concordo com as informações contidas " +
+				"neste documento e que toda a linguagem técnica utilizada na descrição deste estudo " +
+				"de pesquisa foi satisfatoriamente explicada, com todas as minhas dúvidas respondidas. " +
+				"Confirmo também que recebi uma cópia deste Termo de Consentimento Livre e Esclarecido " +
+				"(TCLE) e compreendo que posso revogar a autorização para o uso dos meus dados neste " +
+				"estudo a qualquer momento, sem qualquer penalidade. Concordo voluntariamente em " +
+				"participar deste estudo.",
 		),
 
 		s1Title: L(
