@@ -1,0 +1,14 @@
+"Dimension","Valid","Other","Coverage","ObservedClasses"
+"Product/service type",31,1,0.967741935483871,8
+"Delivery mode",31,0,1,6
+"Revenue source",31,5,0.838709677419355,9
+"Pricing strategy",31,4,0.870967741935484,6
+"Customer type",31,3,0.903225806451613,7
+"Ecosystem role",31,0,1,5
+"Acquisition channel",31,5,0.838709677419355,7
+"IP regime",31,0,1,2
+"Pricing base unit",31,6,0.806451612903226,7
+"Network effect",31,1,0.967741935483871,5
+"Success factor",31,1,0.967741935483871,6
+"Implementation challenge",31,0,1,6
+"Mitigation strategy",31,4,0.870967741935484,5

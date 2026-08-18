@@ -1,0 +1,80 @@
+"Dimension","Option","n","Percentage"
+"Acquisition channel","Indicação (boca a boca, programas de referral)",19,61.2903225806452
+"Acquisition channel","Venda direta (equipe de vendas, outbound)",18,58.0645161290323
+"Acquisition channel","Marketing digital (SEO, anúncios, marketing de conteúdo, redes sociais)",14,45.1612903225806
+"Acquisition channel","Canal de parceiros (revendedores, distribuidores, integradores)",11,35.4838709677419
+"Acquisition channel","Crescimento liderado pelo produto (cadastro self-service, free trial)",6,19.3548387096774
+"Acquisition channel","Outro (especifique no campo seguinte)",5,16.1290322580645
+"Acquisition channel","Canal de marketplace (listado em app stores ou marketplaces de software)",2,6.45161290322581
+"Customer type","B2B (venda para outras empresas)",21,67.741935483871
+"Customer type","B2C (venda para consumidores finais)",11,35.4838709677419
+"Customer type","Enterprise (grandes organizações)",11,35.4838709677419
+"Customer type","Governo (setor público)",7,22.5806451612903
+"Customer type","PMEs (pequenas e médias empresas)",7,22.5806451612903
+"Customer type","Outro (especifique no campo seguinte)",3,9.67741935483871
+"Customer type","Ferramentas para desenvolvedores (desenvolvedores ou equipes técnicas como usuários finais)",1,3.2258064516129
+"Delivery mode","SaaS multi-tenant (infraestrutura compartilhada, acesso via navegador)",26,83.8709677419355
+"Delivery mode","Entrega mobile (aplicativo móvel nativo)",10,32.258064516129
+"Delivery mode","Entrega desktop (aplicativo desktop nativo)",8,25.8064516129032
+"Delivery mode","On-premises (instalado na infraestrutura do próprio cliente)",8,25.8064516129032
+"Delivery mode","Entrega híbrida (combinação de cloud e on-premises)",7,22.5806451612903
+"Delivery mode","SaaS single-tenant (instância dedicada por cliente)",5,16.1290322580645
+"Ecosystem role","Produto standalone (independente, autocontido)",22,70.9677419354839
+"Ecosystem role","Plataforma bilateral (conecta dois grupos distintos de usuários)",13,41.9354838709677
+"Ecosystem role","Marketplace (facilita transações entre vendedores e compradores)",6,19.3548387096774
+"Ecosystem role","Componente OEM (embutido em produtos de outras empresas)",4,12.9032258064516
+"Ecosystem role","Plugin / complemento (estende a funcionalidade de outra plataforma)",1,3.2258064516129
+"Implementation challenge","Preocupações com segurança (proteção de dados, conformidade, vulnerabilidades)",25,80.6451612903226
+"Implementation challenge","Gestão de qualidade (manter qualidade durante escala ou transições)",20,64.5161290322581
+"Implementation challenge","Manutenção da confiança do cliente (transparência, confiabilidade, retenção)",17,54.8387096774194
+"Implementation challenge","Prontidão organizacional (resistência interna, lacunas de competências)",9,29.0322580645161
+"Implementation challenge","Transformação de fluxo de receita (transição de modelo de precificação ou receita)",8,25.8064516129032
+"Implementation challenge","Disrupção do ecossistema de parceiros (impacto em revendedores, integradores)",5,16.1290322580645
+"IP regime","Proprietário (código fechado, todos os direitos reservados)",30,96.7741935483871
+"IP regime","Open source (geral, orientado à comunidade)",1,3.2258064516129
+"Mitigation strategy","Implementação piloto (testar mudanças com um subconjunto de clientes antes do rollout completo)",25,80.6451612903226
+"Mitigation strategy","Compensação de parceiros (oferecer incentivos ou suporte para mitigar disrupção de parceiros)",10,32.258064516129
+"Mitigation strategy","Estratégia de precificação flexível (ajustar preços para reduzir churn ou atrair segmentos)",10,32.258064516129
+"Mitigation strategy","Adoção de modelo híbrido (combinar modelos de entrega ou receita para transição gradual)",4,12.9032258064516
+"Mitigation strategy","Outro (especifique no campo seguinte)",4,12.9032258064516
+"Network effect","Efeito de rede orientado a dados (mais dados = melhor produto/serviço)",11,35.4838709677419
+"Network effect","Sem efeitos de rede significativos",10,32.258064516129
+"Network effect","Efeito de rede cruzado (mais usuários de um lado = mais valor para o outro lado)",5,16.1290322580645
+"Network effect","Efeito de rede direto (mais usuários = mais valor para cada usuário)",5,16.1290322580645
+"Network effect","Outro (especifique no campo seguinte)",1,3.2258064516129
+"Pricing base unit","Usuário / licença (preço por usuário ou assento)",20,64.5161290322581
+"Pricing base unit","Outro (especifique no campo seguinte)",6,19.3548387096774
+"Pricing base unit","Baseado em transação (preço por transação)",5,16.1290322580645
+"Pricing base unit","Armazenamento (preço por GB ou TB armazenado)",3,9.67741935483871
+"Pricing base unit","Compartilhamento de receita (percentual da receita do cliente)",3,9.67741935483871
+"Pricing base unit","Dispositivo (preço por dispositivo conectado)",3,9.67741935483871
+"Pricing base unit","Tempo de computação (preço por hora de processamento ou CPU)",1,3.2258064516129
+"Pricing strategy","Precificação por assinatura (taxa periódica fixa)",18,58.0645161290323
+"Pricing strategy","Precificação baseada em valor (preço atrelado ao valor percebido ou resultados)",10,32.258064516129
+"Pricing strategy","Precificação baseada em custo (preço derivado do custo mais margem)",6,19.3548387096774
+"Pricing strategy","Precificação freemium (plano gratuito + upgrades pagos)",6,19.3548387096774
+"Pricing strategy","Precificação pay-as-you-go (cobrança baseada em uso)",6,19.3548387096774
+"Pricing strategy","Outro (especifique no campo seguinte)",4,12.9032258064516
+"Product/service type","Aplicação (software aplicativo independente)",26,83.8709677419355
+"Product/service type","Serviço de API (funcionalidade exposta via API)",14,45.1612903225806
+"Product/service type","Plataforma (plataforma de desenvolvimento ou negócios)",13,41.9354838709677
+"Product/service type","Serviço gerenciado (hospedado e operado por vocês em nome do cliente)",10,32.258064516129
+"Product/service type","Infraestrutura (infraestrutura cloud, hospedagem, computação)",5,16.1290322580645
+"Product/service type","Produto de dados (dados, analytics ou insights como oferta principal)",5,16.1290322580645
+"Product/service type","SDK / Kit de desenvolvimento (bibliotecas, frameworks ou ferramentas para desenvolvedores)",3,9.67741935483871
+"Product/service type","Outro (especifique no campo seguinte)",1,3.2258064516129
+"Revenue source","Receita por assinatura (pagamentos periódicos recorrentes)",21,67.741935483871
+"Revenue source","Receita por suporte (suporte pago, consultoria ou treinamento)",9,29.0322580645161
+"Revenue source","Receita por uso/consumo (pague pelo que usar)",6,19.3548387096774
+"Revenue source","Outro (especifique no campo seguinte)",5,16.1290322580645
+"Revenue source","Taxa de marketplace (comissão sobre vendas de terceiros)",4,12.9032258064516
+"Revenue source","Receita por transação (taxa por transação processada)",3,9.67741935483871
+"Revenue source","Receita por publicidade",2,6.45161290322581
+"Revenue source","Receita open core (núcleo gratuito + funcionalidades premium pagas)",1,3.2258064516129
+"Revenue source","Receita por licenciamento dual (código aberto + licença comercial)",1,3.2258064516129
+"Success factor","Melhoria da qualidade do serviço (confiabilidade, desempenho, qualidade do suporte)",29,93.5483870967742
+"Success factor","Orientação baseada em valor (foco em entregar valor mensurável ao cliente)",20,64.5161290322581
+"Success factor","Gestão do ecossistema (rede de parceiros, integrações, comunidade de desenvolvedores)",19,61.2903225806452
+"Success factor","Preparação organizacional (competências da equipe, processos, prontidão interna)",19,61.2903225806452
+"Success factor","Expansão de mercado (expansão geográfica ou para novos segmentos)",13,41.9354838709677
+"Success factor","Outro (especifique no campo seguinte)",1,3.2258064516129

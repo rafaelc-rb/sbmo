@@ -1,0 +1,7 @@
+"CQ","OptionA","OptionB","Phi","FisherP","OddsRatio"
+"CQ1","Receita por suporte (suporte pago, consultoria ou treinamento)","Entrega híbrida (combinação de cloud e on-premises)",0.674400487333763,0.000716465588545677,34.2204875297864
+"CQ2","Precificação por assinatura (taxa periódica fixa)","Receita por assinatura (pagamentos periódicos recorrentes)",0.81199794294115,6.44838870887138e-06,Inf
+"CQ3","B2C (venda para consumidores finais)","Crescimento liderado pelo produto (cadastro self-service, free trial)",0.489928875481231,0.0131770343116283,14.2131608622511
+"CQ4","Plataforma bilateral (conecta dois grupos distintos de usuários)","Efeito de rede cruzado (mais usuários de um lado = mais valor para o outro lado)",0.338276950442276,0.133746490809895,7.06601875582586
+"CQ5","Gestão do ecossistema (rede de parceiros, integrações, comunidade de desenvolvedores)","Disrupção do ecossistema de parceiros (impacto em revendedores, integradores)",0.348507517678661,0.12844960008475,Inf
+"CQ6","Adoção de modelo híbrido (combinar modelos de entrega ou receita para transição gradual)","Transformação de fluxo de receita (transição de modelo de precificação ou receita)",0.432722069802364,0.0431590656284761,11.7624332757672

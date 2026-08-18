@@ -1,0 +1,7 @@
+"CQ","DimensionA","DimensionB","RV","PermutationP","BH_q"
+"CQ1","Revenue source","Delivery mode",0.209367929616849,0.0532,0.1064
+"CQ2","Pricing strategy","Revenue source",0.55406594850946,1e-04,6e-04
+"CQ3","Customer type","Acquisition channel",0.263655632285605,0.0095,0.0285
+"CQ4","Ecosystem role","Network effect",0.114750969191519,0.2969,0.44535
+"CQ5","Success factor","Implementation challenge",0.130165196698733,0.593,0.6347
+"CQ6","Mitigation strategy","Implementation challenge",0.132823286034896,0.6347,0.6347
