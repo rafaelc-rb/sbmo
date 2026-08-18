@@ -103,3 +103,14 @@ Submit `../sbmo.rdf` at http://oops.linkeddata.es and record the reported
 pitfalls (critical / important / minor). Results already folded into the
 dissertation: 0 critical, 1 important (P41, no license — fixed by the
 `dcterms:license` annotation on the ontology header), 3 minor (P07, P08, P13).
+
+## Zenodo deposit (statistical analysis, instrument, informed consent)
+
+`zenodo-package/` (also zipped as `zenodo-package.zip`) holds the deposit
+published on Zenodo: the anonymized case-level and statistical-analysis
+CSVs, the respondent role categories, the questionnaire instrument, and the
+Informed Consent text (English and Portuguese), see
+`zenodo-package/README.md`. The dissertation (Chapter 7, "Data
+availability") cites this deposit: DOI
+[10.5281/zenodo.22001648](https://doi.org/10.5281/zenodo.22001648)
+(published 2026-08-18).

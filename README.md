@@ -41,6 +41,8 @@ OWL ontology for **Software Business Models**, developed as part of a master's d
 
 The current repository intentionally ships a **clean T-Box** (no synthetic A-Box individuals). Real-case instantiation is planned in the empirical validation stage with software ventures.
 
+The empirical validation data (31 anonymized cases), questionnaire instrument, and Informed Consent are published on Zenodo: [`validation/zenodo-package/`](validation/zenodo-package/README.md), DOI [10.5281/zenodo.22001648](https://doi.org/10.5281/zenodo.22001648).
+
 ## Data gap policy
 
 The SMS is the primary evidence source. If any element lacks SMS support, the gap must be documented in [`docs/DATA_GAPS.md`](docs/DATA_GAPS.md) before complementary research is conducted.
