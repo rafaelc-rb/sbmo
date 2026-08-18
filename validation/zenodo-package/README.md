@@ -15,11 +15,9 @@ dataset deposit, referenced from the dissertation by its DOI.
 zenodo-package/
 ├── README.md                          <- this file
 ├── informed_consent/
-│   ├── informed_consent_en.md         <- Informed Consent form text (English)
-│   └── informed_consent_pt.md         <- Termo de Consentimento (Portuguese)
+│   └── informed_consent.md            <- Termo de Consentimento (verbatim, Portuguese)
 ├── instrument/
-│   ├── questionnaire_en.md            <- questionnaire structure (English), no answers
-│   └── questionnaire_pt.md            <- questionnaire structure (Portuguese), no answers
+│   └── questionnaire.md               <- questionnaire structure (verbatim, Portuguese), no answers
 ├── data/
 │   ├── cases_normalized.csv           <- 31 cases, SBMO classes, anonymized
 │   ├── respondent_role_categories.csv <- 31 cases, respondent role category, anonymized
@@ -71,28 +69,27 @@ transcriptions of that PDF and are now confirmed accurate:
   reference, the right-to-a-copy and right-to-revoke clauses in the consent
   checkbox text, and uses a personal Gmail address instead of the
   institutional UNIPAMPA e-mails actually shown on the form.
-  `informed_consent_pt.md` is now the full, verbatim Portuguese text from
+  `informed_consent.md` is now the full, verbatim Portuguese text from
   the PDF.
 - **Questionnaire instrument**: all 15 sections, 40 questions, help texts,
   and option lists in the PDF match the script exactly, with no
   discrepancy (this also independently confirms the earlier cross-check
   against the 31 real responses in `sbmo-form-answers.csv`, since every
   option value actually selected by a respondent already matched the
-  script verbatim). `instrument/questionnaire_pt.md` is now the full,
+  script verbatim). `instrument/questionnaire.md` is now the full,
   verbatim transcription.
 
-**English files** (`informed_consent_en.md`, `questionnaire_en.md`) are
-translations of the verified Portuguese originals, not independently
-verified: no evidence was found that the English-language variant of the
-form (which the script can also generate) was ever actually deployed. All
-31 raw responses use Portuguese field values, so only the Portuguese form
-is confirmed as the real data-collection instrument.
+No English translation is included: no evidence was found that the
+English-language variant of the form (which the script can also generate)
+was ever actually deployed, and all 31 raw responses use Portuguese field
+values, so only the Portuguese form is a confirmed data-collection
+instrument.
 
 ## Reproducing the statistical analysis
 
 `scripts/reproduce_sbmo_analysis_fixed.r` requires the raw CSV (not included
 here, for the anonymity reasons above) with the same column layout described
-by `instrument/questionnaire_pt.md`. Running it against that raw file
+by `instrument/questionnaire.md`. Running it against that raw file
 reproduces every CSV under `data/statistical_analysis/`. Requires base R
 only (fixed seed `20260815`, 9,999 permutations per hypothesis test); no
 additional R packages are needed.

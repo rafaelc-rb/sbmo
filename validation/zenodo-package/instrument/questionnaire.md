@@ -7,7 +7,7 @@ Formulários.pdf", 13 páginas), que bateu exatamente com o script gerador
 `sbmo/scripts/sbmo_create_individual_form.gs` em todas as 15 seções, 40
 perguntas, textos de ajuda e opções. O formulário começa com o campo de
 e-mail (obrigatório) e o Termo de Consentimento (ver
-`../informed_consent/informed_consent_pt.md`), seguido destas 15 seções.
+`../informed_consent/informed_consent.md`), seguido destas 15 seções.
 Tempo estimado: 15 a 20 minutos. As Seções 9, 10 e 11 são opcionais; as
 demais são obrigatórias. Perguntas de múltipla escolha marcadas "Selecione
 todas as opções que se aplicam" (Seção 2 exige pelo menos uma opção).*
