@@ -249,7 +249,7 @@ def coverage_chart():
     yticklabels={{{yticklabels}}},
     y=7mm,
     enlarge y limits={{abs=0.5}},
-    nodes near coords,
+    nodes near coords={{\\pgfmathprintnumber[fixed,precision=1]\\pgfplotspointmeta\\%}},
     every node near coord/.append style={{font=\\scriptsize}}
 ]
 \\addplot[pattern color=hardblue, pattern=north east lines] table [x=cov, y=idx] {{

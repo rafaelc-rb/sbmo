@@ -300,7 +300,7 @@ def write_latex(freq, coverage, cq, n, summary):
     ]
     for dim in M.DIMENSIONS:
         no, pct = coverage[dim["key"]]
-        lines.append(f"{M.DIM_ENGLISH[dim['key']]} & {no} & {pct:.0f}\\% \\\\")
+        lines.append(f"{M.DIM_ENGLISH[dim['key']]} & {no} & {pct:.1f}\\% \\\\")
     lines += [r"\bottomrule", r"\end{tabular}", r"\end{table}", ""]
     open(os.path.join(LATEX, "coverage.tex"), "w", encoding="utf-8").write("\n".join(lines))
 
