@@ -19,7 +19,7 @@ Modeling choices:
     properties is reported (not used to drop cases).
 
 ANONYMITY: no company/product/respondent identifiers are written. Only safe
-data properties are asserted: hasLaunchYear (gYear) and hasBillingPeriodicity
+data properties are asserted: hasLaunchYear (xsd:integer) and hasBillingPeriodicity
 (normalized category).
 
 Layout: this script lives in sbmo/validation/scripts/. It reads the private
@@ -132,7 +132,7 @@ def main():
         triples = [f"ex:{c} a sbmo:SoftwareBusinessModel"]
         yr = year_literal(r[COL_YEAR] if COL_YEAR < len(r) else "")
         if yr:
-            triples.append(f'sbmo:hasLaunchYear "{yr}"^^xsd:gYear')
+            triples.append(f'sbmo:hasLaunchYear "{yr}"^^xsd:integer')
         per = norm_periodicity(r[COL_PERIODICITY] if COL_PERIODICITY < len(r) else "")
         if per:
             triples.append(f'sbmo:hasBillingPeriodicity "{per}"')

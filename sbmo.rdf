@@ -9,9 +9,27 @@
      xmlns:dcterms="http://purl.org/dc/terms/"
      xmlns:sbmo="https://rafaelc-rb.github.io/sbmo#">
     <owl:Ontology rdf:about="https://rafaelc-rb.github.io/sbmo">
-        <owl:versionIRI rdf:resource="https://rafaelc-rb.github.io/sbmo/1.0"/>
+        <owl:versionIRI rdf:resource="https://rafaelc-rb.github.io/sbmo/1.1"/>
         <dcterms:license rdf:resource="https://opensource.org/license/mit"/>
+        <owl:versionInfo>1.1</owl:versionInfo>
     </owl:Ontology>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
 
 
 
@@ -162,7 +180,7 @@
     <owl:DatatypeProperty rdf:about="https://rafaelc-rb.github.io/sbmo#hasBillingPeriodicity">
         <rdfs:domain rdf:resource="https://rafaelc-rb.github.io/sbmo#SoftwareBusinessModel"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment xml:lang="en">The billing periodicity of the software offering (e.g., monthly, annual, one-time). Derived from EQ15 (SMS extraction, 26/67 articles).</rdfs:comment>
+        <rdfs:comment xml:lang="en">The billing periodicity of the software offering (e.g., monthly, annual, one-time). Derived from EQ15 (SMS extraction, 24/63 primary studies).</rdfs:comment>
     </owl:DatatypeProperty>
     
 
@@ -171,7 +189,7 @@
 
     <owl:DatatypeProperty rdf:about="https://rafaelc-rb.github.io/sbmo#hasLaunchYear">
         <rdfs:domain rdf:resource="https://rafaelc-rb.github.io/sbmo#SoftwareBusinessModel"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#gYear"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <rdfs:comment xml:lang="en">The year the software product or service was launched. Supports temporal analysis and maturity assessment. Derived from EQ29 (SMS extraction).</rdfs:comment>
     </owl:DatatypeProperty>
     
@@ -226,7 +244,7 @@
 
     <owl:DatatypeProperty rdf:about="https://rafaelc-rb.github.io/sbmo#hasSourceYear">
         <rdfs:domain rdf:resource="https://rafaelc-rb.github.io/sbmo#SoftwareBusinessModel"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#gYear"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <rdfs:comment xml:lang="en">The year of the evidence source used to describe this software business model instance.</rdfs:comment>
     </owl:DatatypeProperty>
     
@@ -273,6 +291,7 @@
 
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#B2B">
         <rdfs:subClassOf rdf:resource="https://rafaelc-rb.github.io/sbmo#CustomerType"/>
+        <owl:disjointWith rdf:resource="https://rafaelc-rb.github.io/sbmo#B2C"/>
     </owl:Class>
     
 
@@ -281,6 +300,9 @@
 
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#B2C">
         <rdfs:subClassOf rdf:resource="https://rafaelc-rb.github.io/sbmo#CustomerType"/>
+        <owl:disjointWith rdf:resource="https://rafaelc-rb.github.io/sbmo#Enterprise"/>
+        <owl:disjointWith rdf:resource="https://rafaelc-rb.github.io/sbmo#Government"/>
+        <owl:disjointWith rdf:resource="https://rafaelc-rb.github.io/sbmo#SME"/>
     </owl:Class>
     
 
@@ -364,6 +386,8 @@
 
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#DirectSales">
         <rdfs:subClassOf rdf:resource="https://rafaelc-rb.github.io/sbmo#AcquisitionChannel"/>
+        <owl:disjointWith rdf:resource="https://rafaelc-rb.github.io/sbmo#MarketplaceChannel"/>
+        <owl:disjointWith rdf:resource="https://rafaelc-rb.github.io/sbmo#PartnerChannel"/>
     </owl:Class>
     
 
@@ -388,6 +412,7 @@
 
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#Enterprise">
         <rdfs:subClassOf rdf:resource="https://rafaelc-rb.github.io/sbmo#CustomerType"/>
+        <owl:disjointWith rdf:resource="https://rafaelc-rb.github.io/sbmo#SME"/>
     </owl:Class>
     
 
@@ -396,7 +421,7 @@
 
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#Government">
         <rdfs:subClassOf rdf:resource="https://rafaelc-rb.github.io/sbmo#CustomerType"/>
-        <rdfs:comment xml:lang="en">Government agencies and public sector organizations as target customers. SMS evidence: 4 occurrences (5.97%).</rdfs:comment>
+        <rdfs:comment xml:lang="en">Government agencies and public sector organizations as target customers. SMS evidence: 4 of 63 primary studies (6.3%).</rdfs:comment>
     </owl:Class>
     
 
@@ -405,7 +430,7 @@
 
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#DeveloperTools">
         <rdfs:subClassOf rdf:resource="https://rafaelc-rb.github.io/sbmo#CustomerType"/>
-        <rdfs:comment xml:lang="en">Software developers and development teams as target customers, typically for dev-tools, SDKs, and APIs. SMS evidence: 2 occurrences (2.99%).</rdfs:comment>
+        <rdfs:comment xml:lang="en">Software developers and development teams as target customers, typically for dev-tools, SDKs, and APIs. SMS evidence: 2 of 63 primary studies (3.2%).</rdfs:comment>
     </owl:Class>
     
 
@@ -463,7 +488,6 @@
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#Marketplace">
         <rdfs:subClassOf rdf:resource="https://rafaelc-rb.github.io/sbmo#EcosystemRole"/>
         <owl:disjointWith rdf:resource="https://rafaelc-rb.github.io/sbmo#StandaloneProduct"/>
-        <owl:disjointWith rdf:resource="https://rafaelc-rb.github.io/sbmo#TwoSidedPlatform"/>
     </owl:Class>
     
 
@@ -480,7 +504,8 @@
 
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#OEMComponent">
         <rdfs:subClassOf rdf:resource="https://rafaelc-rb.github.io/sbmo#EcosystemRole"/>
-        <rdfs:comment xml:lang="en">A software company that provides components or modules embedded into other vendors' products (OEM relationship). SMS evidence: 3 occurrences (4.48%).</rdfs:comment>
+        <owl:disjointWith rdf:resource="https://rafaelc-rb.github.io/sbmo#StandaloneProduct"/>
+        <rdfs:comment xml:lang="en">A software company that provides components or modules embedded into other vendors' products (OEM relationship). SMS evidence: 3 of 63 primary studies (4.8%).</rdfs:comment>
     </owl:Class>
     
 
@@ -489,7 +514,8 @@
 
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#PluginComplement">
         <rdfs:subClassOf rdf:resource="https://rafaelc-rb.github.io/sbmo#EcosystemRole"/>
-        <rdfs:comment xml:lang="en">A software company that provides plugins, extensions, or complementary products that enhance another platform. SMS evidence: 3 occurrences (4.48%).</rdfs:comment>
+        <owl:disjointWith rdf:resource="https://rafaelc-rb.github.io/sbmo#StandaloneProduct"/>
+        <rdfs:comment xml:lang="en">A software company that provides plugins, extensions, or complementary products that enhance another platform. SMS evidence: 3 of 63 primary studies (4.8%).</rdfs:comment>
     </owl:Class>
     
 
@@ -593,6 +619,7 @@
 
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#PerpetualLicenseRevenue">
         <rdfs:subClassOf rdf:resource="https://rafaelc-rb.github.io/sbmo#RevenueSource"/>
+        <owl:disjointWith rdf:resource="https://rafaelc-rb.github.io/sbmo#SubscriptionRevenue"/>
     </owl:Class>
     
 
@@ -601,7 +628,7 @@
 
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#SupportRevenue">
         <rdfs:subClassOf rdf:resource="https://rafaelc-rb.github.io/sbmo#RevenueSource"/>
-        <rdfs:comment xml:lang="en">Revenue generated from technical support, maintenance, and professional services. SMS evidence: 19 occurrences across 67 articles (28.36%).</rdfs:comment>
+        <rdfs:comment xml:lang="en">Revenue generated from technical support, maintenance, and professional services. SMS evidence: 20 of 63 primary studies (31.7%).</rdfs:comment>
     </owl:Class>
     
 
@@ -610,7 +637,7 @@
 
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#MarketplaceFeesRevenue">
         <rdfs:subClassOf rdf:resource="https://rafaelc-rb.github.io/sbmo#RevenueSource"/>
-        <rdfs:comment xml:lang="en">Revenue generated from fees charged for marketplace transactions or listings. SMS evidence: 4 occurrences (5.97%).</rdfs:comment>
+        <rdfs:comment xml:lang="en">Revenue generated from fees charged for marketplace transactions or listings. SMS evidence: 4 of 63 primary studies (6.3%).</rdfs:comment>
     </owl:Class>
     
 
@@ -619,7 +646,7 @@
 
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#OpenCoreRevenue">
         <rdfs:subClassOf rdf:resource="https://rafaelc-rb.github.io/sbmo#RevenueSource"/>
-        <rdfs:comment xml:lang="en">Revenue generated by commercially licensing proprietary extensions on top of an open source core. SMS evidence: 3 occurrences (4.48%).</rdfs:comment>
+        <rdfs:comment xml:lang="en">Revenue generated by commercially licensing proprietary extensions on top of an open source core. SMS evidence: 3 of 63 primary studies (4.8%).</rdfs:comment>
     </owl:Class>
     
 
@@ -628,7 +655,7 @@
 
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#DualLicensingRevenue">
         <rdfs:subClassOf rdf:resource="https://rafaelc-rb.github.io/sbmo#RevenueSource"/>
-        <rdfs:comment xml:lang="en">Revenue generated by offering software under both open source and commercial licenses. SMS evidence: 2 occurrences (2.99%).</rdfs:comment>
+        <rdfs:comment xml:lang="en">Revenue generated by offering software under both open source and commercial licenses. SMS evidence: 2 of 63 primary studies (3.2%).</rdfs:comment>
     </owl:Class>
     
 
@@ -661,7 +688,7 @@
 
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#Referral">
         <rdfs:subClassOf rdf:resource="https://rafaelc-rb.github.io/sbmo#AcquisitionChannel"/>
-        <rdfs:comment xml:lang="en">Customer acquisition through referral programs, word-of-mouth, or customer recommendations. SMS evidence: 8 occurrences (11.94%).</rdfs:comment>
+        <rdfs:comment xml:lang="en">Customer acquisition through referral programs, word-of-mouth, or customer recommendations. SMS evidence: 9 of 63 primary studies (14.3%).</rdfs:comment>
     </owl:Class>
     
 
@@ -873,7 +900,7 @@
 
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#Application">
         <rdfs:subClassOf rdf:resource="https://rafaelc-rb.github.io/sbmo#ProductOrServiceType"/>
-        <rdfs:comment xml:lang="en">A software application delivered to end users for direct use, such as CRM, ERP, or collaboration tools. SMS evidence: 60 occurrences across 67 articles (41.79%).</rdfs:comment>
+        <rdfs:comment xml:lang="en">A software application delivered to end users for direct use, such as CRM, ERP, or collaboration tools. SMS evidence: 56 of 63 primary studies (88.9%).</rdfs:comment>
     </owl:Class>
     
 
@@ -882,7 +909,7 @@
 
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#Platform">
         <rdfs:subClassOf rdf:resource="https://rafaelc-rb.github.io/sbmo#ProductOrServiceType"/>
-        <rdfs:comment xml:lang="en">A software platform that enables other software or services to be built, deployed, or operated on top of it. SMS evidence: 53 occurrences (79.10%).</rdfs:comment>
+        <rdfs:comment xml:lang="en">A software platform that enables other software or services to be built, deployed, or operated on top of it. SMS evidence: 51 of 63 primary studies (81.0%).</rdfs:comment>
     </owl:Class>
     
 
@@ -891,7 +918,7 @@
 
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#ManagedService">
         <rdfs:subClassOf rdf:resource="https://rafaelc-rb.github.io/sbmo#ProductOrServiceType"/>
-        <rdfs:comment xml:lang="en">A software offering delivered with supplementary management, maintenance, and support services. SMS evidence: 24 occurrences (35.82%).</rdfs:comment>
+        <rdfs:comment xml:lang="en">A software offering delivered with supplementary management, maintenance, and support services. SMS evidence: 22 of 63 primary studies (34.9%).</rdfs:comment>
     </owl:Class>
     
 
@@ -900,7 +927,7 @@
 
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#APIService">
         <rdfs:subClassOf rdf:resource="https://rafaelc-rb.github.io/sbmo#ProductOrServiceType"/>
-        <rdfs:comment xml:lang="en">A software offering primarily delivered through an application programming interface (API). SMS evidence: 8 occurrences (11.94%).</rdfs:comment>
+        <rdfs:comment xml:lang="en">A software offering primarily delivered through an application programming interface (API). SMS evidence: 8 of 63 primary studies (12.7%).</rdfs:comment>
     </owl:Class>
     
 
@@ -909,7 +936,7 @@
 
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#DataProduct">
         <rdfs:subClassOf rdf:resource="https://rafaelc-rb.github.io/sbmo#ProductOrServiceType"/>
-        <rdfs:comment xml:lang="en">A software offering centered on providing data, analytics, or data-driven insights as its core value. SMS evidence: 7 occurrences (10.45%).</rdfs:comment>
+        <rdfs:comment xml:lang="en">A software offering centered on providing data, analytics, or data-driven insights as its core value. SMS evidence: 6 of 63 primary studies (9.5%).</rdfs:comment>
     </owl:Class>
     
 
@@ -918,7 +945,7 @@
 
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#Infrastructure">
         <rdfs:subClassOf rdf:resource="https://rafaelc-rb.github.io/sbmo#ProductOrServiceType"/>
-        <rdfs:comment xml:lang="en">A software offering that provides computing infrastructure services (IaaS-level). SMS evidence: 4 occurrences (5.97%).</rdfs:comment>
+        <rdfs:comment xml:lang="en">A software offering that provides computing infrastructure services (IaaS-level). SMS evidence: 4 of 63 primary studies (6.3%).</rdfs:comment>
     </owl:Class>
     
 
@@ -927,7 +954,7 @@
 
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#SDK">
         <rdfs:subClassOf rdf:resource="https://rafaelc-rb.github.io/sbmo#ProductOrServiceType"/>
-        <rdfs:comment xml:lang="en">A software development kit offered as the primary product or service. SMS evidence: 1 occurrence (1.49%).</rdfs:comment>
+        <rdfs:comment xml:lang="en">A software development kit offered as the primary product or service. SMS evidence: 1 of 63 primary studies (1.6%).</rdfs:comment>
     </owl:Class>
     
 
@@ -953,7 +980,7 @@
 
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#Proprietary">
         <rdfs:subClassOf rdf:resource="https://rafaelc-rb.github.io/sbmo#IntellectualPropertyRegime"/>
-        <rdfs:comment xml:lang="en">A closed-source, proprietary licensing regime where the software source code is not shared. SMS evidence: 25 occurrences (41.79%).</rdfs:comment>
+        <rdfs:comment xml:lang="en">A closed-source, proprietary licensing regime where the software source code is not shared. SMS evidence: 24 of 63 primary studies (38.1%).</rdfs:comment>
     </owl:Class>
     
 
@@ -962,7 +989,8 @@
 
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#PermissiveOpenSource">
         <rdfs:subClassOf rdf:resource="https://rafaelc-rb.github.io/sbmo#IntellectualPropertyRegime"/>
-        <rdfs:comment xml:lang="en">An open source licensing regime with permissive terms (e.g., MIT, Apache, BSD) allowing broad reuse. SMS evidence: 5 occurrences (7.46%).</rdfs:comment>
+        <owl:disjointWith rdf:resource="https://rafaelc-rb.github.io/sbmo#Proprietary"/>
+        <rdfs:comment xml:lang="en">An open source licensing regime with permissive terms (e.g., MIT, Apache, BSD) allowing broad reuse. SMS evidence: 5 of 63 primary studies (7.9%).</rdfs:comment>
     </owl:Class>
     
 
@@ -971,7 +999,8 @@
 
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#OpenSource">
         <rdfs:subClassOf rdf:resource="https://rafaelc-rb.github.io/sbmo#IntellectualPropertyRegime"/>
-        <rdfs:comment xml:lang="en">A general open source licensing regime where the source code is publicly available. SMS evidence: 3 occurrences (4.48%).</rdfs:comment>
+        <owl:disjointWith rdf:resource="https://rafaelc-rb.github.io/sbmo#Proprietary"/>
+        <rdfs:comment xml:lang="en">A general open source licensing regime where the source code is publicly available. SMS evidence: 3 of 63 primary studies (4.8%).</rdfs:comment>
     </owl:Class>
     
 
@@ -980,7 +1009,7 @@
 
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#DualLicense">
         <rdfs:subClassOf rdf:resource="https://rafaelc-rb.github.io/sbmo#IntellectualPropertyRegime"/>
-        <rdfs:comment xml:lang="en">A licensing regime that offers the same software under two different licenses (typically one open source and one commercial). SMS evidence: 3 occurrences (4.48%).</rdfs:comment>
+        <rdfs:comment xml:lang="en">A licensing regime that offers the same software under two different licenses (typically one open source and one commercial). SMS evidence: 3 of 63 primary studies (4.8%).</rdfs:comment>
     </owl:Class>
     
 
@@ -989,7 +1018,7 @@
 
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#OpenCore">
         <rdfs:subClassOf rdf:resource="https://rafaelc-rb.github.io/sbmo#IntellectualPropertyRegime"/>
-        <rdfs:comment xml:lang="en">A hybrid licensing regime where a core product is open source but proprietary extensions or features are commercially licensed. SMS evidence: 2 occurrences (2.99%).</rdfs:comment>
+        <rdfs:comment xml:lang="en">A hybrid licensing regime where a core product is open source but proprietary extensions or features are commercially licensed. SMS evidence: 2 of 63 primary studies (3.2%).</rdfs:comment>
     </owl:Class>
     
 
@@ -998,7 +1027,9 @@
 
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#Copyleft">
         <rdfs:subClassOf rdf:resource="https://rafaelc-rb.github.io/sbmo#IntellectualPropertyRegime"/>
-        <rdfs:comment xml:lang="en">An open source licensing regime requiring derivative works to be distributed under the same license (e.g., GPL). SMS evidence: 1 occurrence (1.49%).</rdfs:comment>
+        <owl:disjointWith rdf:resource="https://rafaelc-rb.github.io/sbmo#PermissiveOpenSource"/>
+        <owl:disjointWith rdf:resource="https://rafaelc-rb.github.io/sbmo#Proprietary"/>
+        <rdfs:comment xml:lang="en">An open source licensing regime requiring derivative works to be distributed under the same license (e.g., GPL). SMS evidence: 1 of 63 primary studies (1.6%).</rdfs:comment>
     </owl:Class>
     
 
@@ -1024,7 +1055,7 @@
 
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#UserSeat">
         <rdfs:subClassOf rdf:resource="https://rafaelc-rb.github.io/sbmo#PricingBaseUnit"/>
-        <rdfs:comment xml:lang="en">Pricing based on the number of users or seats (named or concurrent). SMS evidence: 22 occurrences (41.79%).</rdfs:comment>
+        <rdfs:comment xml:lang="en">Pricing based on the number of users or seats (named or concurrent). SMS evidence: 19 of 63 primary studies (30.2%).</rdfs:comment>
     </owl:Class>
     
 
@@ -1033,7 +1064,7 @@
 
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#TransactionBased">
         <rdfs:subClassOf rdf:resource="https://rafaelc-rb.github.io/sbmo#PricingBaseUnit"/>
-        <rdfs:comment xml:lang="en">Pricing based on the number of transactions processed. SMS evidence: 13 occurrences (19.40%).</rdfs:comment>
+        <rdfs:comment xml:lang="en">Pricing based on the number of transactions processed. SMS evidence: 12 of 63 primary studies (19.0%).</rdfs:comment>
     </owl:Class>
     
 
@@ -1042,7 +1073,7 @@
 
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#ComputingTime">
         <rdfs:subClassOf rdf:resource="https://rafaelc-rb.github.io/sbmo#PricingBaseUnit"/>
-        <rdfs:comment xml:lang="en">Pricing based on computing time or duration of access. SMS evidence: 9 occurrences (13.43%).</rdfs:comment>
+        <rdfs:comment xml:lang="en">Pricing based on computing time or duration of access. SMS evidence: 8 of 63 primary studies (12.7%).</rdfs:comment>
     </owl:Class>
     
 
@@ -1051,7 +1082,7 @@
 
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#RevenueSharing">
         <rdfs:subClassOf rdf:resource="https://rafaelc-rb.github.io/sbmo#PricingBaseUnit"/>
-        <rdfs:comment xml:lang="en">Pricing based on a share of the revenue generated through the software. SMS evidence: 4 occurrences (5.97%).</rdfs:comment>
+        <rdfs:comment xml:lang="en">Pricing based on a share of the revenue generated through the software. SMS evidence: 4 of 63 primary studies (6.3%).</rdfs:comment>
     </owl:Class>
     
 
@@ -1060,7 +1091,7 @@
 
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#APICalls">
         <rdfs:subClassOf rdf:resource="https://rafaelc-rb.github.io/sbmo#PricingBaseUnit"/>
-        <rdfs:comment xml:lang="en">Pricing based on the number of API calls made. SMS evidence: 3 occurrences (4.48%).</rdfs:comment>
+        <rdfs:comment xml:lang="en">Pricing based on the number of API calls made. SMS evidence: 3 of 63 primary studies (4.8%).</rdfs:comment>
     </owl:Class>
     
 
@@ -1069,7 +1100,7 @@
 
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#Storage">
         <rdfs:subClassOf rdf:resource="https://rafaelc-rb.github.io/sbmo#PricingBaseUnit"/>
-        <rdfs:comment xml:lang="en">Pricing based on the amount of storage or bandwidth consumed. SMS evidence: 3 occurrences (4.48%).</rdfs:comment>
+        <rdfs:comment xml:lang="en">Pricing based on the amount of storage or bandwidth consumed. SMS evidence: 2 of 63 primary studies (3.2%).</rdfs:comment>
     </owl:Class>
     
 
@@ -1078,11 +1109,160 @@
 
     <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#Device">
         <rdfs:subClassOf rdf:resource="https://rafaelc-rb.github.io/sbmo#PricingBaseUnit"/>
-        <rdfs:comment xml:lang="en">Pricing based on the number of devices on which the software is installed or used. SMS evidence: 1 occurrence (1.49%).</rdfs:comment>
+        <rdfs:comment xml:lang="en">Pricing based on the number of devices on which the software is installed or used. SMS evidence: 1 of 63 primary studies (1.6%).</rdfs:comment>
     </owl:Class>
     
 
 
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Defined classes: recurrent SBM configurations (R30)
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- https://rafaelc-rb.github.io/sbmo#FreemiumSubscriptionModel -->
+
+    <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#FreemiumSubscriptionModel">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://rafaelc-rb.github.io/sbmo#SoftwareBusinessModel"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://rafaelc-rb.github.io/sbmo#hasPricingStrategy"/>
+                        <owl:someValuesFrom rdf:resource="https://rafaelc-rb.github.io/sbmo#FreemiumPricing"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://rafaelc-rb.github.io/sbmo#hasRevenueSource"/>
+                        <owl:someValuesFrom rdf:resource="https://rafaelc-rb.github.io/sbmo#SubscriptionRevenue"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment xml:lang="en">A software business model that combines a freemium pricing strategy with subscription revenue from the paid tiers. Defined class: membership is inferred from the declared pricing strategy and revenue source. SMS evidence: freemium model (264 coded mentions); subscription revenue in 47 of 63 primary studies (74.6%).</rdfs:comment>
+    </owl:Class>
+
+
+
+    <!-- https://rafaelc-rb.github.io/sbmo#NetworkedPlatformModel -->
+
+    <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#NetworkedPlatformModel">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://rafaelc-rb.github.io/sbmo#SoftwareBusinessModel"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://rafaelc-rb.github.io/sbmo#hasEcosystemRole"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                <owl:Class>
+                                    <owl:unionOf rdf:parseType="Collection">
+                                        <rdf:Description rdf:about="https://rafaelc-rb.github.io/sbmo#Marketplace"/>
+                                        <rdf:Description rdf:about="https://rafaelc-rb.github.io/sbmo#TwoSidedPlatform"/>
+                                    </owl:unionOf>
+                                </owl:Class>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="https://rafaelc-rb.github.io/sbmo#exhibitsNetworkEffect"/>
+                                        <owl:someValuesFrom rdf:resource="https://rafaelc-rb.github.io/sbmo#NetworkEffectType"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment xml:lang="en">A platform business model whose two-sided platform or marketplace role exhibits a declared network effect. Defined class: membership is inferred from the declared ecosystem role and its network effect; the reasoner also infers that it is a subclass of PlatformBusinessModel. SMS evidence: network effects (133 coded mentions); direct (34.9%), cross-sided (33.3%), and data-driven (23.8%) network effects across the 63 primary studies.</rdfs:comment>
+    </owl:Class>
+
+
+
+    <!-- https://rafaelc-rb.github.io/sbmo#PlatformBusinessModel -->
+
+    <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#PlatformBusinessModel">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://rafaelc-rb.github.io/sbmo#SoftwareBusinessModel"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://rafaelc-rb.github.io/sbmo#hasEcosystemRole"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://rafaelc-rb.github.io/sbmo#Marketplace"/>
+                                    <rdf:Description rdf:about="https://rafaelc-rb.github.io/sbmo#TwoSidedPlatform"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment xml:lang="en">A software business model in which the company plays a two-sided platform or marketplace role in its ecosystem. Defined class: membership is inferred from the declared ecosystem role. SMS evidence: platform business model (389 coded mentions, the most frequent) and marketplace model (63); two-sided platforms in 31 of 63 primary studies (49.2%).</rdfs:comment>
+    </owl:Class>
+
+
+
+    <!-- https://rafaelc-rb.github.io/sbmo#SubscriptionSaaSModel -->
+
+    <owl:Class rdf:about="https://rafaelc-rb.github.io/sbmo#SubscriptionSaaSModel">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://rafaelc-rb.github.io/sbmo#SoftwareBusinessModel"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://rafaelc-rb.github.io/sbmo#hasDeliveryMode"/>
+                        <owl:someValuesFrom rdf:resource="https://rafaelc-rb.github.io/sbmo#MultiTenantSaaS"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://rafaelc-rb.github.io/sbmo#hasRevenueSource"/>
+                        <owl:someValuesFrom rdf:resource="https://rafaelc-rb.github.io/sbmo#SubscriptionRevenue"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment xml:lang="en">A software business model delivered as multi-tenant SaaS and monetized through subscription revenue. Defined class: membership is inferred by the reasoner from the declared delivery mode and revenue source. SMS evidence: SaaS (266 coded mentions) and subscription-based pricing (149) are among the most frequent business models; subscription revenue is reported in 74.6% and multi-tenant SaaS in 69.8% of the 63 primary studies.</rdfs:comment>
+    </owl:Class>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://rafaelc-rb.github.io/sbmo#AcquisitionChannel"/>
+            <rdf:Description rdf:about="https://rafaelc-rb.github.io/sbmo#CustomerType"/>
+            <rdf:Description rdf:about="https://rafaelc-rb.github.io/sbmo#DeliveryMode"/>
+            <rdf:Description rdf:about="https://rafaelc-rb.github.io/sbmo#EcosystemRole"/>
+            <rdf:Description rdf:about="https://rafaelc-rb.github.io/sbmo#IntellectualPropertyRegime"/>
+            <rdf:Description rdf:about="https://rafaelc-rb.github.io/sbmo#NetworkEffectType"/>
+            <rdf:Description rdf:about="https://rafaelc-rb.github.io/sbmo#PricingBaseUnit"/>
+            <rdf:Description rdf:about="https://rafaelc-rb.github.io/sbmo#PricingStrategy"/>
+            <rdf:Description rdf:about="https://rafaelc-rb.github.io/sbmo#ProductOrServiceType"/>
+            <rdf:Description rdf:about="https://rafaelc-rb.github.io/sbmo#RevenueSource"/>
+            <rdf:Description rdf:about="https://rafaelc-rb.github.io/sbmo#SoftwareBusinessModel"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://rafaelc-rb.github.io/sbmo#MultiTenantSaaS"/>
+            <rdf:Description rdf:about="https://rafaelc-rb.github.io/sbmo#OnPremises"/>
+            <rdf:Description rdf:about="https://rafaelc-rb.github.io/sbmo#SingleTenantSaaS"/>
+        </owl:members>
+    </rdf:Description>
 </rdf:RDF>
 
 

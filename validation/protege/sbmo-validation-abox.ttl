@@ -10,7 +10,7 @@
     owl:imports <https://rafaelc-rb.github.io/sbmo> .
 
 ex:Case01 a sbmo:SoftwareBusinessModel ;
-    sbmo:hasLaunchYear "2023"^^xsd:gYear ;
+    sbmo:hasLaunchYear "2023"^^xsd:integer ;
     sbmo:hasBillingPeriodicity "Per transaction" ;
     sbmo:hasProductOrServiceType ex:Case01_Platform ;
     sbmo:hasProductOrServiceType ex:Case01_ManagedService ;
@@ -34,7 +34,7 @@ ex:Case01_FlexiblePricingStrategy a sbmo:FlexiblePricingStrategy ;
     sbmo:mitigates ex:Case01_PartnerEcosystemDisruption .
 
 ex:Case02 a sbmo:SoftwareBusinessModel ;
-    sbmo:hasLaunchYear "2023"^^xsd:gYear ;
+    sbmo:hasLaunchYear "2023"^^xsd:integer ;
     sbmo:hasBillingPeriodicity "None" ;
     sbmo:hasProductOrServiceType ex:Case02_Application ;
     sbmo:hasProductOrServiceType ex:Case02_APIService ;
@@ -68,7 +68,7 @@ ex:Case02_PilotImplementation a sbmo:PilotImplementation ;
     sbmo:mitigates ex:Case02_OrganizationalReadiness .
 
 ex:Case03 a sbmo:SoftwareBusinessModel ;
-    sbmo:hasLaunchYear "2025"^^xsd:gYear ;
+    sbmo:hasLaunchYear "2025"^^xsd:integer ;
     sbmo:hasBillingPeriodicity "Monthly" ;
     sbmo:hasProductOrServiceType ex:Case03_Application ;
     sbmo:hasDeliveryMode ex:Case03_MultiTenantSaaS ;
@@ -95,7 +95,7 @@ ex:Case03_PilotImplementation a sbmo:PilotImplementation ;
     sbmo:mitigates ex:Case03_QualityManagement .
 
 ex:Case04 a sbmo:SoftwareBusinessModel ;
-    sbmo:hasLaunchYear "2024"^^xsd:gYear ;
+    sbmo:hasLaunchYear "2024"^^xsd:integer ;
     sbmo:hasBillingPeriodicity "Monthly" ;
     sbmo:hasProductOrServiceType ex:Case04_Application ;
     sbmo:hasDeliveryMode ex:Case04_MultiTenantSaaS ;
@@ -125,7 +125,7 @@ ex:Case04_PilotImplementation a sbmo:PilotImplementation ;
     sbmo:mitigates ex:Case04_QualityManagement .
 
 ex:Case05 a sbmo:SoftwareBusinessModel ;
-    sbmo:hasLaunchYear "2023"^^xsd:gYear ;
+    sbmo:hasLaunchYear "2023"^^xsd:integer ;
     sbmo:hasBillingPeriodicity "Monthly or annual" ;
     sbmo:hasProductOrServiceType ex:Case05_Application ;
     sbmo:hasProductOrServiceType ex:Case05_APIService ;
@@ -157,7 +157,7 @@ ex:Case05_PilotImplementation a sbmo:PilotImplementation ;
     sbmo:mitigates ex:Case05_QualityManagement .
 
 ex:Case06 a sbmo:SoftwareBusinessModel ;
-    sbmo:hasLaunchYear "2026"^^xsd:gYear ;
+    sbmo:hasLaunchYear "2026"^^xsd:integer ;
     sbmo:hasBillingPeriodicity "Monthly" ;
     sbmo:hasProductOrServiceType ex:Case06_Application ;
     sbmo:hasProductOrServiceType ex:Case06_Platform ;
@@ -199,7 +199,7 @@ ex:Case06_PartnerCompensation a sbmo:PartnerCompensation ;
     sbmo:mitigates ex:Case06_QualityManagement .
 
 ex:Case07 a sbmo:SoftwareBusinessModel ;
-    sbmo:hasLaunchYear "2024"^^xsd:gYear ;
+    sbmo:hasLaunchYear "2024"^^xsd:integer ;
     sbmo:hasBillingPeriodicity "Monthly" ;
     sbmo:hasProductOrServiceType ex:Case07_Platform ;
     sbmo:hasProductOrServiceType ex:Case07_APIService ;
@@ -233,7 +233,7 @@ ex:Case07_PilotImplementation a sbmo:PilotImplementation ;
     sbmo:mitigates ex:Case07_QualityManagement .
 
 ex:Case08 a sbmo:SoftwareBusinessModel ;
-    sbmo:hasLaunchYear "2020"^^xsd:gYear ;
+    sbmo:hasLaunchYear "2020"^^xsd:integer ;
     sbmo:hasBillingPeriodicity "Other" ;
     sbmo:hasProductOrServiceType ex:Case08_Application ;
     sbmo:hasDeliveryMode ex:Case08_MobileDelivery ;
@@ -256,7 +256,7 @@ ex:Case08_PilotImplementation a sbmo:PilotImplementation ;
     sbmo:mitigates ex:Case08_SecurityConcerns .
 
 ex:Case09 a sbmo:SoftwareBusinessModel ;
-    sbmo:hasLaunchYear "2014"^^xsd:gYear ;
+    sbmo:hasLaunchYear "2014"^^xsd:integer ;
     sbmo:hasBillingPeriodicity "Monthly" ;
     sbmo:hasProductOrServiceType ex:Case09_Application ;
     sbmo:hasDeliveryMode ex:Case09_OnPremises ;
@@ -284,7 +284,7 @@ ex:Case09_PartnerCompensation a sbmo:PartnerCompensation ;
     sbmo:mitigates ex:Case09_OrganizationalReadiness .
 
 ex:Case10 a sbmo:SoftwareBusinessModel ;
-    sbmo:hasLaunchYear "2015"^^xsd:gYear ;
+    sbmo:hasLaunchYear "2015"^^xsd:integer ;
     sbmo:hasProductOrServiceType ex:Case10_Application ;
     sbmo:hasDeliveryMode ex:Case10_MultiTenantSaaS ;
     sbmo:targetsCustomerType ex:Case10_B2C ;
@@ -302,7 +302,7 @@ ex:Case10_PilotImplementation a sbmo:PilotImplementation ;
     sbmo:mitigates ex:Case10_OrganizationalReadiness .
 
 ex:Case11 a sbmo:SoftwareBusinessModel ;
-    sbmo:hasLaunchYear "2025"^^xsd:gYear ;
+    sbmo:hasLaunchYear "2025"^^xsd:integer ;
     sbmo:hasBillingPeriodicity "None" ;
     sbmo:hasProductOrServiceType ex:Case11_Application ;
     sbmo:hasDeliveryMode ex:Case11_MultiTenantSaaS ;
@@ -315,7 +315,7 @@ ex:Case11_PilotImplementation a sbmo:PilotImplementation ;
     sbmo:mitigates ex:Case11_SecurityConcerns .
 
 ex:Case12 a sbmo:SoftwareBusinessModel ;
-    sbmo:hasLaunchYear "2026"^^xsd:gYear ;
+    sbmo:hasLaunchYear "2026"^^xsd:integer ;
     sbmo:hasBillingPeriodicity "Annual" ;
     sbmo:hasProductOrServiceType ex:Case12_Application ;
     sbmo:hasDeliveryMode ex:Case12_MultiTenantSaaS ;
@@ -336,7 +336,7 @@ ex:Case12_PartnerCompensation a sbmo:PartnerCompensation ;
     sbmo:mitigates ex:Case12_QualityManagement .
 
 ex:Case13 a sbmo:SoftwareBusinessModel ;
-    sbmo:hasLaunchYear "2017"^^xsd:gYear ;
+    sbmo:hasLaunchYear "2017"^^xsd:integer ;
     sbmo:hasBillingPeriodicity "Monthly" ;
     sbmo:hasProductOrServiceType ex:Case13_Application ;
     sbmo:hasProductOrServiceType ex:Case13_Platform ;
@@ -384,7 +384,7 @@ ex:Case13_PartnerCompensation a sbmo:PartnerCompensation ;
     sbmo:mitigates ex:Case13_QualityManagement .
 
 ex:Case14 a sbmo:SoftwareBusinessModel ;
-    sbmo:hasLaunchYear "2025"^^xsd:gYear ;
+    sbmo:hasLaunchYear "2025"^^xsd:integer ;
     sbmo:hasProductOrServiceType ex:Case14_Application ;
     sbmo:hasDeliveryMode ex:Case14_MultiTenantSaaS ;
     sbmo:hasEcosystemRole ex:Case14_StandaloneProduct ;
@@ -393,7 +393,7 @@ ex:Case14 a sbmo:SoftwareBusinessModel ;
     sbmo:facesChallenge ex:Case14_SecurityConcerns .
 
 ex:Case15 a sbmo:SoftwareBusinessModel ;
-    sbmo:hasLaunchYear "2019"^^xsd:gYear ;
+    sbmo:hasLaunchYear "2019"^^xsd:integer ;
     sbmo:hasBillingPeriodicity "Monthly" ;
     sbmo:hasProductOrServiceType ex:Case15_Application ;
     sbmo:hasProductOrServiceType ex:Case15_Platform ;
@@ -435,7 +435,7 @@ ex:Case15_PartnerCompensation a sbmo:PartnerCompensation ;
     sbmo:mitigates ex:Case15_CustomerTrustMaintenance .
 
 ex:Case16 a sbmo:SoftwareBusinessModel ;
-    sbmo:hasLaunchYear "2025"^^xsd:gYear ;
+    sbmo:hasLaunchYear "2025"^^xsd:integer ;
     sbmo:hasBillingPeriodicity "Mixed" ;
     sbmo:hasProductOrServiceType ex:Case16_Platform ;
     sbmo:hasDeliveryMode ex:Case16_MultiTenantSaaS ;
@@ -470,7 +470,7 @@ ex:Case16_PilotImplementation a sbmo:PilotImplementation ;
     sbmo:mitigates ex:Case16_QualityManagement .
 
 ex:Case17 a sbmo:SoftwareBusinessModel ;
-    sbmo:hasLaunchYear "2025"^^xsd:gYear ;
+    sbmo:hasLaunchYear "2025"^^xsd:integer ;
     sbmo:hasBillingPeriodicity "Monthly or annual" ;
     sbmo:hasProductOrServiceType ex:Case17_Application ;
     sbmo:hasProductOrServiceType ex:Case17_ManagedService ;
@@ -495,7 +495,7 @@ ex:Case17_PilotImplementation a sbmo:PilotImplementation ;
     sbmo:mitigates ex:Case17_QualityManagement .
 
 ex:Case18 a sbmo:SoftwareBusinessModel ;
-    sbmo:hasLaunchYear "2026"^^xsd:gYear ;
+    sbmo:hasLaunchYear "2026"^^xsd:integer ;
     sbmo:hasProductOrServiceType ex:Case18_Application ;
     sbmo:hasProductOrServiceType ex:Case18_Platform ;
     sbmo:hasProductOrServiceType ex:Case18_APIService ;
@@ -521,7 +521,7 @@ ex:Case18_FlexiblePricingStrategy a sbmo:FlexiblePricingStrategy ;
     sbmo:mitigates ex:Case18_RevenueStreamTransformation .
 
 ex:Case19 a sbmo:SoftwareBusinessModel ;
-    sbmo:hasLaunchYear "2008"^^xsd:gYear ;
+    sbmo:hasLaunchYear "2008"^^xsd:integer ;
     sbmo:hasBillingPeriodicity "Monthly" ;
     sbmo:hasProductOrServiceType ex:Case19_Application ;
     sbmo:hasProductOrServiceType ex:Case19_ManagedService ;
@@ -563,7 +563,7 @@ ex:Case19_PartnerCompensation a sbmo:PartnerCompensation ;
     sbmo:mitigates ex:Case19_RevenueStreamTransformation .
 
 ex:Case20 a sbmo:SoftwareBusinessModel ;
-    sbmo:hasLaunchYear "2017"^^xsd:gYear ;
+    sbmo:hasLaunchYear "2017"^^xsd:integer ;
     sbmo:hasBillingPeriodicity "Monthly" ;
     sbmo:hasProductOrServiceType ex:Case20_Application ;
     sbmo:hasProductOrServiceType ex:Case20_Platform ;
@@ -604,7 +604,7 @@ ex:Case20_PartnerCompensation a sbmo:PartnerCompensation ;
     sbmo:mitigates ex:Case20_QualityManagement .
 
 ex:Case21 a sbmo:SoftwareBusinessModel ;
-    sbmo:hasLaunchYear "2025"^^xsd:gYear ;
+    sbmo:hasLaunchYear "2025"^^xsd:integer ;
     sbmo:hasBillingPeriodicity "Monthly or annual" ;
     sbmo:hasProductOrServiceType ex:Case21_Application ;
     sbmo:hasProductOrServiceType ex:Case21_Platform ;
@@ -642,7 +642,7 @@ ex:Case21_PilotImplementation a sbmo:PilotImplementation ;
     sbmo:mitigates ex:Case21_QualityManagement .
 
 ex:Case22 a sbmo:SoftwareBusinessModel ;
-    sbmo:hasLaunchYear "2025"^^xsd:gYear ;
+    sbmo:hasLaunchYear "2025"^^xsd:integer ;
     sbmo:hasBillingPeriodicity "Monthly or annual" ;
     sbmo:hasProductOrServiceType ex:Case22_Application ;
     sbmo:hasProductOrServiceType ex:Case22_Platform ;
@@ -676,7 +676,7 @@ ex:Case22_PilotImplementation a sbmo:PilotImplementation ;
     sbmo:mitigates ex:Case22_QualityManagement .
 
 ex:Case23 a sbmo:SoftwareBusinessModel ;
-    sbmo:hasLaunchYear "2013"^^xsd:gYear ;
+    sbmo:hasLaunchYear "2013"^^xsd:integer ;
     sbmo:hasBillingPeriodicity "Quarterly" ;
     sbmo:hasProductOrServiceType ex:Case23_Application ;
     sbmo:hasProductOrServiceType ex:Case23_ManagedService ;
@@ -714,7 +714,7 @@ ex:Case23_PilotImplementation a sbmo:PilotImplementation ;
     sbmo:mitigates ex:Case23_QualityManagement .
 
 ex:Case24 a sbmo:SoftwareBusinessModel ;
-    sbmo:hasLaunchYear "2024"^^xsd:gYear ;
+    sbmo:hasLaunchYear "2024"^^xsd:integer ;
     sbmo:hasBillingPeriodicity "Monthly" ;
     sbmo:hasProductOrServiceType ex:Case24_Application ;
     sbmo:hasProductOrServiceType ex:Case24_APIService ;
@@ -748,7 +748,7 @@ ex:Case24_PartnerCompensation a sbmo:PartnerCompensation ;
     sbmo:mitigates ex:Case24_CustomerTrustMaintenance .
 
 ex:Case25 a sbmo:SoftwareBusinessModel ;
-    sbmo:hasLaunchYear "2013"^^xsd:gYear ;
+    sbmo:hasLaunchYear "2013"^^xsd:integer ;
     sbmo:hasBillingPeriodicity "Monthly" ;
     sbmo:hasProductOrServiceType ex:Case25_Platform ;
     sbmo:hasDeliveryMode ex:Case25_OnPremises ;
@@ -769,7 +769,7 @@ ex:Case25_PilotImplementation a sbmo:PilotImplementation ;
     sbmo:mitigates ex:Case25_QualityManagement .
 
 ex:Case26 a sbmo:SoftwareBusinessModel ;
-    sbmo:hasLaunchYear "2025"^^xsd:gYear ;
+    sbmo:hasLaunchYear "2025"^^xsd:integer ;
     sbmo:hasProductOrServiceType ex:Case26_Application ;
     sbmo:hasDeliveryMode ex:Case26_MultiTenantSaaS ;
     sbmo:hasRevenueSource ex:Case26_SubscriptionRevenue ;
@@ -790,7 +790,7 @@ ex:Case26_FlexiblePricingStrategy a sbmo:FlexiblePricingStrategy ;
     sbmo:mitigates ex:Case26_QualityManagement .
 
 ex:Case27 a sbmo:SoftwareBusinessModel ;
-    sbmo:hasLaunchYear "2015"^^xsd:gYear ;
+    sbmo:hasLaunchYear "2015"^^xsd:integer ;
     sbmo:hasBillingPeriodicity "Monthly or annual" ;
     sbmo:hasProductOrServiceType ex:Case27_Application ;
     sbmo:hasProductOrServiceType ex:Case27_ManagedService ;
@@ -831,7 +831,7 @@ ex:Case27_PilotImplementation a sbmo:PilotImplementation ;
     sbmo:mitigates ex:Case27_QualityManagement .
 
 ex:Case28 a sbmo:SoftwareBusinessModel ;
-    sbmo:hasLaunchYear "2023"^^xsd:gYear ;
+    sbmo:hasLaunchYear "2023"^^xsd:integer ;
     sbmo:hasBillingPeriodicity "Annual" ;
     sbmo:hasProductOrServiceType ex:Case28_Application ;
     sbmo:hasProductOrServiceType ex:Case28_Platform ;
@@ -906,7 +906,7 @@ ex:Case29_PartnerCompensation a sbmo:PartnerCompensation ;
     sbmo:mitigates ex:Case29_QualityManagement .
 
 ex:Case30 a sbmo:SoftwareBusinessModel ;
-    sbmo:hasLaunchYear "2004"^^xsd:gYear ;
+    sbmo:hasLaunchYear "2004"^^xsd:integer ;
     sbmo:hasBillingPeriodicity "Monthly" ;
     sbmo:hasProductOrServiceType ex:Case30_ManagedService ;
     sbmo:hasProductOrServiceType ex:Case30_APIService ;
@@ -941,7 +941,7 @@ ex:Case30_PilotImplementation a sbmo:PilotImplementation ;
     sbmo:mitigates ex:Case30_QualityManagement .
 
 ex:Case31 a sbmo:SoftwareBusinessModel ;
-    sbmo:hasLaunchYear "2000"^^xsd:gYear ;
+    sbmo:hasLaunchYear "2000"^^xsd:integer ;
     sbmo:hasBillingPeriodicity "Mixed" ;
     sbmo:hasProductOrServiceType ex:Case31_Application ;
     sbmo:hasProductOrServiceType ex:Case31_Platform ;
