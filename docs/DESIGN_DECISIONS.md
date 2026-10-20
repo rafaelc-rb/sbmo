@@ -33,6 +33,7 @@ Non-trivial modeling decisions, their rationale, and alternatives considered.
 | **Decision** | Apply `owl:AllDisjointClasses` only to EcosystemRole subtypes (StandaloneProduct, TwoSidedPlatform, Marketplace) and NetworkEffectType subtypes (DirectNetworkEffect, CrossSidedNetworkEffect, DataDrivenNetworkEffect). |
 | **Rationale** | These subtypes are mutually exclusive by definition (an ecosystem role cannot be both standalone and marketplace). Other dimensions (e.g., RevenueSource subtypes) can co-occur in a single SBM, so disjointness would be incorrect. |
 | **Evidence** | SMS coding scheme; CQ4 ecosystem–network effect analysis |
+| **Superseded by** | DD-012 (2026-10-20): the co-occurrence argument applies to cases, not to value individuals; `Marketplace` ⊥ `TwoSidedPlatform` was removed. |
 
 ### DD-004: Existential restrictions on SoftwareBusinessModel
 
@@ -93,6 +94,7 @@ Non-trivial modeling decisions, their rationale, and alternatives considered.
 | **Documentation properties** | All 5 candidates from MVP_SCOPE_PLAN.md §6 included. Minimum traceability layer for real-case validation. |
 | **Domain/Range** | All properties: domain `SoftwareBusinessModel`. Ranges: `xsd:string` for textual attributes, `xsd:gYear` for year attributes. |
 | **Evidence** | EQ14, EQ15, EQ29 (SMS extraction); MVP_SCOPE_PLAN.md §5 and §6 |
+| **Superseded in part by** | DD-013 (2026-10-20): year ranges are `xsd:integer`; EQ15 is answered by 24 of the 63 primary studies. |
 
 ### DD-009: Remove exemplar individuals and clean TBox for real-case validation
 
@@ -119,6 +121,39 @@ Non-trivial modeling decisions, their rationale, and alternatives considered.
 | **Disjointness** | Not applied to new EcosystemRole subclasses (`OEMComponent`, `PluginComplement`). A company can simultaneously be an OEM component provider and a plugin/complement provider. |
 | **Excluded from EQ14** | `Tiers/Plans`, `Trial`, `Annual contract`, `Custom negotiation`, `Prepaid credits` — these are operational pricing modalities, not conceptual strategies. Captured by `hasPricingDescription` (data property). |
 | **Evidence** | q_04, q_09, q_10, q_12, q_13, q_14, q_16, q_17, q_18 distributions (sbm-sms-data-repo) |
+| **Superseded in part by** | DD-013 (2026-10-20): the counts above refer to the 67-record corpus; the `rdfs:comment` evidence now uses the 63 primary studies. |
+
+### DD-011: Defined classes for recurrent SBM configurations
+
+| Field | Value |
+|-------|-------|
+| **Date** | 2026-10-20 |
+| **Decision** | Add four defined classes (`owl:equivalentClass`, necessary and sufficient conditions): `SubscriptionSaaSModel` ≡ SBM ⊓ ∃hasDeliveryMode.MultiTenantSaaS ⊓ ∃hasRevenueSource.SubscriptionRevenue; `FreemiumSubscriptionModel` ≡ SBM ⊓ ∃hasPricingStrategy.FreemiumPricing ⊓ ∃hasRevenueSource.SubscriptionRevenue; `PlatformBusinessModel` ≡ SBM ⊓ ∃hasEcosystemRole.(TwoSidedPlatform ⊔ Marketplace); `NetworkedPlatformModel` ≡ SBM ⊓ ∃hasEcosystemRole.((TwoSidedPlatform ⊔ Marketplace) ⊓ ∃exhibitsNetworkEffect.NetworkEffectType). |
+| **Rationale** | Without defined classes, Pellet only inferred supertypes, domain/range types, and disjointness conflicts (committee: R30). The definitions name the most recurrent SMS configurations, so the reasoner classifies cases that are only asserted with dimensional values, and infers `NetworkedPlatformModel` ⊑ `PlatformBusinessModel` at T-Box level. |
+| **Constraints** | Fillers are named leaf classes, never the dimension class: `minQualifiedCardinality` on `SoftwareBusinessModel` would make, e.g., `hasRevenueSource some RevenueSource` hold for every case. No definition depends on absent information (open world). |
+| **Alternatives rejected** | Single-condition classes (freemium only, API-based): the inference only restates the asserted value. Open-source business model: 1 of 31 cases. "Standalone-only" model: needs closure axioms. |
+| **Effect** | 93 classes; DL expressivity unchanged (ALCQ(D)); CQ1–CQ7 return the same sets. Over the 31 cases: 18, 4, 15, and 10 members. |
+| **Evidence** | Dissertation Chapter 5: Tables 2 and 3 (platform 389, SaaS 266, freemium 264, network effects 133 mentions), Figures 9 and 12; `validation/scripts/reasoning-demo.py`. |
+
+### DD-012: Disjointness by definition, at the level of value individuals
+
+| Field | Value |
+|-------|-------|
+| **Date** | 2026-10-20 |
+| **Decision** | (1) `SoftwareBusinessModel` and the ten configuration dimensions (`DeliveryMode`, `RevenueSource`, `PricingStrategy`, `CustomerType`, `EcosystemRole`, `NetworkEffectType`, `AcquisitionChannel`, `ProductOrServiceType`, `IntellectualPropertyRegime`, `PricingBaseUnit`) are pairwise disjoint. (2) Within dimensions: `SubscriptionRevenue` ⊥ `PerpetualLicenseRevenue`; `MultiTenantSaaS`, `SingleTenantSaaS`, `OnPremises` pairwise; `B2C` ⊥ `B2B`, `SME`, `Enterprise`, `Government`; `SME` ⊥ `Enterprise`; `StandaloneProduct` ⊥ `OEMComponent`, `PluginComplement` (kept: ⊥ `TwoSidedPlatform`, ⊥ `Marketplace`); `DirectSales` ⊥ `PartnerChannel`, `MarketplaceChannel`; `Proprietary` ⊥ `OpenSource`, `PermissiveOpenSource`, `Copyleft`; `PermissiveOpenSource` ⊥ `Copyleft`. Network-effect types unchanged. (3) `Marketplace` ⊥ `TwoSidedPlatform` removed. |
+| **Rationale** | In the A-Box each selected value is its own individual, so disjointness constrains what a single value can be, not which values a case combines. Two classes are disjoint only when no value can belong to both by definition (questionnaire option texts and SMS descriptions). A marketplace "connects sellers and buyers", which satisfies the definition of a two-sided platform ("connects two distinct groups of users"); 4 cases declare both roles. Dimension-level disjointness, combined with property ranges, detects a value used in the wrong property (negative test `case02-negative-test-misused-value.ttl`). |
+| **Not declared** | Pricing strategies, product/service types, and pricing base units (categories combine or overlap); `HybridDelivery`, mobile/desktop delivery; `B2B` with `SME`/`Enterprise`/`Government`; `DeveloperTools`; product-led growth vs. direct sales; `OpenCore`, `DualLicense`; adoption classes (`SuccessFactor`, `ImplementationChallenge`, `MitigationStrategy`), which overlap conceptually with configuration choices. Idea for a later revision: `Marketplace` ⊑ `TwoSidedPlatform`. |
+| **Effect** | 21 disjointness axioms (77 disjoint pairs, previously 6). A-Box consistent; no unsatisfiable class; CQ1–CQ7 unchanged. |
+| **Supersedes** | DD-003. |
+
+### DD-013: OWL 2 DL profile conformance and recounted SMS evidence
+
+| Field | Value |
+|-------|-------|
+| **Date** | 2026-10-20 |
+| **Decision** | Declare `dcterms:license` as `owl:AnnotationProperty`; change the range of `hasLaunchYear` and `hasSourceYear` from `xsd:gYear` to `xsd:integer`, converting the 30 `hasLaunchYear` literals of the A-Box (mechanical edit, verified by diff; `build_abox.py` emits the same). Recount the SMS evidence in `rdfs:comment` over the 63 primary studies. |
+| **Rationale** | ROBOT reported the 1.0 file outside the OWL 2 DL profile: undeclared annotation property and `xsd:gYear`, which is not in the OWL 2 datatype map. After the change, ROBOT `validate-profile --profile DL` reports no violation for the T-Box and for T-Box + A-Box. The comments still used the 67-record corpus corrected in the dissertation (R08). |
+| **Evidence** | `sbm-sms-data-repo/by_closed_ended_question/STATISTICS.md` (regenerated 2026-10-19 from the CSVs) and `by_open_ended_question/question_15.json` (24/63). |
 
 ---
 

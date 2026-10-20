@@ -25,9 +25,9 @@ The ontology is grounded on a **Systematic Mapping Study (SMS)** — 67 peer-rev
 ### Current ontology status
 
 - Pure T-Box distribution (`sbmo.rdf`) with no named individuals.
-- 14 top-level classes, 75 subclasses, 13 object properties, and 8 data properties.
-- Minimum completeness constraints modeled with `minQualifiedCardinality`.
-- CQ1–CQ7 are structurally supported by the ontology schema; empirical validation with real company cases is planned.
+- Version 1.1: 93 classes (14 top-level, 75 subclasses, 4 defined classes), 13 object properties, and 8 data properties; OWL 2 DL, expressivity ALCQ(D).
+- Minimum completeness constraints modeled with `minQualifiedCardinality`; disjointness between dimensions and within dimensions where it holds by definition (DD-012).
+- CQ1–CQ7 are structurally supported by the ontology schema and answered over 31 real cases (`validation/`).
 
 ### Related repositories
 

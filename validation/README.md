@@ -55,12 +55,31 @@ private-only.
   `protege/dl_queries.md` with Pellet (via owlready2) and checks that the
   returned individuals, not only their number, equal the expected sets
   (requires `owlready2`, `rdflib` and Java).
+- `scripts/reasoning-demo.py` — what Pellet infers from the A-Box: members of
+  the four defined classes (checked against the case table), the inferred
+  subsumption `NetworkedPlatformModel` ⊑ `PlatformBusinessModel`, the
+  declared × inferred table of Case02 with the axioms of each inference,
+  open-world probes, and the two negative tests; writes
+  `survey-derived/defined-class-counts.csv`, `case02-declared-inferred.csv`,
+  `reasoning-demo.json` and the dissertation tables `tab:defined_class_counts`
+  and `tab:case02_declared_inferred` (requires `owlready2`, `rdflib` and a JDK).
+- `scripts/Justify.java` — prints Pellet justifications; compiled on the fly by
+  `reasoning-demo.py` against the Pellet jars bundled with owlready2.
 - `scripts/mapping.md` — human-readable review sheet of the mapping.
 - `survey-derived/` — generated, anonymized outputs: `cases_normalized.csv`
   (CaseID + mapped categories, no identifiers) and `summary.json` (aggregate
   figures: counts, coverage, frequencies, CQ cross-check).
 - `protege/sbmo-validation-abox.ttl` — the anonymized A-Box (31 cases) that
   `owl:imports` the T-Box.
+- `protege/case02-negative-test-disjoint-roles.ttl` and
+  `protege/case02-negative-test-misused-value.ttl` — negative tests: each
+  imports the A-Box unchanged and adds one wrong assertion about Case02; both
+  must make the knowledge base inconsistent (the second one only since SBMO
+  1.1, whose dimension-level disjointness detects a value used in the wrong
+  property).
+- `protege/catalog-v001.xml` — hand-written XML catalog that maps the T-Box and
+  A-Box IRIs to the local files, so Protégé and ROBOT (`--catalog`) resolve the
+  imports offline. It is the only versioned catalog (see `../.gitignore`).
 - `protege/queries/CQ1..CQ7.rq` — SPARQL-DL queries, one per competency
   question.
 
@@ -88,8 +107,8 @@ currently overridable via CLI).
 ## Run the competency questions in Protégé (manual step)
 
 1. Open `protege/sbmo-validation-abox.ttl` in Protégé 5.x. It imports the
-   T-Box, so both load together (keep `../sbmo.rdf` reachable, or import by
-   IRI). Prefer the official Protégé distribution
+   T-Box, so both load together; `protege/catalog-v001.xml` maps the import to
+   `../../sbmo.rdf`. Prefer the official Protégé distribution
    (https://github.com/protegeproject/protege-distribution/releases) over a
    distro package — e.g. the Arch Linux `protege` package ships without any
    reasoner or plugin preinstalled, which required extra setup.
@@ -108,6 +127,27 @@ currently overridable via CLI).
    `survey-derived/summary.json` under `"cq"` — they should match.
    `scripts/check_cq_result_sets.py` repeats the check outside Protégé at the
    level of individual sets (2026-10-19: all seven sets equal).
+
+## Reasoning demonstration and negative tests
+
+```
+cd scripts
+python3 reasoning-demo.py      # needs owlready2, rdflib, java and javac on PATH
+```
+
+2026-10-20 (SBMO 1.1, OpenJDK 27, owlready2 0.51): `SubscriptionSaaSModel` 18
+cases, `FreemiumSubscriptionModel` 4, `PlatformBusinessModel` 15,
+`NetworkedPlatformModel` 10, all equal to the sets computed from the case table;
+Case02 is inferred to be a `SubscriptionSaaSModel` and a
+`FreemiumSubscriptionModel`; both negative tests are inconsistent. With
+`--tbox`, `--abox` and `--negative-only` the negative tests can be run against
+an earlier version (SBMO 1.0: the second test is consistent, so the error goes
+unnoticed). The Protégé screenshots of the dissertation follow
+`sbm-ontology-dissertation/docs/defense/protege-screenshot-guide.md`.
+
+OWL 2 DL profile (ROBOT 1.9.6, `validate-profile --profile DL`): no violation
+for `../sbmo.rdf` nor for the A-Box with its imports closure
+(`--catalog protege/catalog-v001.xml`).
 
 ## Structural check (OOPS!)
 
