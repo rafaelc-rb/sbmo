@@ -151,8 +151,10 @@ association_results <- do.call(rbind, lapply(names(pairs), function(cq) {
 association_results$BH_q <- p.adjust(association_results$PermutationP, method = "BH")
 write.csv(association_results, file.path(output_dir, "rv_associations.csv"), row.names = FALSE)
 
-# Sensitivity analysis: retain first response for each organization label.
-first_by_org <- !duplicated(tolower(org_raw))
+# Sensitivity analysis: retain first response for each organization cluster.
+# Respondents who did not report an organization each have their own
+# ORG_ANON_xx cluster, so they are kept as separate organizations.
+first_by_org <- !duplicated(org_cluster)
 sensitivity <- do.call(rbind, lapply(names(pairs), function(cq) {
   pair <- pairs[[cq]]
   z <- rv_test(matrices[[pair[1]]][first_by_org, , drop = FALSE], matrices[[pair[2]]][first_by_org, , drop = FALSE])
