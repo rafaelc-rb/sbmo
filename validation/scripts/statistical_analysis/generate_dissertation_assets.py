@@ -423,11 +423,11 @@ def sensitivity_table():
 \\caption{Sensitivity analysis: RV coefficients recomputed after retaining a single response per organization, with each respondent who did not report an organization counted as a separate one ($n=27$), compared with the full sample ($n=31$).}
 \\label{tab:sensitivity}
 \\centering
-\\small
+\\footnotesize
 \\begin{tabular}{l|rr|rr}
     \\bottomrule
     \\rowcolor{gray!50}
-     & \\multicolumn{2}{c|}{\\textbf{All cases ($n=31$)}} & \\multicolumn{2}{c}{\\textbf{Sensitivity ($n=27$)}} \\\\
+     & \\multicolumn{2}{c|}{\\textbf{All Cases ($n=31$)}} & \\multicolumn{2}{c}{\\textbf{Sensitivity ($n=27$)}} \\\\
     \\textbf{CQ} & \\textbf{RV} & \\textbf{$p_{perm}$} & \\textbf{RV} & \\textbf{$p_{perm}$} \\\\
     \\hline
 """ + "\n    ".join(table_rows) + """
