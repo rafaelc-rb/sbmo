@@ -1,8 +1,8 @@
 # SBMO empirical validation
 
 Artifacts supporting the empirical validation reported in the dissertation
-(Chapter 6, "Ontology Evaluation"): a Google Forms survey of 31 real software
-business models, mapped onto the SBMO vocabulary and instantiated into an
+(Chapter 6, "Ontology Evaluation"): a Google Forms survey of 31 real cases
+describing 30 distinct software products, mapped onto the SBMO vocabulary and instantiated into an
 anonymized A-Box. Everything here keeps the canonical T-Box `../sbmo.rdf`
 **untouched** and treats the survey data as **anonymous** and **publishable**.
 

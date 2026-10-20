@@ -3,7 +3,7 @@
 Supporting materials for the empirical validation reported in the
 dissertation *Software Business Model Ontology (SBMO)* (PPGES/UNIPAMPA),
 Chapter 7, "Ontology Evaluation": a questionnaire-based survey of 31 real
-software business models, used to instantiate and evaluate the SBMO ontology
+cases describing 30 distinct software products, used to instantiate and evaluate the SBMO ontology
 (`https://github.com/rafaelc-rb/sbmo`).
 
 This directory is meant to be uploaded as-is (zipped) to Zenodo as a single

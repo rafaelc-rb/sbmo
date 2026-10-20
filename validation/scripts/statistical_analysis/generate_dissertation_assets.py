@@ -420,7 +420,7 @@ def sensitivity_table():
         )
     table = GENERATED_HEADER + """\\begin{table}[!htb]
 \\renewcommand{\\arraystretch}{1.3}
-\\caption{Sensitivity analysis: RV coefficients recomputed after retaining a single response per identified organization ($n=27$), compared with the full sample ($n=31$).}
+\\caption{Sensitivity analysis: RV coefficients recomputed after retaining a single response per organization, with each respondent who did not report an organization counted as a separate one ($n=27$), compared with the full sample ($n=31$).}
 \\label{tab:sensitivity}
 \\centering
 \\small
