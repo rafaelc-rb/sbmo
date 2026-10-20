@@ -81,9 +81,9 @@ def title_label(s: str) -> str:
                     for part in s.split(" "))
 
 
-# Query descriptions whose capitalization differs in the versioned
-# cq_empirical_results.tex table.
+# Query descriptions set in title case in the cq_empirical_results.tex table.
 CQ_DESC_DISPLAY = {"Ecosystem x Network effect": "Ecosystem x Network Effect",
+                   "Success factors x Challenges": "Success Factors x Challenges",
                    "Multi-dimensional configuration": "Multi-dimensional Configuration"}
 
 

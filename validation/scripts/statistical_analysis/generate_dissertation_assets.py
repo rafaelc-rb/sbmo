@@ -198,7 +198,7 @@ def operational_status_chart():
     x tick label style={{font=\\scriptsize}},
     y tick label style={{font=\\scriptsize}},
     label style={{font=\\scriptsize}},
-    xlabel={{Percentage of cases (\\%)}},
+    xlabel={{Percentage of Cases (\\%)}},
     xmin=0, xmax=90,
     width=0.75\\columnwidth,
     height=3.6cm,
@@ -282,9 +282,8 @@ cov idx
 # ---------------------------------------------------------------------------
 # 3. RV coefficient chart + table (statistical analysis)
 # ---------------------------------------------------------------------------
-# dimension_columns keys are already English in the R script; the versioned
-# table sets them in title case, except the CQ1 row, kept in sentence case.
-SENTENCE_CASE_RV_ROWS = {"CQ1"}
+# dimension_columns keys are already English in the R script; the table sets
+# them in title case.
 
 
 def fmt_p(p):
@@ -299,9 +298,7 @@ def rv_assets():
     for i, r in enumerate(rows, start=1):
         rv = float(r["RV"])
         cq = r["CQ"]
-        a, b = r["DimensionA"], r["DimensionB"]
-        if cq not in SENTENCE_CASE_RV_ROWS:
-            a, b = title_label(a), title_label(b)
+        a, b = title_label(r["DimensionA"]), title_label(r["DimensionB"])
         lines_chart.append(f"{rv:.3f} {i} {cq}")
         table_rows.append(
             f"{cq} & {a} $\\times$ {b} & {rv:.3f} & {fmt_p(r['PermutationP'])} & {fmt_p(r['BH_q'])} \\\\"
@@ -373,7 +370,7 @@ PT_TO_EN_BASE = {
     "Precificação por assinatura": "Subscription Pricing",
     "Receita por assinatura": "Subscription",
     "B2C": "B2C",
-    "Crescimento liderado pelo produto": "Product-led growth",
+    "Crescimento liderado pelo produto": "Product-led Growth",
     "Plataforma bilateral": "Two-sided Platform",
     "Efeito de rede cruzado": "Cross-side",
     "Gestão do ecossistema": "Ecosystem Management",
