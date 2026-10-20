@@ -6,7 +6,7 @@ Reads the raw Google Forms export and classifies the free-text "Nome e
 cargo do respondente" (name + role) field into a small set of role
 categories, for the socio-demographic profile of participants
 (dissertation Chapter 7, per the 2026-08-15 advisor feedback, see
-dissertation-paper/docs/CORRECTION_PLAN_2026-08-15.md, task 2).
+sbm-ontology-dissertation/docs/defense/advisor-correction-plan-2026-08-15.md, task 2).
 
 ANONYMITY: the raw cell always contains a real name mixed with the role
 (e.g. "Jane Doe, Co-founder"). This script classifies the
@@ -41,7 +41,7 @@ from collections import Counter
 HERE = os.path.dirname(os.path.abspath(__file__))
 VALIDATION_ROOT = os.path.dirname(HERE)  # sbmo/validation
 SBMO_ROOT = os.path.dirname(VALIDATION_ROOT)  # sbmo
-DISSERTATION_ROOT = os.path.dirname(SBMO_ROOT)  # sibling of sbmo, dissertation-paper, validations
+DISSERTATION_ROOT = os.path.dirname(SBMO_ROOT)  # sibling of sbmo, sbm-ontology-dissertation, validations
 DEFAULT_RAW = os.path.join(DISSERTATION_ROOT, "validations", "sbmo-form-answers.csv")
 RAW = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_RAW
 DERIVED = os.path.join(VALIDATION_ROOT, "survey-derived")

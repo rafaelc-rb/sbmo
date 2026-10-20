@@ -15,10 +15,10 @@ locally in a sibling, non-versioned directory:
 
 ```
 dissertation/
-├── sbmo/               <- this repo
-│   └── validation/      <- you are here (versioned, anonymized)
-├── dissertation-paper/  <- the dissertation repo (LaTeX tables are written here)
-└── validations/         <- LOCAL ONLY, not a git repo, not versioned anywhere
+├── sbmo/                       <- this repo
+│   └── validation/              <- you are here (versioned, anonymized)
+├── sbm-ontology-dissertation/   <- the dissertation repo (LaTeX tables are written here)
+└── validations/                 <- LOCAL ONLY, not a git repo, not versioned anywhere
     └── sbmo-form-answers.csv
 ```
 
@@ -68,7 +68,7 @@ Note: the LaTeX table fragments (`cq_empirical_results.tex`, `coverage.tex`,
 `frequencies.tex`) are **not** stored in this repo. They are presentation
 artifacts for one specific document, not ontology evidence, so
 `analyze_survey.py` writes them directly into the sibling
-`dissertation-paper/assets/ontology/tables/` (a versioned part of the
+`sbm-ontology-dissertation/assets/ontology/tables/` (a versioned part of the
 dissertation repo instead).
 
 ## Reproduce the analysis
@@ -76,13 +76,13 @@ dissertation repo instead).
 ```
 cd scripts
 python3 analyze_survey.py      # -> ../survey-derived/ (anonymized) and
-                                #    ../../../dissertation-paper/assets/ontology/tables/*.tex
+                                #    ../../../sbm-ontology-dissertation/assets/ontology/tables/*.tex
 python3 build_abox.py          # -> ../protege/sbmo-validation-abox.ttl
 ```
 Only the Python standard library is required. Both scripts assume the sibling
-`dissertation/validations/sbmo-form-answers.csv` and `dissertation/dissertation-paper/`
+`dissertation/validations/sbmo-form-answers.csv` and `dissertation/sbm-ontology-dissertation/`
 layout described above; pass a path explicitly to `analyze_survey.py` if your
-raw CSV lives elsewhere (the dissertation-paper output path is not
+raw CSV lives elsewhere (the sbm-ontology-dissertation output path is not
 currently overridable via CLI).
 
 ## Run the competency questions in Protégé (manual step)

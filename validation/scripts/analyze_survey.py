@@ -6,7 +6,7 @@ Reads the raw Google Forms export, assigns opaque anonymous case IDs, maps
 controlled-vocabulary answers to SBMO classes, and produces:
   - survey-derived/cases_normalized.csv   (anonymized: CaseID + mapped classes)
   - survey-derived/summary.json           (aggregate figures)
-  - dissertation-paper/assets/ontology/tables/*.tex (ready-to-input tables)
+  - sbm-ontology-dissertation/assets/ontology/tables/*.tex (ready-to-input tables)
   - a human-readable report on stdout
 
 ANONYMITY: identifying columns (name, email, company, product, role) are read
@@ -18,7 +18,7 @@ committed anywhere.
 Layout: this script lives in sbmo/validation/scripts/. It reads the raw CSV
 from ../../../validations/sbmo-form-answers.csv (sibling of the sbmo repo),
 writes anonymized aggregate outputs into sbmo/validation/survey-derived/, and
-writes the LaTeX table fragments directly into the sibling dissertation-paper
+writes the LaTeX table fragments directly into the sibling sbm-ontology-dissertation
 repo (they are presentation artifacts for that one document, not ontology
 evidence, so they don't belong in this repo). See sbmo/validation/protege/ for
 the A-Box built from this analysis (build_abox.py) and the CQ queries run
@@ -40,11 +40,11 @@ import sbmo_mapping as M
 HERE = os.path.dirname(os.path.abspath(__file__))
 VALIDATION_ROOT = os.path.dirname(HERE)  # sbmo/validation
 SBMO_ROOT = os.path.dirname(VALIDATION_ROOT)  # sbmo
-DISSERTATION_ROOT = os.path.dirname(SBMO_ROOT)  # sibling of sbmo, dissertation-paper, validations
+DISSERTATION_ROOT = os.path.dirname(SBMO_ROOT)  # sibling of sbmo, sbm-ontology-dissertation, validations
 DEFAULT_RAW = os.path.join(DISSERTATION_ROOT, "validations", "sbmo-form-answers.csv")
 RAW = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_RAW
 DERIVED = os.path.join(VALIDATION_ROOT, "survey-derived")
-LATEX = os.path.join(DISSERTATION_ROOT, "dissertation-paper", "assets", "ontology", "tables")
+LATEX = os.path.join(DISSERTATION_ROOT, "sbm-ontology-dissertation", "assets", "ontology", "tables")
 os.makedirs(DERIVED, exist_ok=True)
 os.makedirs(LATEX, exist_ok=True)
 

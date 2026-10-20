@@ -7,7 +7,7 @@ Reads the ANONYMIZED, already-aggregated outputs of:
   - reproduce_sbmo_analysis_fixed.r  (sbmo_analysis_output/*.csv)
   - extract_respondent_role.py       (survey-derived/respondent_role_categories.csv)
 and writes ready-to-input LaTeX table/tikz fragments into
-dissertation-paper/assets/ontology_evaluation/{tables,tikz}/.
+sbm-ontology-dissertation/assets/ontology_evaluation/{tables,tikz}/.
 
 No raw identifying data is read here; every input is already an anonymized,
 aggregate CSV (see the two scripts above for the anonymity handling).
@@ -24,7 +24,7 @@ VALIDATION_ROOT = os.path.dirname(os.path.dirname(HERE))  # sbmo/validation
 SURVEY_DERIVED = os.path.join(VALIDATION_ROOT, "survey-derived")
 SBMO_ROOT = os.path.dirname(VALIDATION_ROOT)
 DISSERTATION_ROOT = os.path.dirname(SBMO_ROOT)
-ASSETS = os.path.join(DISSERTATION_ROOT, "dissertation-paper", "assets", "ontology_evaluation")
+ASSETS = os.path.join(DISSERTATION_ROOT, "sbm-ontology-dissertation", "assets", "ontology_evaluation")
 TABLES = os.path.join(ASSETS, "tables")
 TIKZ = os.path.join(ASSETS, "tikz")
 os.makedirs(TABLES, exist_ok=True)
