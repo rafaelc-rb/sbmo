@@ -1,0 +1,12 @@
+# SBMO negative test N1, Case02 (expected result: INCONSISTENT).
+# Imports the validated A-Box unchanged and adds one deliberately wrong
+# assertion: the ecosystem-role value of Case02 is also typed as a two-sided
+# platform, although StandaloneProduct and TwoSidedPlatform are disjoint.
+@prefix sbmo: <https://rafaelc-rb.github.io/sbmo#> .
+@prefix ex: <https://rafaelc-rb.github.io/sbmo/abox#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<https://rafaelc-rb.github.io/sbmo/tests/case02-negative-test-disjoint-roles> a owl:Ontology ;
+    owl:imports <https://rafaelc-rb.github.io/sbmo/abox> .
+
+ex:Case02_StandaloneProduct a sbmo:TwoSidedPlatform .

@@ -1,0 +1,85 @@
+{
+  "n_cases": 31,
+  "defined_classes": [
+    {
+      "defined_class": "SubscriptionSaaSModel",
+      "n_cases": 18,
+      "pct": 58.1,
+      "cases": "Case02;Case04;Case05;Case06;Case07;Case13;Case15;Case17;Case18;Case20;Case21;Case22;Case24;Case26;Case28;Case29;Case30;Case31"
+    },
+    {
+      "defined_class": "FreemiumSubscriptionModel",
+      "n_cases": 4,
+      "pct": 12.9,
+      "cases": "Case02;Case05;Case22;Case24"
+    },
+    {
+      "defined_class": "PlatformBusinessModel",
+      "n_cases": 15,
+      "pct": 48.4,
+      "cases": "Case01;Case03;Case06;Case08;Case10;Case12;Case13;Case16;Case18;Case20;Case23;Case25;Case28;Case30;Case31"
+    },
+    {
+      "defined_class": "NetworkedPlatformModel",
+      "n_cases": 10,
+      "pct": 32.3,
+      "cases": "Case01;Case03;Case08;Case10;Case12;Case13;Case16;Case20;Case23;Case28"
+    }
+  ],
+  "in_no_defined_class": [
+    "Case09",
+    "Case11",
+    "Case14",
+    "Case19",
+    "Case27"
+  ],
+  "subsumption_NetworkedPlatformModel_PlatformBusinessModel": {
+    "inferred": true,
+    "justification_1": [
+      "NetworkedPlatformModel EquivalentTo SoftwareBusinessModel and (hasEcosystemRole some ((Marketplace or TwoSidedPlatform) and (exhibitsNetworkEffect some NetworkEffectType)))",
+      "PlatformBusinessModel EquivalentTo SoftwareBusinessModel and (hasEcosystemRole some (Marketplace or TwoSidedPlatform))"
+    ]
+  },
+  "open_world_probes": {
+    "Case02 PlatformBusinessModel": false,
+    "Case02 not PlatformBusinessModel": false,
+    "Case02_StandaloneProduct not TwoSidedPlatform": true,
+    "Case02_StandaloneProduct not Marketplace": true,
+    "Case02_StandaloneProduct not OEMComponent": true,
+    "Case02_StandaloneProduct not PluginComplement": true
+  },
+  "negative_tests": [
+    {
+      "test": "case02-negative-test-disjoint-roles.ttl",
+      "consistent": false,
+      "justifications": [
+        [
+          "Case02_StandaloneProduct Type StandaloneProduct",
+          "Case02_StandaloneProduct Type TwoSidedPlatform",
+          "StandaloneProduct DisjointWith TwoSidedPlatform"
+        ]
+      ]
+    },
+    {
+      "test": "case02-negative-test-misused-value.ttl",
+      "consistent": false,
+      "justifications": [
+        [
+          " DisjointClasses: AcquisitionChannel, CustomerType, DeliveryMode, EcosystemRole, IntellectualPropertyRegime, NetworkEffectType, PricingBaseUnit, PricingStrategy, ProductOrServiceType, RevenueSource, SoftwareBusinessModel",
+          "Case02 hasPricingStrategy Case02_FreemiumPricing",
+          "Case02 hasRevenueSource Case02_FreemiumPricing",
+          "hasPricingStrategy Range PricingStrategy",
+          "hasRevenueSource Range RevenueSource"
+        ],
+        [
+          "Case02_FreemiumPricing Type FreemiumPricing",
+          " DisjointClasses: AcquisitionChannel, CustomerType, DeliveryMode, EcosystemRole, IntellectualPropertyRegime, NetworkEffectType, PricingBaseUnit, PricingStrategy, ProductOrServiceType, RevenueSource, SoftwareBusinessModel",
+          "Case02 hasRevenueSource Case02_FreemiumPricing",
+          "hasRevenueSource Range RevenueSource",
+          "FreemiumPricing SubClassOf PricingStrategy"
+        ]
+      ]
+    }
+  ],
+  "max_justifications_searched": 100
+}

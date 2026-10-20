@@ -1,0 +1,5 @@
+defined_class,n_cases,pct,cases
+SubscriptionSaaSModel,18,58.1,Case02;Case04;Case05;Case06;Case07;Case13;Case15;Case17;Case18;Case20;Case21;Case22;Case24;Case26;Case28;Case29;Case30;Case31
+FreemiumSubscriptionModel,4,12.9,Case02;Case05;Case22;Case24
+PlatformBusinessModel,15,48.4,Case01;Case03;Case06;Case08;Case10;Case12;Case13;Case16;Case18;Case20;Case23;Case25;Case28;Case30;Case31
+NetworkedPlatformModel,10,32.3,Case01;Case03;Case08;Case10;Case12;Case13;Case16;Case20;Case23;Case28

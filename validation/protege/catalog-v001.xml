@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Resolves the owl:imports of the files in this folder to local copies, so that
+     Protégé and ROBOT (catalog option) load them offline. -->
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri name="https://rafaelc-rb.github.io/sbmo" uri="../../sbmo.rdf"/>
+    <uri name="https://rafaelc-rb.github.io/sbmo/1.1" uri="../../sbmo.rdf"/>
+    <uri name="https://rafaelc-rb.github.io/sbmo/abox" uri="sbmo-validation-abox.ttl"/>
+</catalog>

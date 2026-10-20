@@ -1,0 +1,14 @@
+# SBMO negative test N2, Case02 (expected result: INCONSISTENT with the SBMO 1.1
+# dimension-level disjointness; CONSISTENT with SBMO 1.0, which lacked it).
+# Imports the validated A-Box unchanged and adds one deliberately wrong
+# assertion: the freemium pricing-strategy value of Case02 is also used as a
+# revenue source. The range of hasRevenueSource makes it a RevenueSource, its
+# asserted type makes it a PricingStrategy, and the two are disjoint.
+@prefix sbmo: <https://rafaelc-rb.github.io/sbmo#> .
+@prefix ex: <https://rafaelc-rb.github.io/sbmo/abox#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<https://rafaelc-rb.github.io/sbmo/tests/case02-negative-test-misused-value> a owl:Ontology ;
+    owl:imports <https://rafaelc-rb.github.io/sbmo/abox> .
+
+ex:Case02 sbmo:hasRevenueSource ex:Case02_FreemiumPricing .

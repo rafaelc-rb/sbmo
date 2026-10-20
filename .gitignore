@@ -1,6 +1,8 @@
 # Protégé backup/catalog files
 .protege/
 catalog-v001.xml
+# hand-written catalog that resolves the A-Box and negative-test imports offline
+!validation/protege/catalog-v001.xml
 
 # Protégé auto-save
 *~
