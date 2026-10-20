@@ -19,7 +19,7 @@ Empirical execution of SPARQL-DL queries over real instantiated cases is planned
 
 ### CQ2 — Pricing × Revenue source — **Structurally supported**
 
-> Which pricing structures are compatible with a given revenue source?
+> Which pricing structures co-occur with a given revenue source?
 
 - **Classes**: PricingStrategy, RevenueSource
 - **Properties**: `hasPricingStrategy`, `hasRevenueSource`
@@ -37,7 +37,7 @@ Empirical execution of SPARQL-DL queries over real instantiated cases is planned
 
 ### CQ4 — Ecosystem roles × Network effects — **Structurally supported**
 
-> Which ecosystem roles tend to imply particular network effect types?
+> Which ecosystem roles are associated with particular network effect types?
 
 - **Classes**: EcosystemRole, NetworkEffectType
 - **Properties**: `hasEcosystemRole`, `exhibitsNetworkEffect`

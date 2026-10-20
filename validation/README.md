@@ -45,6 +45,16 @@ private-only.
 - `scripts/analyze_survey.py` — anonymized analysis; writes `survey-derived/`
   (aggregate data) and the dissertation's LaTeX table fragments (see below).
 - `scripts/build_abox.py` — builds the anonymized A-Box from the raw CSV.
+- `scripts/cq_frequency_counts.py` — counts, for the frequency-type CQs (CQ3
+  customer type x acquisition channel, CQ5 success factor x implementation
+  challenge), the cases asserting each pair of values; cross-checks the counts
+  against the A-Box and the R indicator matrices, writes
+  `survey-derived/cq_frequency_counts.csv` and the dissertation table
+  `tab:cq_frequency_counts` (stdlib only).
+- `scripts/check_cq_result_sets.py` — re-runs the seven DL queries of
+  `protege/dl_queries.md` with Pellet (via owlready2) and checks that the
+  returned individuals, not only their number, equal the expected sets
+  (requires `owlready2`, `rdflib` and Java).
 - `scripts/mapping.md` — human-readable review sheet of the mapping.
 - `survey-derived/` — generated, anonymized outputs: `cases_normalized.csv`
   (CaseID + mapped categories, no identifiers) and `summary.json` (aggregate
@@ -96,6 +106,8 @@ currently overridable via CLI).
 4. Record the number of matching individuals per CQ. The expected counts
    (computed independently by `analyze_survey.py`) are in
    `survey-derived/summary.json` under `"cq"` — they should match.
+   `scripts/check_cq_result_sets.py` repeats the check outside Protégé at the
+   level of individual sets (2026-10-19: all seven sets equal).
 
 ## Structural check (OOPS!)
 

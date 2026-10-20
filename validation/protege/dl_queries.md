@@ -17,7 +17,9 @@ check **"Instances"** (not "Subclasses") in the "Query for" panel, and read
 the number of individuals returned.
 
 **Verified 2026-07-20 in Protégé 5.6.9 + Pellet: all seven expressions below
-returned exactly the expected count.**
+returned exactly the expected count.** Re-verified 2026-10-19 at the level of
+individual sets with `../scripts/check_cq_result_sets.py` (Pellet via
+owlready2): for every CQ, the returned individuals equal the expected set.
 
 | CQ | DL Query expression (paste into the "Query" field, `sbmo:` prefix required) | Expected | What is counted |
 |----|------------------------------------------------------|-----------------|------------------|
@@ -39,9 +41,9 @@ RevenueSource` restriction (Section 6.5.3 of the dissertation), so for *every*
 declared `SoftwareBusinessModel` individual the reasoner must posit *some*
 (possibly anonymous, unnamed) filler of type `RevenueSource` to keep the
 ontology satisfiable — regardless of whether the A-Box actually asserts one.
-This is a case of the same phenomenon the mandatory cardinality restrictions
-are meant to exploit for structural completeness (Section 6.5.3), but it
-makes the *parent-class* formulation of the query useless as an empirical
+The restrictions express an ontological commitment (every SBM has some
+revenue source), not an obligation to assert one, so the *parent-class*
+formulation of the query is useless as an empirical
 (explicit-data) check: it is entailed by the schema alone.
 
 Enumerating the concrete named leaf subclasses instead (e.g. `hasRevenueSource
