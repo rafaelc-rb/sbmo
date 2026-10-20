@@ -73,6 +73,20 @@ def latex_escape(s: str) -> str:
              .replace("%", r"\%").replace("_", r"\_").replace("#", r"\#"))
 
 
+def title_label(s: str) -> str:
+    """Capitalize each space- or slash-separated word, keeping acronyms
+    ("Product/service type" -> "Product/Service Type"), as in the versioned
+    dissertation tables."""
+    return " ".join("/".join(w[:1].upper() + w[1:] for w in part.split("/"))
+                    for part in s.split(" "))
+
+
+# Query descriptions whose capitalization differs in the versioned
+# cq_empirical_results.tex table.
+CQ_DESC_DISPLAY = {"Ecosystem x Network effect": "Ecosystem x Network Effect",
+                   "Multi-dimensional configuration": "Multi-dimensional Configuration"}
+
+
 def main():
     header, data = load()
     n = len(data)
@@ -269,20 +283,20 @@ def write_latex(freq, coverage, cq, n, summary):
         r"\emph{Matching} is the size of that set.}",
         r"\label{tab:cq_empirical_results}",
         r"\centering",
-        r"\small",
-        r"\begin{tabular}{c|p{4.9cm}|c|c|p{2.3cm}}",
-        r"\toprule",
+        r"\footnotesize",
+        r"\begin{tabular}{c|p{5.5cm}|c|c|p{4.5cm}}",
+        r"\bottomrule",
         r"\rowcolor{gray!50}",
-        r"\textbf{CQ} & \textbf{Query (abbreviated)} & \textbf{Satisfied} & \textbf{Matching} & \textbf{Unit} \\",
+        r"\textbf{CQ} & \textbf{Query (Abbreviated)} & \textbf{Satisfied} & \textbf{Matching} & \textbf{Unit} \\",
         r"\hline",
     ]
     for k in ["CQ1", "CQ2", "CQ3", "CQ4", "CQ5", "CQ6", "CQ7"]:
         d = cq[k]
         mc = d["matching_cases"]
-        unit = d.get("unit", "SBM cases")
-        desc = d["desc"].replace(" x ", r" $\times$ ")
+        unit = title_label(d.get("unit", "SBM cases"))
+        desc = CQ_DESC_DISPLAY.get(d["desc"], d["desc"]).replace(" x ", r" $\times$ ")
         lines.append(f"{k} & {desc} & \\checkmark & {mc} & {unit} \\\\")
-    lines += [r"\bottomrule", r"\end{tabular}", r"\end{table}", ""]
+    lines += [r"\toprule", r"\end{tabular}", r"\end{table}", ""]
     open(os.path.join(LATEX, "cq_empirical_results.tex"), "w", encoding="utf-8").write("\n".join(lines))
 
     # 2) Coverage / gap table
@@ -294,17 +308,17 @@ def write_latex(freq, coverage, cq, n, summary):
         r"``Other'' counts cases that used the free-text escape hatch instead of the controlled vocabulary.}",
         r"\label{tab:coverage}",
         r"\centering",
-        r"\small",
+        r"\footnotesize",
         r"\begin{tabular}{l|c|c}",
-        r"\toprule",
-        r"\rowcolor{gray!50}",
-        r"\textbf{Dimension} & \textbf{``Other'' used (cases)} & \textbf{Coverage} \\",
-        r"\hline",
+        r"    \bottomrule",
+        r"    \rowcolor{gray!50}",
+        r"    \textbf{Dimension} & \textbf{``Other'' Used (Cases)} & \textbf{Coverage} \\",
+        r"    \hline",
     ]
     for dim in M.DIMENSIONS:
         no, pct = coverage[dim["key"]]
-        lines.append(f"{M.DIM_ENGLISH[dim['key']]} & {no} & {pct:.1f}\\% \\\\")
-    lines += [r"\bottomrule", r"\end{tabular}", r"\end{table}", ""]
+        lines.append(f"    {title_label(M.DIM_ENGLISH[dim['key']])} & {no} & {pct:.1f}\\% \\\\")
+    lines += [r"    \toprule", r"\end{tabular}", r"\end{table}", ""]
     open(os.path.join(LATEX, "coverage.tex"), "w", encoding="utf-8").write("\n".join(lines))
 
     # 3) Frequency distribution table (all dimensions, value : count)
@@ -318,18 +332,18 @@ def write_latex(freq, coverage, cq, n, summary):
         r"\label{tab:frequencies}",
         r"\centering",
         r"\footnotesize",
-        r"\begin{tabular}{l|p{9.5cm}}",
-        r"\toprule",
+        r"\begin{tabular}{l|p{11cm}}",
+        r"\bottomrule",
         r"\rowcolor{gray!50}",
-        r"\textbf{Dimension} & \textbf{Value (cases)} \\",
+        r"\textbf{Dimension} & \textbf{Value (Cases)} \\",
         r"\hline",
     ]
     for dim in M.DIMENSIONS:
         items = freq[dim["key"]].most_common()
         vals = ", ".join(f"{M.en(cls)} ({c})" for cls, c in items) or "--"
-        lines.append(f"{M.DIM_ENGLISH[dim['key']]} & {latex_escape(vals)} \\\\")
-        lines.append(r"\hline")
-    lines[-1] = r"\bottomrule"
+        lines.append(f"{title_label(M.DIM_ENGLISH[dim['key']])} & {latex_escape(vals)} \\\\")
+        lines.append(r"% \hline")
+    lines[-1] = r"\toprule"
     lines += [r"\end{tabular}", r"\end{table}", ""]
     open(os.path.join(LATEX, "frequencies.tex"), "w", encoding="utf-8").write("\n".join(lines))
 

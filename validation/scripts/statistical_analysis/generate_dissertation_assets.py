@@ -51,6 +51,14 @@ def tex_escape(s):
              .replace("_", r"\_").replace("#", r"\#"))
 
 
+def title_label(s):
+    """Capitalize each space- or slash-separated word, keeping acronyms
+    (e.g. "Product/service type" -> "Product/Service Type", "IP regime" ->
+    "IP Regime"), as in the versioned dissertation assets."""
+    return " ".join("/".join(w[:1].upper() + w[1:] for w in part.split("/"))
+                    for part in s.split(" "))
+
+
 # ---------------------------------------------------------------------------
 # 1. Respondent role category chart (socio-demographic profile)
 # ---------------------------------------------------------------------------
@@ -74,20 +82,20 @@ def role_chart():
     tex = GENERATED_HEADER + f"""\\begin{{tikzpicture}}
 \\begin{{axis}}[
     xbar,
-    bar width=6pt,
+    bar width=15pt,
     ytick=data,
     axis y line*=none,
     axis x line*=bottom,
     x tick label style={{font=\\scriptsize}},
     y tick label style={{font=\\scriptsize}},
     label style={{font=\\scriptsize}},
-    xlabel={{Percentage of respondents (\\%)}},
+    xlabel={{Percentage of Responses (\\%)}},
     xmin=0,
     xmax={max(100 * v / n for v in counts.values()) + 20:.0f},
     width=0.85\\columnwidth,
-    height=5cm,
+    height=4cm,
     yticklabels={{{yticklabels}}},
-    y=7mm,
+    y=8mm,
     enlarge y limits={{abs=0.5}},
     nodes near coords,
     nodes near coords align=horizontal,
@@ -134,8 +142,8 @@ def knowledge_chart():
     bar width=14pt,
     ymin=0,
     ymax={max(100 * counts.get(s, 0) / n for s in ["1","2","3","4","5"]) + 20:.0f},
-    ylabel={{Percentage of respondents (\\%)}},
-    xlabel={{Self-assessed knowledge (1 = low, 5 = high)}},
+    ylabel={{Percentage of Responses (\\%)}},
+    xlabel={{Self-Assessed Knowledge (1 = low, 5 = high)}},
     symbolic x coords={{1,2,3,4,5}},
     xtick=data,
     x tick label style={{font=\\scriptsize}},
@@ -163,7 +171,7 @@ def knowledge_chart():
 # 2b. Operational status chart (task 5: replace prose-only reporting with a
 #     chart, per advisor feedback "só tem tabela")
 # ---------------------------------------------------------------------------
-STATUS_LABEL = {"Sim": "Operational", "Parcialmente": "Partially operational", "Não": "Planning stage"}
+STATUS_LABEL = {"Sim": "Operational", "Parcialmente": "Partially Operational", "Não": "Planning Stage"}
 STATUS_ORDER = ["Sim", "Parcialmente", "Não"]
 
 
@@ -175,12 +183,15 @@ def operational_status_chart():
         c = int(rows[status]["n"])
         pct = 100 * c / n
         lines.append(f"{pct:.1f} {i} {c}")
-    yticklabels = ",".join("{%s}" % tex_escape(STATUS_LABEL[s]) for s in STATUS_ORDER)
+    # Rows are listed from the last status to the first, each keeping its idx;
+    # ytick=data follows the listing order, so every label stays on its bar.
+    lines.reverse()
+    yticklabels = ",".join("{%s}" % tex_escape(STATUS_LABEL[s]) for s in reversed(STATUS_ORDER))
 
     tex = GENERATED_HEADER + f"""\\begin{{tikzpicture}}
 \\begin{{axis}}[
     xbar,
-    bar width=16pt,
+    bar width=15pt,
     ytick=data,
     axis y line*=none,
     axis x line*=bottom,
@@ -192,7 +203,7 @@ def operational_status_chart():
     width=0.75\\columnwidth,
     height=3.6cm,
     yticklabels={{{yticklabels}}},
-    y=9mm,
+    y=8mm,
     enlarge y limits={{abs=0.6}},
     nodes near coords,
     nodes near coords align=horizontal,
@@ -230,29 +241,34 @@ def coverage_chart():
     for i, dim in enumerate(reversed(order), start=1):
         cov = 100 * float(by_dim[dim]["Coverage"])
         lines.append(f"{cov:.1f} {i}")
-    yticklabels = ",".join("{%s}" % tex_escape(d) for d in reversed(order))
+    yticklabels = ",".join("{%s}" % tex_escape(title_label(d)) for d in reversed(order))
+    # These options end in ", " (comma plus a trailing space) in the versioned
+    # file; they are joined here so that whitespace trimming cannot drop it.
+    spaced_options = "".join(f"    {o}, \n" for o in [
+        "xlabel={Controlled-Vocabulary Coverage (\\%)}",
+        "xmin=75, xmax=100",
+        "width=0.75\\columnwidth",
+        "height=8cm",
+        f"yticklabels={{{yticklabels}}}",
+        "y=8mm",
+        "enlarge y limits={abs=0.5}",
+        "nodes near coords",
+        "every node near coord/.append style={font=\\scriptsize}",
+    ])
 
-    tex = GENERATED_HEADER + f"""\\begin{{tikzpicture}}
-\\begin{{axis}}[
+    tex = GENERATED_HEADER + """\\begin{tikzpicture}
+\\begin{axis}[
     xbar,
-    bar width=7pt,
+    bar width=15pt,
     ytick=data,
     axis y line*=none,
     axis x line*=bottom,
-    x tick label style={{font=\\scriptsize}},
-    y tick label style={{font=\\scriptsize}},
-    label style={{font=\\scriptsize}},
-    xlabel={{Controlled-vocabulary coverage (\\%)}},
-    xmin=75, xmax=105,
-    width=0.85\\columnwidth,
-    height=10cm,
-    yticklabels={{{yticklabels}}},
-    y=7mm,
-    enlarge y limits={{abs=0.5}},
-    nodes near coords={{\\pgfmathprintnumber[fixed,precision=1]\\pgfplotspointmeta\\%}},
-    every node near coord/.append style={{font=\\scriptsize}}
+    x tick label style={font=\\scriptsize},
+    y tick label style={font=\\scriptsize},
+    label style={font=\\scriptsize},
+""" + spaced_options + """    nodes near coords={\\pgfmathprintnumber[fixed,precision=1]\\pgfplotspointmeta\\%}
 ]
-\\addplot[pattern color=hardblue, pattern=north east lines] table [x=cov, y=idx] {{
+\\addplot[pattern color=hardblue, pattern=north east lines] table [x=cov, y=idx] {
 cov idx
 """ + "\n".join(lines) + """
 };
@@ -266,14 +282,9 @@ cov idx
 # ---------------------------------------------------------------------------
 # 3. RV coefficient chart + table (statistical analysis)
 # ---------------------------------------------------------------------------
-DIM_LABEL = {  # dimension_columns keys are already English in the R script
-    "Revenue source": "Revenue source", "Delivery mode": "Delivery mode",
-    "Pricing strategy": "Pricing strategy", "Customer type": "Customer type",
-    "Acquisition channel": "Acquisition channel", "Ecosystem role": "Ecosystem role",
-    "Network effect": "Network effect", "Success factor": "Success factor",
-    "Implementation challenge": "Implementation challenge",
-    "Mitigation strategy": "Mitigation strategy",
-}
+# dimension_columns keys are already English in the R script; the versioned
+# table sets them in title case, except the CQ1 row, kept in sentence case.
+SENTENCE_CASE_RV_ROWS = {"CQ1"}
 
 
 def fmt_p(p):
@@ -288,7 +299,9 @@ def rv_assets():
     for i, r in enumerate(rows, start=1):
         rv = float(r["RV"])
         cq = r["CQ"]
-        a, b = DIM_LABEL[r["DimensionA"]], DIM_LABEL[r["DimensionB"]]
+        a, b = r["DimensionA"], r["DimensionB"]
+        if cq not in SENTENCE_CASE_RV_ROWS:
+            a, b = title_label(a), title_label(b)
         lines_chart.append(f"{rv:.3f} {i} {cq}")
         table_rows.append(
             f"{cq} & {a} $\\times$ {b} & {rv:.3f} & {fmt_p(r['PermutationP'])} & {fmt_p(r['BH_q'])} \\\\"
@@ -298,23 +311,23 @@ def rv_assets():
     chart = GENERATED_HEADER + f"""\\begin{{tikzpicture}}
 \\begin{{axis}}[
     xbar,
-    bar width=10pt,
+    bar width=15pt,
     ytick=data,
     axis y line*=none,
     axis x line*=bottom,
     x tick label style={{font=\\scriptsize}},
     y tick label style={{font=\\scriptsize}},
     label style={{font=\\scriptsize}},
-    xlabel={{RV coefficient}},
+    xlabel={{RV Coefficient}},
     xmin=0, xmax=0.65,
     width=0.75\\columnwidth,
     height=5cm,
     yticklabels={{{yticklabels}}},
     y dir=reverse,
-    y=7mm,
+    y=8mm,
     enlarge y limits={{abs=0.5}},
     nodes near coords,
-    every node near coord/.append style={{font=\\scriptsize}}
+    every node near coord/.append style={{font=\\scriptsize}},
 ]
 \\addplot[pattern color=hardblue, pattern=north east lines] table [x=rv, y=idx] {{
 rv idx
@@ -331,11 +344,11 @@ rv idx
 \\caption{Multivariate association (RV coefficient) between the dimension pairs underlying CQ1--CQ6, with permutation-test $p$-values and Benjamini--Hochberg-adjusted $q$-values (9,999 permutations, 6 hypotheses).}
 \\label{tab:rv_associations}
 \\centering
-\\small
+\\footnotesize
 \\begin{tabular}{l|l|r|r|r}
     \\bottomrule
     \\rowcolor{gray!50}
-    \\textbf{CQ} & \\textbf{Dimension pair} & \\textbf{RV} & \\textbf{$p_{perm}$} & \\textbf{$q_{BH}$} \\\\
+    \\textbf{CQ} & \\textbf{Dimension Pair} & \\textbf{RV} & \\textbf{$p_{perm}$} & \\textbf{$q_{BH}$} \\\\
     \\hline
 """ + "\n    ".join(table_rows) + """
     \\toprule
@@ -351,22 +364,22 @@ rv idx
 # 4. Strongest binary pair per CQ (phi / Fisher) table
 # ---------------------------------------------------------------------------
 # Hand-verified mapping from the raw Portuguese option label (base, before the
-# first parenthesis) to the English class label already used elsewhere in the
-# dissertation (assets/ontology/tables/frequencies.tex), so the vocabulary
-# stays consistent across tables.
+# first parenthesis) to the English class label used elsewhere in the
+# dissertation (assets/ontology/tables/frequencies.tex), with the
+# capitalization of the versioned phi_pairs.tex table.
 PT_TO_EN_BASE = {
     "Receita por suporte": "Support",
     "Entrega híbrida": "Hybrid",
-    "Precificação por assinatura": "Subscription pricing",
+    "Precificação por assinatura": "Subscription Pricing",
     "Receita por assinatura": "Subscription",
     "B2C": "B2C",
     "Crescimento liderado pelo produto": "Product-led growth",
-    "Plataforma bilateral": "Two-sided platform",
+    "Plataforma bilateral": "Two-sided Platform",
     "Efeito de rede cruzado": "Cross-side",
-    "Gestão do ecossistema": "Ecosystem management",
-    "Disrupção do ecossistema de parceiros": "Partner disruption",
-    "Adoção de modelo híbrido": "Hybrid model",
-    "Transformação de fluxo de receita": "Revenue-model transition",
+    "Gestão do ecossistema": "Ecosystem Management",
+    "Disrupção do ecossistema de parceiros": "Partner Disruption",
+    "Adoção de modelo híbrido": "Hybrid Model",
+    "Transformação de fluxo de receita": "Revenue-model Transition",
 }
 
 
@@ -389,11 +402,11 @@ def phi_table():
 \\caption{Strongest binary association ($\\phi$ coefficient) within each competency-question pair, restricted to options selected in at least 3 and at most 28 cases; $p$-values from Fisher's exact test. Descriptive (options selected from the observed data), not independent confirmatory tests.}
 \\label{tab:phi_pairs}
 \\centering
-\\small
+\\footnotesize
 \\begin{tabular}{l|l|r|r}
     \\bottomrule
     \\rowcolor{gray!50}
-    \\textbf{CQ} & \\textbf{Option pair} & \\textbf{$\\phi$} & \\textbf{$p$ (Fisher)} \\\\
+    \\textbf{CQ} & \\textbf{Option Pair} & \\textbf{$\\phi$} & \\textbf{$p$ (Fisher)} \\\\
     \\hline
 """ + "\n    ".join(table_rows) + """
     \\toprule
