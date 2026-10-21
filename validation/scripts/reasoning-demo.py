@@ -260,7 +260,7 @@ for x in counts:
 lines += [r"\hline",
           rf"\multicolumn{{4}}{{l}}{{In no defined class: {len(in_none)} cases "
           rf"({', '.join(c.replace('Case', '') for c in in_none)}). Members are listed by case number.}} \\",
-          r"\toprule", r"\end{tabular}", r"\end{table}", ""]
+          r"\toprule", r"\end{tabular}", r"\fonte{the author.}", r"\end{table}", ""]
 os.makedirs(TEX_DIR, exist_ok=True)
 with open(os.path.join(TEX_DIR, "defined-class-counts.tex"), "w", encoding="utf-8") as f:
     f.write("\n".join(lines))
@@ -303,7 +303,7 @@ lines.append(rf"{n_values} value individuals, each typed with a leaf class (\tex
              rf"property ({'--'.join(str(v) for v in value_just)} justifications each) \\")
 lines.append(rf"{len(mitigations)} mitigation individuals linked by {tt('mitigates')} & each is a "
              rf"{tt('MitigationStrategy')} & subclass axiom and domain of {tt('mitigates')} \\")
-lines += [r"\toprule", r"\end{tabular}", r"\end{table}", ""]
+lines += [r"\toprule", r"\end{tabular}", r"\fonte{the author.}", r"\end{table}", ""]
 with open(os.path.join(TEX_DIR, "case02-declared-inferred.tex"), "w", encoding="utf-8") as f:
     f.write("\n".join(lines))
 

@@ -193,7 +193,7 @@ def write_latex(tables):
         lines.append(r"\hline")
         cells = [str(mb[y]) for y in cols] + [""] * (ncols - len(cols))
         lines.append(" & ".join(["$n$"] + cells + [""]) + r" \\")
-    lines += [r"\toprule", r"\end{tabular}", r"\end{table}", ""]
+    lines += [r"\toprule", r"\end{tabular}", r"\fonte{the author.}", r"\end{table}", ""]
     os.makedirs(os.path.dirname(OUT_TEX), exist_ok=True)
     with open(OUT_TEX, "w", encoding="utf-8") as f:
         f.write("\n".join(lines))

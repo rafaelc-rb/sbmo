@@ -209,6 +209,7 @@ lines += [
     r"\textbf{Total} & & \textbf{%d} \\" % total,
     r"\toprule",
     r"\end{tabular}",
+    r"\fonte{the author.}",
     r"\end{table}",
 ]
 tex = "\n".join(lines) + "\n"

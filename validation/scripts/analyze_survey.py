@@ -296,7 +296,7 @@ def write_latex(freq, coverage, cq, n, summary):
         unit = title_label(d.get("unit", "SBM cases"))
         desc = CQ_DESC_DISPLAY.get(d["desc"], d["desc"]).replace(" x ", r" $\times$ ")
         lines.append(f"{k} & {desc} & \\checkmark & {mc} & {unit} \\\\")
-    lines += [r"\toprule", r"\end{tabular}", r"\end{table}", ""]
+    lines += [r"\toprule", r"\end{tabular}", r"\fonte{the author.}", r"\end{table}", ""]
     open(os.path.join(LATEX, "cq_empirical_results.tex"), "w", encoding="utf-8").write("\n".join(lines))
 
     # 2) Coverage / gap table
@@ -318,7 +318,7 @@ def write_latex(freq, coverage, cq, n, summary):
     for dim in M.DIMENSIONS:
         no, pct = coverage[dim["key"]]
         lines.append(f"    {title_label(M.DIM_ENGLISH[dim['key']])} & {no} & {pct:.1f}\\% \\\\")
-    lines += [r"    \toprule", r"\end{tabular}", r"\end{table}", ""]
+    lines += [r"    \toprule", r"\end{tabular}", r"\fonte{the author.}", r"\end{table}", ""]
     open(os.path.join(LATEX, "coverage.tex"), "w", encoding="utf-8").write("\n".join(lines))
 
     # 3) Frequency distribution table (all dimensions, value : count)
@@ -344,7 +344,7 @@ def write_latex(freq, coverage, cq, n, summary):
         lines.append(f"{title_label(M.DIM_ENGLISH[dim['key']])} & {latex_escape(vals)} \\\\")
         lines.append(r"% \hline")
     lines[-1] = r"\toprule"
-    lines += [r"\end{tabular}", r"\end{table}", ""]
+    lines += [r"\end{tabular}", r"\fonte{the author.}", r"\end{table}", ""]
     open(os.path.join(LATEX, "frequencies.tex"), "w", encoding="utf-8").write("\n".join(lines))
 
 

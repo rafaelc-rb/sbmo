@@ -350,6 +350,7 @@ rv idx
 """ + "\n    ".join(table_rows) + """
     \\toprule
 \\end{tabular}
+\\fonte{the author.}
 \\end{table}
 """
     with open(os.path.join(TABLES, "rv_associations.tex"), "w", encoding="utf-8") as f:
@@ -408,6 +409,7 @@ def phi_table():
 """ + "\n    ".join(table_rows) + """
     \\toprule
 \\end{tabular}
+\\fonte{the author.}
 \\end{table}
 """
     with open(os.path.join(TABLES, "phi_pairs.tex"), "w", encoding="utf-8") as f:
@@ -443,6 +445,7 @@ def sensitivity_table():
 """ + "\n    ".join(table_rows) + """
     \\toprule
 \\end{tabular}
+\\fonte{the author.}
 \\end{table}
 """
     with open(os.path.join(TABLES, "sensitivity.tex"), "w", encoding="utf-8") as f:
