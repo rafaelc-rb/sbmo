@@ -63,6 +63,11 @@ private-only.
   `survey-derived/defined-class-counts.csv`, `case02-declared-inferred.csv`,
   `reasoning-demo.json` and the dissertation tables `tab:defined_class_counts`
   and `tab:case02_declared_inferred` (requires `owlready2`, `rdflib` and a JDK).
+- `scripts/tbox-dl-table.py` — the T-Box in description logic notation: groups
+  the 150 logical axioms of `../sbmo.rdf` by type (subsumption, domains and
+  ranges, minimum cardinality, disjointness between and within dimensions,
+  defined classes), checks that no other construct occurs and that the counts
+  add up, and writes the dissertation table `tab:tbox_dl` (requires `rdflib`).
 - `scripts/Justify.java` — prints Pellet justifications; compiled on the fly by
   `reasoning-demo.py` against the Pellet jars bundled with owlready2.
 - `scripts/mapping.md` — human-readable review sheet of the mapping.
